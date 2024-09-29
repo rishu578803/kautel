@@ -272,7 +272,7 @@
  }
 
 
-.sliderCard__left-button {
+.sliderCard__left--button {
 
   background-color: #304EBA;
   color: white;
@@ -281,7 +281,7 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-.sliderCard__right-button {
+.sliderCard__right--button {
   width: 200px;
   background-color: #304EBA;
   color: white;
@@ -291,7 +291,7 @@
   margin-bottom: 20px;
 }
 
-.sliderCard__left-button:hover {
+.sliderCard__left--button:hover {
   background-color: #002244;
 }
 
@@ -315,7 +315,7 @@
  }
 
 
-.sliderCard__left-button {
+.sliderCard__left--button {
 
   background-color: #304EBA;
   color: white;
@@ -324,7 +324,7 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-.sliderCard__right-button {
+.sliderCard__right--button {
   width: 200px;
   background-color: #304EBA;
   color: white;
@@ -334,6 +334,6 @@
   margin-bottom: 20px;
 }
 
-.sliderCard__left-button:hover {
+.sliderCard__left--button:hover {
   background-color: #002244;
 }

@@ -137,13 +137,13 @@ const textSets = {
 
 // Function to update right-side buttons based on the selected left-side button
 function updateRightButtons(set) {
-  document.getElementById('sliderCard__right-button-1').textContent = textSets[set].button1;
-  document.getElementById('sliderCard__right-button-2').textContent = textSets[set].button2;
-  document.getElementById('sliderCard__right-button-3').textContent = textSets[set].button3;
+  document.getElementById('sliderCard__right--button-1').textContent = textSets[set].button1;
+  document.getElementById('sliderCard__right--button-2').textContent = textSets[set].button2;
+  document.getElementById('sliderCard__right--button-3').textContent = textSets[set].button3;
 }
 
 // Add click event listeners to all left-side buttons
-document.querySelectorAll('.sliderCard__left-button').forEach(button => {
+document.querySelectorAll('.sliderCard__left--button').forEach(button => {
   button.addEventListener('click', (event) => {
       const selectedSet = event.target.getAttribute('data-set');
       updateRightButtons(selectedSet);
