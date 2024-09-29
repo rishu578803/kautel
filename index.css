@@ -1,0 +1,215 @@
+/* bootstrap 5 class */
+.justify-content-center {
+  justify-content: center !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.sliderCard__toogle {
+  display: flex;
+  align-items: center;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y)* -1);
+  margin-right: calc(var(--bs-gutter-x)* -.5);
+  margin-left: calc(var(--bs-gutter-x)* -.5);
+}
+.container{
+  width: 600px;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .col-sm-6 {
+      flex: 0 0 auto;
+      width: 50%;
+  }
+}
+
+/* custom class */
+.sliderCard {
+  background-color: #f3f5fa;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  font-family: 'Inter', sans-serif;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* This is important to position the circle at the bottom */
+}
+
+.sliderCard .sliderCard__heading {
+  color: #12255e;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sliderCard .sliderCard__subheading {
+  color: #9e9aaa;
+  font-size: 17px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.sliderCard .sliderCard__description {
+  color: #304eba;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sliderCard__toogle {
+  display: flex;
+  align-items: center;
+}
+
+.sliderCard__circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #a1b1ce;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#toggleLabel {
+  color: #a1b1ce;
+  font-size: 17px;
+
+  font-weight: 500;
+}
+
+.sliderCard__nextbtn {
+  width: 45px;
+  height: 45px;
+  background-color: #ff6e40;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 26px;
+  right: 28px;
+  cursor: pointer;
+}
+
+.sliderCard__nextbtn .sliderCard__arrow {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+/* ============================================ */
+#sliderCard--card2 {
+  background-color: #f3f5fa;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 500px;
+  height: 700px;
+}
+.sliderCard__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 50px 10px;
+}
+.sliderCard__leftPanel {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    /* height: 300px;        */
+    width: 300px;         /* Set the width to 300px */
+    overflow: hidden;     /* Hide overflow content (buttons that slide out of view) */
+
+    background-color: #f4f6f9;
+    position: relative;   /* Make sure the scroll buttons and container stay inside */
+}
+
+.sliderCard__btnContainer {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    max-height: 240px;    /* Limit the height of the container to fit 5 buttons inside the panel */
+}
+
+.sliderCard__btn {
+    background-color: #d3d9e2;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;          /* Make buttons take full width of panel */
+    box-sizing: border-box;
+}
+
+.sliderCard__btn:hover {
+    background-color: #b3c0d1;
+}
+
+.sliderCard__rightPanel {
+
+    background-color: #f4f6f9;
+
+    min-width: 200px;
+}
+
+.sliderCard__rightPanel h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#sliderCard__selectedList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sliderCard__selectedList li {
+    background-color: #3b73cc;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* .sliderCard__scrollBtn {
+    background-color: #3b73cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 5px 0;
+    width: 100%;   
+    box-sizing: border-box;
+    position: relative;
+} */
+
+.sliderCard__scrollBtn:hover {
+    background-color: #2a56a1;
+}
+
+.sliderCard__scrollBtn--up{
+    width: 0; 
+    height: 0; 
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #3b73cc;
+}
+.sliderCard__scrollBtn--down{
+  width: 0; 
+  height: 0; 
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;  
+  border-top: 50px solid #3b73cc;
+}
