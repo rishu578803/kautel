@@ -251,3 +251,89 @@
 .sliderCard__btn:hover {
   background-color: #babfc8; /* Darker shade on hover */
 }
+
+
+
+/* 
+.sliderCard__btnContainer button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 20px;
+} */
+ .sliderCard__leftPanel{
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  /* height: 300px; */
+  width: 519px;
+  overflow: hidden;
+  background-color: #f4f6f9;
+ }
+
+
+.sliderCard__left-button {
+
+  background-color: #304EBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.sliderCard__right-button {
+  width: 200px;
+  background-color: #304EBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sliderCard__left-button:hover {
+  background-color: #002244;
+}
+
+
+
+/* 
+.sliderCard__btnContainer button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 20px;
+} */
+ .sliderCard__leftPanel{
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  /* height: 300px; */
+  width: 519px;
+  overflow: hidden;
+  background-color: #f4f6f9;
+ }
+
+
+.sliderCard__left-button {
+
+  background-color: #304EBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.sliderCard__right-button {
+  width: 200px;
+  background-color: #304EBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sliderCard__left-button:hover {
+  background-color: #002244;
+}
