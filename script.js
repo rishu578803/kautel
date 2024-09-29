@@ -54,23 +54,47 @@ document.getElementById("sliderCard__nextBtn--2").addEventListener("click", func
 });
 
 // ==========================================================
+
+
 let currentIndex = 0;
 const buttonsToShow = 5; // Show only 5 buttons at a time
+const buttonHeight = 55; // Adjust the height based on your button size (50px is assumed here)
 
 function scrollUp() {
     const container = document.querySelector('.sliderCard__btnContainer');
+    
     if (currentIndex > 0) {
         currentIndex--;
-        container.style.transform = `translateY(-${currentIndex * 50}px)`; // Adjust 50px based on button height
+        const scrollAmount = currentIndex * buttonHeight;
+        container.scrollTo({
+            top: scrollAmount,
+            behavior: 'smooth' // Smooth scroll
+        });
     }
 }
 
 function scrollDown() {
     const container = document.querySelector('.sliderCard__btnContainer');
     const totalButtons = container.children.length;
+
     if (currentIndex < totalButtons - buttonsToShow) {
         currentIndex++;
-        container.style.transform = `translateY(-${currentIndex * 50}px)`; // Adjust 50px based on button height
+        const scrollAmount = currentIndex * buttonHeight;
+        container.scrollTo({
+            top: scrollAmount,
+            behavior: 'smooth' // Smooth scroll
+        });
+    }
+}
+
+function selectOption(text) {
+    const selectedList = document.getElementById('sliderCard__selectedList');
+
+    // Check if the item is already in the list
+    if (![...selectedList.children].some(item => item.textContent === text)) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        selectedList.appendChild(li);
     }
 }
 
