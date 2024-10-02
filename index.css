@@ -226,7 +226,7 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-.sliderCard__right-button {
+.sliderCard__right--button {
   width: 200px;
   background-color: #304eba;
   color: white;

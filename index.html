@@ -55,17 +55,21 @@
 
             <div class="sliderCard__container">
               <div class="sliderCard__leftPanel">
-                <p class="sliderCard__description">Bürgschaftsarten</p>
-                <div
-                  class="sliderCard__scrollBtn sliderCard__scrollBtn--up"
-                  onclick="scrollUp()"></div>
-                <div class="sliderCard__btnContainer"></div>
-                <!-- Dynamically filled buttons -->
-
-                <div
-                  class="sliderCard__scrollBtn sliderCard__scrollBtn--down"
-                  onclick="scrollDown()"></div>
-              </div>
+                <p class="sliderCard__description">
+                  Bürgschaftsarten
+                </p>
+                <button class="sliderCard__scrollBtn sliderCard__scrollBtn--up" onclick="scrollUp()"></button>
+                <div class="sliderCard__btnContainer">
+                    <button class="sliderCard__btn" onclick="selectOption('An-/Vorauszahlung')">An-/Vorauszahlung</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Arbeitszeitkonten')">Arbeitszeitkonten</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Gewährleistung')">Gewährleistung</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Mängelansprüche')">Mängelansprüche</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Gew. Mietbürgschaft')">Gew. Mietbürgschaft</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Handwerkersicherung')">Handwerkersicherung</button>
+                    <button class="sliderCard__btn" onclick="selectOption('Vertragserfüllung')">Vertragserfüllung</button>
+                </div>
+                <button class="sliderCard__scrollBtn sliderCard__scrollBtn--down" onclick="scrollDown()"></button>
+            </div>
               <div class="sliderCard__rightPanel">
                 <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
                 <ul id="sliderCard__selectedList"></ul>
@@ -85,66 +89,17 @@
               <div class="sliderCard__leftPanel">
                 <p class="sliderCard__description">Bürgschaftsarten</p>
                 <div class="sliderCard__btnContainer">
-                  <button class="sliderCard__left-button" data-set="basic">
-                    Bau + Technik Basic
-                  </button>
-                  <button class="sliderCard__left-button" data-set="pro">
-                    Bau + Technik Pro
-                  </button>
-                  <button class="sliderCard__left-button" data-set="additional">
-                    + Zusätzliche Bürgschaft
-                  </button>
+                  <button class="sliderCard__left-button" data-set="basic">Bau + Technik Basic</button>
+                  <button class="sliderCard__left-button" data-set="pro">Bau + Technik Pro</button>
+                  <button class="sliderCard__left-button" data-set="additional">+ Zusätzliche Bürgschaft</button>
                 </div>
               </div>
               <div class="sliderCard__rightPanel">
-                <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
-                <button
-                  class="sliderCard__right-button"
-                  id="sliderCard__right-button-1">
-                  Ann/Versach...
-                </button>
-                <button
-                  class="sliderCard__right-button"
-                  id="sliderCard__right-button-2">
-                  Mängelanspr...
-                </button>
-                <button
-                  class="sliderCard__right-button"
-                  id="sliderCard__right-button-3">
-                  Gewährleist...
-                </button>
+                <button class="sliderCard__right-button" id="sliderCard__right-button-1">Ann/Versach...</button>
+                <button class="sliderCard__right-button" id="sliderCard__right-button-2">Mängelanspr...</button>
+                <button class="sliderCard__right-button" id="sliderCard__right-button-3">Gewährleist...</button>
               </div>
-            </div>
 
-            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--3">
-              <span class="sliderCard__arrow">&#10132;</span>
-            </div>
-          </div>
-
-          <!-- =============== -->
-          <div class="sliderCard" id="sliderCard--card4" style="display: none">
-            <h4 class="sliderCard__heading">Bürgschaftsart auswählen</h4>
-            <p class="sliderCard__subheading">
-              Wählen Sie nun die benötigte Bürgschaftsart aus
-            </p>
-            <div class="sliderCard__container">
-              <div class="amount-section">
-                <label for="amountRange">Gewählter Betrag</label>
-                <input type="text" id="selectedAmount" value="75,000 €" readonly>
-            </div>
-            
-            <div class="slider-container">
-                <input type="range" id="amountRange" min="5000" max="150000" step="25000" value="75000">
-                <div class="range-labels">
-                    <span>5,000</span>
-                    <span>25,000</span>
-                    <span>50,000</span>
-                    <span>75,000</span>
-                    <span>100,000</span>
-                    <span>125,000</span>
-                    <span>150,000</span>
-                </div>
-            </div>
             </div>
 
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--2">
