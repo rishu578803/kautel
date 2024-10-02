@@ -139,6 +139,7 @@
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
   max-height: 335px;
+  overflow: auto;
 }
 
 .sliderCard__btn {
@@ -186,26 +187,27 @@
 /* .sliderCard__scrollBtn:hover {
   background-color: #2a56a1;
 } */
-
-.sliderCard__scrollBtn--up {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 38px solid #3b73cc;
-  margin-left: 62px;
-  cursor: pointer;
-  margin-bottom: 7px;
-}
+.sliderCard__scrollBtn--up,
 .sliderCard__scrollBtn--down {
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 38px solid #3b73cc;
-  margin-left: 62px;
+  margin: 0 auto;
+}
+.sliderCard__scrollBtn--up {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 20px solid #3b73cc;
+  /* margin-left: 62px; */
   cursor: pointer;
-  margin-top: 7px;
+  /* margin-bottom: 7px; */
+}
+.sliderCard__scrollBtn--down {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid #3b73cc;
+  /* margin-left: 62px; */
+  cursor: pointer;
+  /* margin-top: 7px; */
 }
 
 .sliderCard__leftPanel {
