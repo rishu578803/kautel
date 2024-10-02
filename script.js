@@ -57,26 +57,37 @@ document
     showNextCard("sliderCard--card3", "sliderCard--card4");
   });
 // ==========================================================sliderCard--card4
+let currentIndex = 0;
+const buttonsToShow = 5;
+const buttonHeight = 50;
 
 function scrollUp() {
   const container = document.querySelector(".sliderCard__btnContainer");
   if (currentIndex > 0) {
     currentIndex--;
-    container.style.transform = `translateY(-${currentIndex * 50}px)`;
+        const scrollAmount = currentIndex * buttonHeight;
+        container.scrollTo({
+            top: scrollAmount,
+            behavior: 'smooth' // Smooth scroll
+        });
   }
 }
 
 function scrollDown() {
   const container = document.querySelector(".sliderCard__btnContainer");
   const totalButtons = container.children.length;
-  if (currentIndex < totalButtons - buttonsToShow) {
-    currentIndex++;
-    container.style.transform = `translateY(-${currentIndex * 50}px)`;
-  }
+
+    if (currentIndex < totalButtons - buttonsToShow) {
+        currentIndex++;
+        const scrollAmount = currentIndex * buttonHeight;
+        container.scrollTo({
+            top: scrollAmount,
+            behavior: 'smooth' // Smooth scroll
+        });
+    }
 }
 
-let currentIndex = 0;
-const buttonsToShow = 5;
+
 
 let availableOptions = [
   "An-/Vorauszahlung",
