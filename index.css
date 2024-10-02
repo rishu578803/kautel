@@ -138,7 +138,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
-  max-height: 240px;
+  max-height: 335px;
 }
 
 .sliderCard__btn {
@@ -180,25 +180,32 @@
   margin: 5px 0;
   font-size: 14px;
   border-radius: 4px;
+
 }
 
-.sliderCard__scrollBtn:hover {
+/* .sliderCard__scrollBtn:hover {
   background-color: #2a56a1;
-}
+} */
 
 .sliderCard__scrollBtn--up {
   width: 0;
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 50px solid #3b73cc;
+  border-bottom: 38px solid #3b73cc;
+  margin-left: 62px;
+  cursor: pointer;
+  margin-bottom: 7px;
 }
 .sliderCard__scrollBtn--down {
   width: 0;
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-top: 50px solid #3b73cc;
+  border-top: 38px solid #3b73cc;
+  margin-left: 62px;
+  cursor: pointer;
+  margin-top: 7px;
 }
 
 .sliderCard__leftPanel {
@@ -249,4 +256,51 @@
   padding: 12px 10px;
   margin: 5px;
   color: white;
+}
+
+
+.amount-section {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#selectedAmount {
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  width: 150px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.slider-container {
+  margin: 20px 0;
+}
+
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff5722;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background-color: #ccc
 }

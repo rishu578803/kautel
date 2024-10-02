@@ -51,7 +51,12 @@ document
     showNextCard("sliderCard--card2", "sliderCard--card3");
   });
 
-// ==========================================================
+  document
+  .getElementById("sliderCard__nextBtn--3")
+  .addEventListener("click", function () {
+    showNextCard("sliderCard--card3", "sliderCard--card4");
+  });
+// ==========================================================sliderCard--card4
 
 function scrollUp() {
   const container = document.querySelector(".sliderCard__btnContainer");
