@@ -141,7 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
   renderButtons();
 });
 
-// =================================================================================================================================
+
+// ===============================================================
+
+
 const textSets = {
   basic: {
     button1: "Ann/Versacherk Basic",
@@ -159,18 +162,21 @@ const textSets = {
     button1: "Ann/Versacherk Additional",
     button2: "Mängelanspruch Additional",
     button3: "Gewährleistung Additional",
-    button4: "Gewährleistung Additional",
-  },
+    button4: "Gewährleistung Pro 4",
+    button5: "Gewährleistung Pro 5",
+  }
 };
 
 // Function to update right-side buttons based on the selected left-side button
 function updateRightButtons(set) {
-  document.getElementById("sliderCard__right-button-1").textContent =
-    textSets[set].button1;
-  document.getElementById("sliderCard__right-button-2").textContent =
-    textSets[set].button2;
-  document.getElementById("sliderCard__right-button-3").textContent =
-    textSets[set].button3;
+  // Update text for buttons
+  document.getElementById("sliderCard__right-button-1").textContent = textSets[set].button1;
+  document.getElementById("sliderCard__right-button-2").textContent = textSets[set].button2;
+  document.getElementById("sliderCard__right-button-3").textContent = textSets[set].button3;
+
+  // Show/hide buttons based on the number of available buttons in the set
+  document.getElementById("sliderCard__right-button-4").style.display = textSets[set].button4 ? "inline-block" : "none";
+  document.getElementById("sliderCard__right-button-5").style.display = textSets[set].button5 ? "inline-block" : "none";
 }
 
 // Add click event listeners to all left-side buttons
@@ -190,3 +196,4 @@ document.querySelectorAll(".sliderCard__left-button").forEach((button) => {
     updateRightButtons(selectedSet);
   });
 });
+
