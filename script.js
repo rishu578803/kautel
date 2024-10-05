@@ -364,7 +364,7 @@ btn2.addEventListener('click', function () {
 
 btn3.addEventListener('click', function () {
   // Show all additionalTexts and make btn3 active
-  updateButtons(additionalTexts);
+  // updateButtons(additionalTexts);
   
   // If btn1 or btn2 was clicked earlier, keep it active along with btn3
   if (lastActiveButton) {
