@@ -161,62 +161,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===============================================================
 
-const textSets = {
-  basic: {
-    button1: "Ann/Versacherk Basic",
-    button2: "Mängelanspruch Basic",
-    button3: "Gewährleistung Basic",
-  },
-  pro: {
-    button1: "Ann/Versacherk Pro",
-    button2: "Mängelanspruch Pro",
-    button3: "Gewährleistung Pro",
-    button4: "Gewährleistung Pro 4",
-    button5: "Gewährleistung Pro 5",
-  },
-  additional: {
-    button1: "Ann/Versacherk Additional",
-    button2: "Mängelanspruch Additional",
-    button3: "Gewährleistung Additional",
-    button4: "Gewährleistung Pro 4",
-    button5: "Gewährleistung Pro 5",
-  },
-};
+// const textSets = {
+//   basic: {
+//     button1: "Ann/Versacherk Basic",
+//     button2: "Mängelanspruch Basic",
+//     button3: "Gewährleistung Basic",
+//   },
+//   pro: {
+//     button1: "Ann/Versacherk Pro 1",
+//     button2: "Mängelanspruch Pro 2",
+//     button3: "Ann/Versacherk Pro 3",
+//     button4: "Gewährleistung Pro 4",
+//     button5: "Ann/Versacherk Pro 5",
+//   },
+//   additional: {
+//     button1: "Ann/Versacherk Basic",
+//     button2: "Mängelanspruch Basic",
+//     button3: "Gewährleistung Basic",
+//     button4: "Ann/Versacherk Pro 1",
+//     button5: "Mängelanspruch Pro 2",
+//     button6: "Ann/Versacherk Pro 3",
+//     button7: "Mängelanspruch Pro 4",
+//     button8: "Ann/Versacherk Pro 5",
+//   },
+// };
 
-// Function to update right-side buttons based on the selected left-side button
-function updateRightButtons(set) {
-  // Update text for buttons
-  document.getElementById("sliderCard__right-button-1").textContent =
-    textSets[set].button1;
-  document.getElementById("sliderCard__right-button-2").textContent =
-    textSets[set].button2;
-  document.getElementById("sliderCard__right-button-3").textContent =
-    textSets[set].button3;
+// // Function to update right-side buttons based on the selected left-side button
+// function updateRightButtons(set) {
+//   // Update text for buttons
+//   document.getElementById("sliderCard__right-button-1").textContent =
+//     textSets[set].button1;
+//   document.getElementById("sliderCard__right-button-2").textContent =
+//     textSets[set].button2;
+//   document.getElementById("sliderCard__right-button-3").textContent =
+//     textSets[set].button3;
 
-  // Show/hide buttons based on the number of available buttons in the set
-  document.getElementById("sliderCard__right-button-4").style.display =
-    textSets[set].button4 ? "inline-block" : "none";
-  document.getElementById("sliderCard__right-button-5").style.display =
-    textSets[set].button5 ? "inline-block" : "none";
-}
+//   // Show/hide buttons based on the number of available buttons in the set
+//   document.getElementById("sliderCard__right-button-4").style.display =
+//     textSets[set].button4 ? "inline-block" : "none";
+//   document.getElementById("sliderCard__right-button-5").style.display =
+//     textSets[set].button5 ? "inline-block" : "none";
+//   document.getElementById("sliderCard__right-button-6").style.display =
+//     textSets[set].button6 ? "inline-block" : "none";
+//   document.getElementById("sliderCard__right-button-7").style.display =
+//     textSets[set].button7 ? "inline-block" : "none";
+//   document.getElementById("sliderCard__right-button-8").style.display =
+//     textSets[set].button8 ? "inline-block" : "none";
+// }
 
-// Add click event listeners to all left-side buttons
-document.querySelectorAll(".sliderCard__left-button").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    // Remove 'active' class from all buttons
-    document.querySelectorAll(".sliderCard__left-button").forEach((btn) => {
-      btn.classList.remove("active");
-      btn.style.backgroundColor = "#A0AEC8"; // Set all inactive buttons to gray
-    });
+// // Add click event listeners to all left-side buttons
+// document.querySelectorAll(".sliderCard__left-button").forEach((button) => {
+//   button.addEventListener("click", (event) => {
+//     // Remove 'active' class from all buttons
+//     document.querySelectorAll(".sliderCard__left-button").forEach((btn) => {
+//       btn.classList.remove("active");
+//       btn.style.backgroundColor = "#A0AEC8"; // Set all inactive buttons to gray
+//     });
 
-    // Add 'active' class to the clicked button
-    event.target.classList.add("active");
-    event.target.style.backgroundColor = "#304EBA"; // Set active button to blue
+//     // Add 'active' class to the clicked button
+//     event.target.classList.add("active");
+//     event.target.style.backgroundColor = "#304EBA"; // Set active button to blue
 
-    const selectedSet = event.target.getAttribute("data-set");
-    updateRightButtons(selectedSet);
-  });
-});
+//     const selectedSet = event.target.getAttribute("data-set");
+//     updateRightButtons(selectedSet);
+//   });
+// });
 
 // ======================================================
 
@@ -227,3 +236,129 @@ output.value = "75,000" + " €";
 slider.oninput = function () {
   output.value = this.value + " €";
 };
+
+
+
+
+// ====================================new button =================================================
+
+// const basicTexts = ['Basic Text 1', 'Basic Text 2', 'Basic Text 3'];
+// const proTexts = ['Pro Text 1', 'Pro Text 2', 'Pro Text 3', 'Pro Text 4', 'Pro Text 5'];
+// const additionalTexts = ['Basic Text 1', 'Basic Text 2', 'Basic Text 3', 'Pro Text 1', 'Pro Text 2', 'Pro Text 3', 'Pro Text 4', 'Pro Text 5'];
+
+// // Get left panel buttons
+// const btn1 = document.getElementById('btn1');
+// const btn2 = document.getElementById('btn2');
+// const btn3 = document.getElementById('btn3');
+
+// // Get right panel buttons (assuming max 8 buttons)
+// const rightButtons = [
+//   document.getElementById('right-button-1'),
+//   document.getElementById('right-button-2'),
+//   document.getElementById('right-button-3'),
+//   document.getElementById('right-button-4'),
+//   document.getElementById('right-button-5'),
+//   document.getElementById('right-button-6'),
+//   document.getElementById('right-button-7'),
+//   document.getElementById('right-button-8')
+// ];
+
+// // Function to update button text and display them
+// function updateButtons(texts) {
+//   // Hide all buttons initially
+//   for (let i = 0; i < rightButtons.length; i++) {
+//     rightButtons[i].style.display = 'none';
+//   }
+
+//   // Show and update button text
+//   for (let i = 0; i < texts.length; i++) {
+//     rightButtons[i].textContent = texts[i];
+//     rightButtons[i].style.display = 'block';
+//   }
+// }
+
+// // Button click event listeners
+// btn1.addEventListener('click', function () {
+//   // Show all basicTexts
+//   updateButtons(basicTexts);
+// });
+
+// btn2.addEventListener('click', function () {
+//   // Show all proTexts
+//   updateButtons(proTexts);
+// });
+
+// btn3.addEventListener('click', function () {
+//   // Show all additionalTexts
+//   updateButtons(additionalTexts);
+// });
+
+// ============
+
+// Arrays with unique button text for each set
+const basicTexts = ['Basic Text 1', 'Basic Text 2', 'Basic Text 3'];
+const proTexts = ['Pro Text 1', 'Pro Text 2', 'Pro Text 3', 'Pro Text 4', 'Pro Text 5'];
+const additionalTexts = ['Basic Text 1', 'Basic Text 2', 'Basic Text 3', 'Pro Text 1', 'Pro Text 2', 'Pro Text 3', 'Pro Text 4', 'Pro Text 5'];
+
+// Get left panel buttons
+const btn1 = document.getElementById('btn1');
+const btn2 = document.getElementById('btn2');
+const btn3 = document.getElementById('btn3');
+
+// Get right panel buttons (assuming max 8 buttons)
+const rightButtons = [
+  document.getElementById('right-button-1'),
+  document.getElementById('right-button-2'),
+  document.getElementById('right-button-3'),
+  document.getElementById('right-button-4'),
+  document.getElementById('right-button-5'),
+  document.getElementById('right-button-6'),
+  document.getElementById('right-button-7'),
+  document.getElementById('right-button-8')
+];
+
+// Function to update button text and display them
+function updateButtons(texts) {
+  // Hide all right panel buttons initially
+  for (let i = 0; i < rightButtons.length; i++) {
+    rightButtons[i].style.display = 'none';
+  }
+
+  // Show and update button text
+  for (let i = 0; i < texts.length; i++) {
+    rightButtons[i].textContent = texts[i];
+    rightButtons[i].style.display = 'block';
+  }
+}
+
+// Function to set active state for left panel buttons
+function setActiveButton(buttons) {
+  // Remove active class from all buttons first
+  [btn1, btn2, btn3].forEach(button => {
+    button.classList.remove('active');
+  });
+
+  // Add active class to specified buttons
+  buttons.forEach(button => {
+    button.classList.add('active');
+  });
+}
+
+// Button click event listeners
+btn1.addEventListener('click', function () {
+  // Show all basicTexts and make btn1 active
+  updateButtons(basicTexts);
+  setActiveButton([btn1]);
+});
+
+btn2.addEventListener('click', function () {
+  // Show all proTexts and make btn2 active
+  updateButtons(proTexts);
+  setActiveButton([btn2]);
+});
+
+btn3.addEventListener('click', function () {
+  // Show all additionalTexts and make btn1, btn2, btn3 active
+  updateButtons(additionalTexts);
+  setActiveButton([btn1, btn2, btn3]);
+});

@@ -161,8 +161,8 @@
 
 .sliderCard__rightPanel {
   background-color: #f4f6f9;
-
   min-width: 200px;
+  overflow-x: hidden;
 }
 
 .sliderCard__rightPanel h3 {
@@ -239,27 +239,6 @@
   margin-bottom: 20px;
 }
 
-.sliderCard__left-button {
-  background-color: #a0aec8;
-  color: white;
-  border: none;
-  padding: 20px 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.sliderCard__left-button.active {
-  background-color: #304eba;
-  color: white;
-}
-
-.sliderCard__right-button {
-  background-color: #304eba;
-  border: 1px solid #304eba;
-  padding: 12px 10px;
-  margin: 5px;
-  color: white;
-}
 
 
 .amount-section {
@@ -464,3 +443,61 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 }
 
+.sliderCard__rightPanel button {
+  display: none; /* All buttons hidden by default */
+}
+
+
+.sliderCard__container {
+  display: flex;
+}
+
+.sliderCard__leftPanel, .sliderCard__rightPanel {
+  margin: 10px;
+}
+
+.sliderCard__btnContainer button, .sliderCard__rightPanel button {
+  display: block;
+  margin: 5px 0;
+
+  cursor: pointer;
+}
+
+.sliderCard__rightPanel .sliderCard__rightPanel--button {
+  max-height: 215px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sliderCard__rightPanel button {
+  display: none; /* All right-panel buttons hidden by default */
+}
+
+/* Style for active buttons */
+.active {
+  background-color: #304eba;
+  color: white;
+}
+
+
+.sliderCard__left-button {
+  background-color: #a0aec8;
+  color: white;
+  border: none;
+  padding: 20px 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.sliderCard__left-button.active {
+  background-color: #304eba;
+  color: white;
+}
+
+.sliderCard__right-button {
+  background-color: #304eba;
+  border: 1px solid #304eba;
+  padding: 10px 10px;
+  margin: 5px;
+  color: white;
+}

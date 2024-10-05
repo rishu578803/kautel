@@ -76,13 +76,12 @@
             </div>
           </div>
 
-      
           <div class="sliderCard" id="sliderCard--card3" style="display: none">
             <h4 class="sliderCard__heading">Bürgschaftsart auswählen</h4>
             <p class="sliderCard__subheading">
               Wählen Sie nun die benötigte Bürgschaftsart aus
             </p>
-            <div class="sliderCard__container">
+            <!-- <div class="sliderCard__container">
               <div class="sliderCard__leftPanel">
                 <p class="sliderCard__description">Bürgschaftsarten</p>
                 <div class="sliderCard__btnContainer">
@@ -99,24 +98,83 @@
               </div>
               <div class="sliderCard__rightPanel">
                 <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
-                <button class="sliderCard__right-button" id="sliderCard__right-button-1">
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-1">
                   Ann/Versach...
                 </button>
-                <button class="sliderCard__right-button" id="sliderCard__right-button-2">
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-2">
                   Mängelanspr...
                 </button>
-                <button class="sliderCard__right-button" id="sliderCard__right-button-3">
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-3">
                   Gewährleist...
                 </button>
-                <button class="sliderCard__right-button" id="sliderCard__right-button-4" style="display: none">
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-4"
+                  style="display: none">
                   Gewährleistung Pro 4
                 </button>
-                <button class="sliderCard__right-button" id="sliderCard__right-button-5" style="display: none">
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-5"
+                  style="display: none">
                   Gewährleistung Pro 5
                 </button>
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-6"
+                  style="display: none">
+                  Gewährleistung Pro 6
+                </button>
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-7"
+                  style="display: none">
+                  Gewährleistung Pro 7
+                </button>
+                <button
+                  class="sliderCard__right-button"
+                  id="sliderCard__right-button-8"
+                  style="display: none">
+                  Gewährleistung Pro 8
+                </button>
               </div>
-            </div>
-          
+            </div> -->
+<!-- ============================================== new button  ================================================-->
+<div class="sliderCard__container">
+  <!-- Left Panel with Buttons -->
+  <div class="sliderCard__leftPanel">
+    <p class="sliderCard__description">Bürgschaftsarten</p>
+    <div class="sliderCard__btnContainer">
+      <button id="btn1" class="sliderCard__left-button">Bau + Technik Basic</button>
+      <button id="btn2" class="sliderCard__left-button">Bau + Technik Pro</button>
+      <button id="btn3" class="sliderCard__left-button">+ Zusätzliche Bürgschaft</button>
+    </div>
+  </div>
+
+  <!-- Right Panel with Dynamic Buttons -->
+  <div class="sliderCard__rightPanel">
+    <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
+    <div class="sliderCard__rightPanel--button">
+      <button class="sliderCard__right-button" id="right-button-1">Button 1</button>
+      <button class="sliderCard__right-button" id="right-button-2">Button 2</button>
+      <button class="sliderCard__right-button" id="right-button-3">Button 3</button>
+      <button class="sliderCard__right-button" id="right-button-4">Button 4</button>
+      <button class="sliderCard__right-button" id="right-button-5">Button 5</button>
+      <button class="sliderCard__right-button" id="right-button-6">Button 6</button>
+      <button class="sliderCard__right-button" id="right-button-7">Button 7</button>
+      <button class="sliderCard__right-button" id="right-button-8">Button 8</button>
+    </div>
+
+  </div>
+</div>
+<!-- ============================== new button end ============================================= -->
+ 
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--3">
               <span class="sliderCard__arrow">&#10132;</span>
             </div>
@@ -125,17 +183,30 @@
           <div class="sliderCard" id="sliderCard--card4" style="display: none">
             <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
             <p class="sliderCard__subheading">
-              Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus (max. 8 Mio €)"**
+              Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus
+              (max. 8 Mio €)"**
             </p>
             <div class="sliderCard__container">
               <div class="amount-section">
-                <label for="amountRange" class="form-label">Gewählter Betrag</label>
-                <input type="text" id="selectedAmount" value="75,000 €"  class="form-control">
+                <label for="amountRange" class="form-label"
+                  >Gewählter Betrag</label
+                >
+                <input
+                  type="text"
+                  id="selectedAmount"
+                  value="75,000 €"
+                  class="form-control" />
+              </div>
             </div>
-          </div>
-           
+
             <div class="slidecontainer">
-              <input type="range" min="1" max="80000" value="50" class="slider" id="myRange">
+              <input
+                type="range"
+                min="1"
+                max="80000"
+                value="50"
+                class="slider"
+                id="myRange" />
               <!-- <p>Value: <span id="demo"></span></p> -->
             </div>
 
@@ -146,76 +217,85 @@
           <div class="sliderCard" id="sliderCard--card5" style="display: none">
             <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
             <p class="sliderCard__subheading">
-              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell ermittelt
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
             </p>
             <div class="info-box">
               <div class="left-section">
-                  <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
-                  <p class="sub_heading">An-/Vorauszahlung</p><br/>
-                  <p class="heading ">Höhe der Bürgschaft</p>
-                  <p class="sub_heading">20.000 €</p>
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <p class="sub_heading">An-/Vorauszahlung</p>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading">20.000 €</p>
               </div>
-  
+
               <div class="right-section">
-                  <p class="heading">Das von Ihnen benötigte Bürgschaftsmodell kann direkt berechnet und beantragt werden.</p>
-                  <button class="calculate-btn">
-                    Beitrag berechnen
-                    <span class="arrow" id="sliderCard__calculate-btn--1">➔</span>
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <button class="calculate-btn">
+                  Beitrag berechnen
+                  <span class="arrow" id="sliderCard__calculate-btn--1">➔</span>
                 </button>
               </div>
-          </div>
-  
-
+            </div>
           </div>
           <div class="sliderCard" id="sliderCard--card6" style="display: none">
             <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
             <p class="sliderCard__subheading">
-              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell ermittelt
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
             </p>
             <div class="info-box">
               <div class="left-section">
-                  <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
-                  <p class="sub_heading">An-/Vorauszahlung</p><br/>
-                  <p class="heading ">Höhe der Bürgschaft</p>
-                  <p class="sub_heading">20.000 €</p>
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <p class="sub_heading">An-/Vorauszahlung</p>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading">20.000 €</p>
               </div>
-  
+
               <div class="right-section">
-                  <p class="heading">Das von Ihnen benötigte Bürgschaftsmodell kann direkt berechnet und beantragt werden.</p>
-                  <button class="calculate-btn">
-                    Beitrag berechnen
-                    <span class="arrow" id="sliderCard__calculate-btn--2">➔</span>
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <button class="calculate-btn">
+                  Beitrag berechnen
+                  <span class="arrow" id="sliderCard__calculate-btn--2">➔</span>
                 </button>
               </div>
-          </div>
-  
-
+            </div>
           </div>
           <div class="sliderCard" id="sliderCard--card7" style="display: none">
             <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
             <p class="sliderCard__subheading">
-              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell ermittelt
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
             </p>
             <div class="info-box">
               <div class="left-section">
-                  <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
-                  <p class="sub_heading">An-/Vorauszahlung</p><br/>
-                  <p class="heading ">Höhe der Bürgschaft</p>
-                  <p class="sub_heading">75.000 €</p>
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <p class="sub_heading">An-/Vorauszahlung</p>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading">75.000 €</p>
               </div>
-  
+
               <div class="right-section">
-                  <p class="heading">Das von Ihnen benötigte Bürgschaftsmodell kann direkt berechnet und beantragt werden.</p>
-                  <button class="calculate-btn">
-                    Beitrag berechnen
-                    <span class="arrow">➔</span>
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <button class="calculate-btn">
+                  Beitrag berechnen
+                  <span class="arrow">➔</span>
                 </button>
               </div>
+            </div>
           </div>
-  
 
-          </div>
-    
           <!-- ========================= -->
         </div>
       </div>
