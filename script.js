@@ -51,11 +51,31 @@ document
     showNextCard("sliderCard--card2", "sliderCard--card3");
   });
 
-  document
+document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
     showNextCard("sliderCard--card3", "sliderCard--card4");
   });
+
+document
+  .getElementById("sliderCard__nextBtn--4")
+  .addEventListener("click", function () {
+    showNextCard("sliderCard--card4", "sliderCard--card5");
+  });
+document
+  .getElementById("sliderCard__calculate-btn--1")
+  .addEventListener("click", function () {
+    console.log("calculate");
+    showNextCard("sliderCard--card5", "sliderCard--card6");
+  });
+
+document
+  .getElementById("sliderCard__calculate-btn--2")
+  .addEventListener("click", function () {
+    console.log("calculate");
+    showNextCard("sliderCard--card6", "sliderCard--card7");
+  });
+
 // ==========================================================sliderCard--card4
 let currentIndex = 0;
 const buttonsToShow = 5;
@@ -65,11 +85,11 @@ function scrollUp() {
   const container = document.querySelector(".sliderCard__btnContainer");
   if (currentIndex > 0) {
     currentIndex--;
-        const scrollAmount = currentIndex * buttonHeight;
-        container.scrollTo({
-            top: scrollAmount,
-            behavior: 'smooth' // Smooth scroll
-        });
+    const scrollAmount = currentIndex * buttonHeight;
+    container.scrollTo({
+      top: scrollAmount,
+      behavior: "smooth", // Smooth scroll
+    });
   }
 }
 
@@ -77,17 +97,15 @@ function scrollDown() {
   const container = document.querySelector(".sliderCard__btnContainer");
   const totalButtons = container.children.length;
 
-    if (currentIndex < totalButtons - buttonsToShow) {
-        currentIndex++;
-        const scrollAmount = currentIndex * buttonHeight;
-        container.scrollTo({
-            top: scrollAmount,
-            behavior: 'smooth' // Smooth scroll
-        });
-    }
+  if (currentIndex < totalButtons - buttonsToShow) {
+    currentIndex++;
+    const scrollAmount = currentIndex * buttonHeight;
+    container.scrollTo({
+      top: scrollAmount,
+      behavior: "smooth", // Smooth scroll
+    });
+  }
 }
-
-
 
 let availableOptions = [
   "An-/Vorauszahlung",
@@ -141,9 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderButtons();
 });
 
-
 // ===============================================================
-
 
 const textSets = {
   basic: {
@@ -164,19 +180,24 @@ const textSets = {
     button3: "Gewährleistung Additional",
     button4: "Gewährleistung Pro 4",
     button5: "Gewährleistung Pro 5",
-  }
+  },
 };
 
 // Function to update right-side buttons based on the selected left-side button
 function updateRightButtons(set) {
   // Update text for buttons
-  document.getElementById("sliderCard__right-button-1").textContent = textSets[set].button1;
-  document.getElementById("sliderCard__right-button-2").textContent = textSets[set].button2;
-  document.getElementById("sliderCard__right-button-3").textContent = textSets[set].button3;
+  document.getElementById("sliderCard__right-button-1").textContent =
+    textSets[set].button1;
+  document.getElementById("sliderCard__right-button-2").textContent =
+    textSets[set].button2;
+  document.getElementById("sliderCard__right-button-3").textContent =
+    textSets[set].button3;
 
   // Show/hide buttons based on the number of available buttons in the set
-  document.getElementById("sliderCard__right-button-4").style.display = textSets[set].button4 ? "inline-block" : "none";
-  document.getElementById("sliderCard__right-button-5").style.display = textSets[set].button5 ? "inline-block" : "none";
+  document.getElementById("sliderCard__right-button-4").style.display =
+    textSets[set].button4 ? "inline-block" : "none";
+  document.getElementById("sliderCard__right-button-5").style.display =
+    textSets[set].button5 ? "inline-block" : "none";
 }
 
 // Add click event listeners to all left-side buttons
@@ -197,3 +218,12 @@ document.querySelectorAll(".sliderCard__left-button").forEach((button) => {
   });
 });
 
+// ======================================================
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("selectedAmount");
+output.value = "75,000" + " €";
+
+slider.oninput = function () {
+  output.value = this.value + " €";
+};

@@ -266,19 +266,25 @@
   margin-bottom: 20px;
 }
 
-label {
-  font-size: 18px;
-  font-weight: bold;
+
+  label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: #334271;
 }
 
 #selectedAmount {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
-  border: none;
-  background-color: transparent;
+  /* border: none; */
+  /* background-color: transparent; */
   width: 150px;
   text-align: center;
   margin: 10px 0;
+  border-radius: 3px;
+  padding: 8px 0px;
+  color: #334271;
 }
 
 .slider-container {
@@ -340,3 +346,121 @@ input[type="range"]::-webkit-slider-runnable-track {
 .sliderCard__btnContainer {
   scroll-behavior: smooth; /* Enables smooth scrolling for browsers that support it */
 }
+
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+/* ====================================================== */
+.sliderCard .info-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f4f8;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.sliderCard  .left-section p,
+.right-section p {
+  margin: 5px 0;
+}
+
+.sliderCard  .amount {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sliderCard .right-section {
+  border-left: 2px solid gray;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+
+.calculate-btn {
+
+  margin-top: 40px;
+  height: 100px;
+  padding: 0px 50px;
+  background-color: #99a7c5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.calculate-btn:hover {
+  background-color: #8895b3;
+}
+
+.calculate-btn .arrow {
+  background-color: #ff6b47;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-box .heading{
+  color: #5770C7;
+  font-size: 17px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.info-box .sub_heading{
+  color: #FC8463;
+  font-size: 17px;
+  margin-bottom: 30px;
+  font-weight: 500;
+
+}
+
