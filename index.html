@@ -159,7 +159,7 @@
 
   <!-- Right Panel with Dynamic Buttons -->
   <div class="sliderCard__rightPanel">
-    <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
+    <p class="sliderCard__description mb-4">Ausgewählte Bürgschaft</p>
     <div class="sliderCard__rightPanel--button">
       <button class="sliderCard__right-button" id="right-button-1">Button 1</button>
       <button class="sliderCard__right-button" id="right-button-2">Button 2</button>
@@ -194,8 +194,8 @@
                 <input
                   type="text"
                   id="selectedAmount"
-                  value="75,000 €"
-                  class="form-control" />
+                  value="20,000 €"
+                  class="form-control selected_Amount" />
               </div>
             </div>
 
@@ -205,7 +205,7 @@
                 min="1"
                 max="80000"
                 value="50"
-                class="slider"
+                class="slider myRange"
                 id="myRange" />
               <!-- <p>Value: <span id="demo"></span></p> -->
             </div>
@@ -215,6 +215,41 @@
             </div>
           </div>
           <div class="sliderCard" id="sliderCard--card5" style="display: none">
+            <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
+            <p class="sliderCard__subheading">
+              Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus
+              (max. 8 Mio €)"**
+            </p>
+            <div class="sliderCard__container">
+              <div class="amount-section">
+                <label for="amountRange" class="form-label"
+                  >Gewählter Betrag</label
+                >
+                <input
+                  type="text"
+                  id="selectedAmount2"
+                  value="75,000 €"
+                  class="form-control selected_Amount" />
+              </div>
+            </div>
+
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="80000"
+                value="50"
+                class="slider myRange"
+                id="myRange2" />
+              <!-- <p>Value: <span id="demo"></span></p> -->
+            </div>
+
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4">
+              <span class="sliderCard__arrow">&#10132;</span>
+            </div>
+          </div>
+          
+          <div class="sliderCard" id="sliderCard--card55" style="display: none">
             <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
             <p class="sliderCard__subheading">
               Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell

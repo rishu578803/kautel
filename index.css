@@ -138,13 +138,15 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
-  max-height: 335px;
-  min-height: 335px;
-  overflow: auto;
+
+
+  max-height: 320px;
+    min-height: 320px;
+    overflow: auto;
 }
 
 .sliderCard__btn {
-  background-color: #d3d9e2;
+  background-color: #A0AEC8;
   border: none;
   padding: 10px;
   margin: 5px 0;
@@ -153,10 +155,14 @@
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 12px;
 }
 
 .sliderCard__btn:hover {
-  background-color: #b3c0d1;
+  background-color: #93a1bb;
 }
 
 .sliderCard__rightPanel {
@@ -173,16 +179,23 @@
 #sliderCard__selectedList {
   list-style-type: none;
   padding: 0;
+  margin-top: 42px;
 }
 
 #sliderCard__selectedList li {
   background-color: #3b73cc;
-  color: white;
+  border: none;
   padding: 10px;
   margin: 5px 0;
+  text-align: left;
   font-size: 14px;
-  border-radius: 4px;
-
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 12px;
 }
 
 /* .sliderCard__scrollBtn:hover {
@@ -253,7 +266,7 @@
     color: #334271;
 }
 
-#selectedAmount {
+.selected_Amount {
   font-size: 18px;
   font-weight: bold;
   /* border: none; */
