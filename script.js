@@ -299,6 +299,9 @@ const rightButtons = [
   document.getElementById("right-button-8"),
 ];
 
+// Variable to keep track of the last active button (btn1 or btn2)
+let lastActiveButton = null;
+
 // Function to update button text and display them
 function updateButtons(texts) {
   // Hide all right panel buttons initially
@@ -331,12 +334,14 @@ btn1.addEventListener("click", function () {
   // Show all basicTexts and make btn1 active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
+  lastActiveButton = btn1; // Track that btn1 was the last active button
 });
 
 btn2.addEventListener("click", function () {
   // Show all proTexts and make btn2 active
   updateButtons(proTexts);
   setActiveButton([btn2]);
+  lastActiveButton = btn2; // Track that btn2 was the last active button
 });
 
 btn3.addEventListener("click", function () {
