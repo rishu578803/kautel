@@ -149,7 +149,7 @@ let availableOptions = [
 ];
 
 let selectedOptions = [];
-
+var selectedButtonTexts = [];
 // Render buttons in the left panel (available options)
 function renderButtons() {
   const buttonContainer = document.querySelector(".sliderCard__btnContainer");
@@ -173,28 +173,37 @@ function renderButtons() {
 }
 
 // Render selected options in the right panel (including selectedButtonTexts)
+
+// Assuming selectedButtonTexts is initialized as a string, let's convert it into an array if needed.
+ // Initialize as an empty string or handle as an array if that's the intention
+
 function renderSelectedOptions() {
   const selectedList = document.getElementById("sliderCard__selectedList");
 
   selectedList.innerHTML = ""; // Clear the list first
-
-  // First, render selectedButtonTexts if they exist
-  if (selectedButtonTexts.length > 0) {
-    selectedButtonTexts.forEach((text) => {
+console.log("selected options: " , selectedButtonTexts);
+  // Check if selectedButtonTexts is a non-empty string or an array
+  if (selectedButtonTexts && selectedButtonTexts.length > 0) {
+    // If selectedButtonTexts is a string, split it into an array
+    let selectedTextsArray = selectedButtonTexts; // Assumes comma-separated values
+    selectedTextsArray.forEach((text) => {
+      console.log("list", text);
       const li = document.createElement("li");
-      li.textContent = text;
+      li.textContent = text; // Trim in case of extra spaces
+      selectedList.appendChild(li);
+    });
+  } else {
+    selectedOptions.forEach((option) => {
+      const li = document.createElement("li");
+      li.textContent = option;
+  
+      li.onclick = () => deselectOption(option); // Add click event for deselect
       selectedList.appendChild(li);
     });
   }
 
   // Then, render selectedOptions
-  selectedOptions.forEach((option) => {
-    const li = document.createElement("li");
-    li.textContent = option;
 
-    li.onclick = () => deselectOption(option);
-    selectedList.appendChild(li);
-  });
 }
 
 // Handle selecting an option from left panel
@@ -226,24 +235,41 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSelectedOptions(); // Ensure that selectedButtonTexts are rendered when page loads
 });
 
+var headingChange = false;
+// Initialize a click counter
+let clickCount = 0;
+
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
-    // Hide sliderCard--card2 when the button is clicked
-    if (selectedOptions.length > 1) {
+    clickCount++; // Increment the click count on each button click
 
-      // showNextCard("sliderCard--card2", "sliderCard--card2_1");
-      const sliderCardCard2Heading = document.getElementById("sliderCard--card2---heading");
-      const sliderCardCard2_1Heading = document.getElementById("sliderCard--card2-1---heading");
-      sliderCardCard2Heading.style.display = "none";
-      sliderCardCard2_1Heading.style.display = "block";
+    // First click
+    if (clickCount === 1) {
+      // Hide sliderCard--card2 when the button is clicked
+      headingChange = true;
 
-      renderButtons();
-      renderSelectedOptions();
-    } else if (selectedOptions.length === 1) {
-      showNextCard("sliderCard--card2", "sliderCard--card4");
+      if (selectedOptions.length > 1) {
+        // Perform the existing task on the first click
+        const sliderCardCard2Heading = document.getElementById("sliderCard--card2---heading");
+        const sliderCardCard2_1Heading = document.getElementById("sliderCard--card2-1---heading");
+        sliderCardCard2Heading.style.display = "none";
+        sliderCardCard2_1Heading.style.display = "block";
+
+        renderButtons();
+        renderSelectedOptions();
+
+      } else if (selectedOptions.length === 1) {
+        showNextCard("sliderCard--card2", "sliderCard--card4");
+      }
+
+    // Second click
+    } else if (clickCount === 2) {
+      // Call showNextCard on the second click
+      showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
+
 // ===============================================================
 
 var slider = document.getElementById("myRange");
@@ -333,43 +359,45 @@ function setActiveButton(buttons) {
   });
 }
 
+var DisablelastActiveColor = false;
+var firstButtonContent = "";
+var secondButtonContent = "";
+var thirdButtonContent = "";
+var sendToSlider2_2 = false;
+
 // Button click event listeners
 btn1.addEventListener("click", function () {
   // Show all basicTexts and make btn1 active
- // Optional logging
-  if (DisablelastActiveColor) {
-    alert(lastActiveButton.id)
-    // const grayBtn = lastActiveButton.id;
-    // grayBtn.style.backgroundColor = "#a0aec8"
-    if (lastActiveButton ===  btn3) {
-      lastActiveButton.style.backgroundColor = "red"; // Change background color to gray
-   
-    }
-  }
-  
+
+
+  // Update buttons and set btn1 as active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
+  firstButtonContent = basicTexts;
   lastActiveButton = btn1;
+  btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
+  btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
 });
 
 btn2.addEventListener("click", function () {
-  // Show all proTexts and make btn2 active
-
 
 
   updateButtons(proTexts);
   setActiveButton([btn2]);
+  secondButtonContent = proTexts;
   lastActiveButton = btn2;
+  btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
+  btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 });
 
 
-var DisablelastActiveColor = false;
+
 btn3.addEventListener("click", function () {
   // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
   if (lastActiveButton !== btn3) {
     // Check if the last active button was btn1 or btn2
     if (lastActiveButton === btn1 || lastActiveButton === btn2) {
-      lastActiveButton.style.backgroundColor = "gray"; // Change background color to gray
+      lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to gray
       DisablelastActiveColor = true;
     }
 
@@ -377,7 +405,7 @@ btn3.addEventListener("click", function () {
     console.log("Last active button:", lastActiveButton);
 
     setActiveButton([btn3]);
-
+    sendToSlider2_2 = true;
     // Set lastActiveButton to btn3
     lastActiveButton = btn3;
   }
@@ -388,6 +416,8 @@ window.addEventListener("DOMContentLoaded", function () {
   updateButtons(basicTexts); // Show basicTexts in right panel
   setActiveButton([btn1]); // Make btn1 active by default
   lastActiveButton = btn1; // Set btn1 as the last active button
+  btn1.style.backgroundColor = "#304eba"; // Set initial background color for btn1
+  btn2.style.backgroundColor = "#a0aec8"; // Set initial background color for btn2
 });
 
 // =========================================
@@ -397,7 +427,7 @@ document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
     // Create a variable to hold the text of visible buttons
-    let selectedButtonTexts = [];
+
 
     // Loop through rightButtons and collect text from visible buttons
     rightButtons.forEach((button) => {
@@ -406,8 +436,16 @@ document
       }
     });
 
+    if (sendToSlider2_2) {
+      showNextCard("sliderCard--card3","sliderCard--card2")
+    
+    } else {
+      showNextCard("sliderCard--card3","sliderCard--card5")
+    }
+   
+
     // Log the collected texts (You can store or use this array as needed)
-    console.log(selectedButtonTexts);
+    console.log("selectedButtonTexts", selectedButtonTexts);
 
     // You can now use the selectedButtonTexts array for any further logic.
   });
