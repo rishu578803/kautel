@@ -175,13 +175,13 @@ function renderButtons() {
 // Render selected options in the right panel (including selectedButtonTexts)
 
 // Assuming selectedButtonTexts is initialized as a string, let's convert it into an array if needed.
- // Initialize as an empty string or handle as an array if that's the intention
+// Initialize as an empty string or handle as an array if that's the intention
 
 function renderSelectedOptions() {
   const selectedList = document.getElementById("sliderCard__selectedList");
 
   selectedList.innerHTML = ""; // Clear the list first
-console.log("selected options: " , selectedButtonTexts);
+  console.log("selected options: ", selectedButtonTexts);
   // Check if selectedButtonTexts is a non-empty string or an array
   if (selectedButtonTexts && selectedButtonTexts.length > 0) {
     // If selectedButtonTexts is a string, split it into an array
@@ -196,14 +196,13 @@ console.log("selected options: " , selectedButtonTexts);
     selectedOptions.forEach((option) => {
       const li = document.createElement("li");
       li.textContent = option;
-  
+
       li.onclick = () => deselectOption(option); // Add click event for deselect
       selectedList.appendChild(li);
     });
   }
 
   // Then, render selectedOptions
-
 }
 
 // Handle selecting an option from left panel
@@ -251,19 +250,22 @@ document
 
       if (selectedOptions.length > 1) {
         // Perform the existing task on the first click
-        const sliderCardCard2Heading = document.getElementById("sliderCard--card2---heading");
-        const sliderCardCard2_1Heading = document.getElementById("sliderCard--card2-1---heading");
+        const sliderCardCard2Heading = document.getElementById(
+          "sliderCard--card2---heading"
+        );
+        const sliderCardCard2_1Heading = document.getElementById(
+          "sliderCard--card2-1---heading"
+        );
         sliderCardCard2Heading.style.display = "none";
         sliderCardCard2_1Heading.style.display = "block";
 
         renderButtons();
         renderSelectedOptions();
-
       } else if (selectedOptions.length === 1) {
         showNextCard("sliderCard--card2", "sliderCard--card4");
       }
 
-    // Second click
+      // Second click
     } else if (clickCount === 2) {
       // Call showNextCard on the second click
       showNextCard("sliderCard--card2", "sliderCard--card5");
@@ -369,7 +371,6 @@ var sendToSlider2_2 = false;
 btn1.addEventListener("click", function () {
   // Show all basicTexts and make btn1 active
 
-
   // Update buttons and set btn1 as active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
@@ -380,8 +381,6 @@ btn1.addEventListener("click", function () {
 });
 
 btn2.addEventListener("click", function () {
-
-
   updateButtons(proTexts);
   setActiveButton([btn2]);
   secondButtonContent = proTexts;
@@ -389,8 +388,6 @@ btn2.addEventListener("click", function () {
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 });
-
-
 
 btn3.addEventListener("click", function () {
   // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
@@ -428,7 +425,6 @@ document
   .addEventListener("click", function () {
     // Create a variable to hold the text of visible buttons
 
-
     // Loop through rightButtons and collect text from visible buttons
     rightButtons.forEach((button) => {
       if (button.style.display === "block") {
@@ -437,12 +433,13 @@ document
     });
 
     if (sendToSlider2_2) {
-      showNextCard("sliderCard--card3","sliderCard--card2")
-    
+      showNextCard("sliderCard--card3", "sliderCard--card2");
+      renderButtons();
+      renderSelectedOptions();
+
     } else {
-      showNextCard("sliderCard--card3","sliderCard--card5")
+      showNextCard("sliderCard--card3", "sliderCard--card5");
     }
-   
 
     // Log the collected texts (You can store or use this array as needed)
     console.log("selectedButtonTexts", selectedButtonTexts);
