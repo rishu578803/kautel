@@ -64,10 +64,12 @@ document
 document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
+
     if (selectedButtonTexts) {
       showNextCard("sliderCard--card3", "sliderCard--card2");
     } else {
-      showNextCard("sliderCard--card3", "sliderCard--card5");
+
+      showNextCard("sliderCard--card3", "sliderCard--card3");
     }
   });
 
@@ -76,6 +78,8 @@ document
   .addEventListener("click", function () {
     showNextCard("sliderCard--card4", "sliderCard--card5");
   });
+
+  
 document
   .getElementById("sliderCard__calculate-btn--1")
   .addEventListener("click", function () {
@@ -92,27 +96,11 @@ document
 
 // ==========================================================   sliderCard--card4
 // Add event listener for the Next button
-document
-  .getElementById("sliderCard__nextBtn--2")
-  .addEventListener("click", function () {
-    // Hide sliderCard--card2 when the button is clicked
-    document.getElementById("sliderCard--card2").style.display = "none";
 
-    // Check the length of selectedOptions to determine which card to display
-    if (selectedOptions.length > 1) {
-      // Show sliderCard--card7 if more than 1 option is selected
-      document.getElementById("sliderCard--card5").style.display = "block";
-      document.getElementById("sliderCard--card6").style.display = "none"; // Hide card6 if needed
-    } else if (selectedOptions.length === 1) {
-      // Show sliderCard--card6 if exactly 1 option is selected
-      document.getElementById("sliderCard--card4").style.display = "block";
-      document.getElementById("sliderCard--card7").style.display = "none"; // Hide card7 if needed
-    }
-  });
 
 // The rest of the code remains the same
 // Existing array to store selected button texts
-let currentIndex = 0; 
+let currentIndex = 0;
 const buttonsToShow = 5;
 const buttonHeight = 50;
 
@@ -219,7 +207,6 @@ function selectOption(option) {
     // Remove from available options and add to selected options
     availableOptions = availableOptions.filter((opt) => opt !== option);
     selectedOptions.push(option);
- 
 
     renderButtons();
     renderSelectedOptions();
@@ -243,6 +230,25 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSelectedOptions(); // Ensure that selectedButtonTexts are rendered when page loads
 });
 
+
+
+document
+  .getElementById("sliderCard__nextBtn--2")
+  .addEventListener("click", function () {
+    // Hide sliderCard--card2 when the button is clicked
+    if (selectedOptions.length > 1) {
+
+      showNextCard("sliderCard--card2", "sliderCard--card2.1");
+
+      renderButtons();
+      renderSelectedOptions();
+
+    } else if (selectedOptions.length === 1) {
+
+      showNextCard("sliderCard--card2", "sliderCard--card4");
+
+    }
+  });
 // ===============================================================
 
 var slider = document.getElementById("myRange");
@@ -334,22 +340,34 @@ btn1.addEventListener("click", function () {
   // Show all basicTexts and make btn1 active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
-  lastActiveButton = btn1; // Track that btn1 was the last active button
+  lastActiveButton = btn1;
+
+  // Track that btn1 was the last active button
 });
 
 btn2.addEventListener("click", function () {
   // Show all proTexts and make btn2 active
   updateButtons(proTexts);
   setActiveButton([btn2]);
-  lastActiveButton = btn2; // Track that btn2 was the last active button
+  lastActiveButton = btn2;
+
+  // Track that btn2 was the last active button
 });
 
 btn3.addEventListener("click", function () {
   // Show all additionalTexts and make btn3 active
-  updateButtons(additionalTexts);
+  // updateButtons(additionalTexts);\
+  console.log("last active button", lastActiveButton);
+  lastActiveButton = btn3;
+
   setActiveButton([btn3]);
+
 });
 
+// Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
+
+
+// =========================================
 // Store visible button texts on "Next" button click
 
 document
