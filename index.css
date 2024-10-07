@@ -514,3 +514,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin: 5px;
   color: white;
 }
+
+#sliderCard--card2-1---heading{
+  display: none;
+}
