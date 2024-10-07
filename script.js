@@ -231,7 +231,12 @@ document
   .addEventListener("click", function () {
     // Hide sliderCard--card2 when the button is clicked
     if (selectedOptions.length > 1) {
-      showNextCard("sliderCard--card2", "sliderCard--card2.1");
+
+      // showNextCard("sliderCard--card2", "sliderCard--card2_1");
+      const sliderCardCard2Heading = document.getElementById("sliderCard--card2---heading");
+      const sliderCardCard2_1Heading = document.getElementById("sliderCard--card2-1---heading");
+      sliderCardCard2Heading.style.display = "none";
+      sliderCardCard2_1Heading.style.display = "block";
 
       renderButtons();
       renderSelectedOptions();
