@@ -1,6 +1,7 @@
 /// Track the currently active circle
 let activeCircle = "sliderCard__circle--1"; // default to Einzelbürgschaft
 var selectedButtonTexts = [];
+var different_prev = false;
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
   const circle = document.getElementById(circleId);
@@ -56,8 +57,6 @@ function showPreviousCard(currentCardId, previousCardId) {
   previousCard.style.display = "block";
 }
 
-
-
 // Modify the event listener for the first "Next" button
 document
   .getElementById("sliderCard__nextBtn--1")
@@ -70,15 +69,15 @@ document
     }
   });
 
-document
-  .getElementById("sliderCard__nextBtn--3")
-  .addEventListener("click", function () {
-    if (selectedButtonTexts) {
-      showNextCard("sliderCard--card3", "sliderCard--card2");
-    } else {
-      showNextCard("sliderCard--card3", "sliderCard--card3");
-    }
-  });
+// document
+//   .getElementById("sliderCard__nextBtn--3")
+//   .addEventListener("click", function () {
+//     if (selectedButtonTexts) {
+//       showNextCard("sliderCard--card3", "sliderCard--card2");
+//     } else {
+//       showNextCard("sliderCard--card3", "sliderCard--card3");
+//     }
+//   });
 
 document
   .getElementById("sliderCard__nextBtn--4")
@@ -100,13 +99,34 @@ document
     showNextCard("sliderCard--card6", "sliderCard--card7");
   });
 
-
-  document
+document
   .getElementById("sliderCard__gobackBtn--2")
   .addEventListener("click", function () {
     showPreviousCard("sliderCard--card2", "sliderCard--card1");
   });
-  document
+document
+  .getElementById("sliderCard__gobackBtn--4")
+  .addEventListener("click", function () {
+    showPreviousCard("sliderCard--card2", "sliderCard--card7");
+  });
+
+document
+  .getElementById("sliderCard__gobackBtn--3")
+  .addEventListener("click", function () {
+    showPreviousCard("sliderCard--card3", "sliderCard--card1");
+  });
+document
+  .getElementById("sliderCard__gobackBtn--5")
+  .addEventListener("click", function () {
+    if (different_prev) {
+      showPreviousCard("sliderCard--card5", "sliderCard--card3");
+      different_prev = false;
+    } else {
+      showPreviousCard("sliderCard--card5", "sliderCard--card2");
+    }
+  });
+
+document
   .getElementById("calculate-btn_back--2")
   .addEventListener("click", function () {
     showPreviousCard("sliderCard--card7", "sliderCard--card2");
@@ -212,7 +232,6 @@ function renderSelectedOptions() {
       li.textContent = text; // Trim in case of extra spaces
       selectedList.appendChild(li);
       li.onclick = () => deselectOption(text);
-
     });
   } else {
     selectedOptions.forEach((option) => {
@@ -226,8 +245,6 @@ function renderSelectedOptions() {
 
   // Then, render selectedOptions
 }
-
-
 
 // Handle selecting an option from left panel
 function selectOption(option) {
@@ -243,7 +260,7 @@ function selectOption(option) {
 
 // Handle deselecting an option from right panel
 function deselectOption(option) {
-console.log("Deselecting option")
+  console.log("Deselecting option");
 
   if (!availableOptions.includes(option)) {
     // Remove from selected options and add back to available options
@@ -462,9 +479,9 @@ document
       showNextCard("sliderCard--card3", "sliderCard--card2");
       renderButtons();
       renderSelectedOptions();
-
     } else {
       showNextCard("sliderCard--card3", "sliderCard--card5");
+      different_prev = true;
     }
 
     // Log the collected texts (You can store or use this array as needed)
