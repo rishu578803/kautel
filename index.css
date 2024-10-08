@@ -101,6 +101,28 @@
   right: 28px;
   cursor: pointer;
 }
+.sliderCard__gobackbtn {
+  background-color: gray;
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 26px;
+  left: 28px;
+  cursor: pointer;
+}
+.sliderCard__gobackbtn .sliderCard__arrow {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
 
 .sliderCard__nextbtn .sliderCard__arrow {
   font-size: 16px;
@@ -139,14 +161,13 @@
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
 
-
   max-height: 320px;
-    min-height: 320px;
-    overflow: auto;
+  min-height: 320px;
+  overflow: auto;
 }
 
 .sliderCard__btn {
-  background-color: #A0AEC8;
+  background-color: #a0aec8;
   border: none;
   padding: 10px;
   margin: 5px 0;
@@ -252,18 +273,15 @@
   margin-bottom: 20px;
 }
 
-
-
 .amount-section {
   margin-bottom: 20px;
 }
 
-
-  label {
-    font-size: 18px;
-    font-weight: bold;
-    display: block;
-    color: #334271;
+label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  color: #334271;
 }
 
 .selected_Amount {
@@ -303,7 +321,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 5px;
-  background-color: #ccc
+  background-color: #ccc;
 }
 
 /* scrolling css */
@@ -339,8 +357,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   scroll-behavior: smooth; /* Enables smooth scrolling for browsers that support it */
 }
 
-
-
 .slidecontainer {
   width: 100%;
 }
@@ -353,8 +369,8 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
 .slider:hover {
@@ -367,7 +383,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: #04aa6d;
   cursor: pointer;
 }
 
@@ -375,7 +391,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: #04aa6d;
   cursor: pointer;
 }
 
@@ -389,12 +405,12 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin: 20px 0;
 }
 
-.sliderCard  .left-section p,
+.sliderCard .left-section p,
 .right-section p {
   margin: 5px 0;
 }
 
-.sliderCard  .amount {
+.sliderCard .amount {
   color: red;
   font-size: 16px;
   font-weight: bold;
@@ -405,9 +421,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin-left: 20px;
 }
 
-
 .calculate-btn {
-
   margin-top: 40px;
   height: 100px;
   padding: 0px 50px;
@@ -432,44 +446,44 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 .calculate-btn .arrow {
   background-color: #ff6b47;
-    color: white;
-    padding: 12px 15px;
-    border-radius: 50%;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.info-box .heading{
-  color: #5770C7;
+.info-box .heading {
+  color: #5770c7;
   font-size: 17px;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
-.info-box .sub_heading{
-  color: #FC8463;
+.info-box .sub_heading {
+  color: #fc8463;
   font-size: 17px;
   margin-bottom: 30px;
   font-weight: 500;
-
 }
 
 .sliderCard__rightPanel button {
   display: none; /* All buttons hidden by default */
 }
 
-
 .sliderCard__container {
   display: flex;
 }
 
-.sliderCard__leftPanel, .sliderCard__rightPanel {
+.sliderCard__leftPanel,
+.sliderCard__rightPanel {
   margin: 10px;
 }
 
-.sliderCard__btnContainer button, .sliderCard__rightPanel button {
+.sliderCard__btnContainer button,
+.sliderCard__rightPanel button {
   display: block;
   margin: 5px 0;
 
@@ -491,7 +505,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   background-color: #304eba;
   color: white;
 }
-
 
 .sliderCard__left-button {
   background-color: #a0aec8;
@@ -515,6 +528,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   color: white;
 }
 
-#sliderCard--card2-1---heading{
+#sliderCard--card2-1---heading {
   display: none;
 }

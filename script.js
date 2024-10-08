@@ -48,6 +48,15 @@ function showNextCard(currentCardId, nextCardId) {
   currentCard.style.display = "none";
   nextCard.style.display = "block";
 }
+function showPreviousCard(currentCardId, previousCardId) {
+  const currentCard = document.getElementById(currentCardId);
+  const previousCard = document.getElementById(previousCardId);
+
+  currentCard.style.display = "none";
+  previousCard.style.display = "block";
+}
+
+
 
 // Modify the event listener for the first "Next" button
 document
@@ -91,6 +100,17 @@ document
     showNextCard("sliderCard--card6", "sliderCard--card7");
   });
 
+
+  document
+  .getElementById("sliderCard__gobackBtn--2")
+  .addEventListener("click", function () {
+    showPreviousCard("sliderCard--card2", "sliderCard--card1");
+  });
+  document
+  .getElementById("calculate-btn_back--2")
+  .addEventListener("click", function () {
+    showPreviousCard("sliderCard--card7", "sliderCard--card2");
+  });
 // ==========================================================   sliderCard--card4
 // Add event listener for the Next button
 
@@ -191,6 +211,8 @@ function renderSelectedOptions() {
       const li = document.createElement("li");
       li.textContent = text; // Trim in case of extra spaces
       selectedList.appendChild(li);
+      li.onclick = () => deselectOption(text);
+
     });
   } else {
     selectedOptions.forEach((option) => {
@@ -204,6 +226,8 @@ function renderSelectedOptions() {
 
   // Then, render selectedOptions
 }
+
+
 
 // Handle selecting an option from left panel
 function selectOption(option) {
@@ -219,6 +243,8 @@ function selectOption(option) {
 
 // Handle deselecting an option from right panel
 function deselectOption(option) {
+console.log("Deselecting option")
+
   if (!availableOptions.includes(option)) {
     // Remove from selected options and add back to available options
     selectedOptions = selectedOptions.filter((opt) => opt !== option);
@@ -295,13 +321,13 @@ slider2.oninput = function () {
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 
 // ==============================
-const basicTexts = ["Basic Text 1", "Basic Text 2", "Basic Text 3"];
+const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
 const proTexts = [
-  "Pro Text 1",
-  "Pro Text 2",
-  "Pro Text 3",
-  "Pro Text 4",
-  "Pro Text 5",
+  "An- und Vorauszahlungen",
+  "Bauhandwerkersicherung",
+  "Gewährleistung",
+  "Mängelansprüche",
+  "Mietkaution gew.",
 ];
 const additionalTexts = [
   "Basic Text 1",
