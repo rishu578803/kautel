@@ -432,7 +432,35 @@ btn2.addEventListener("click", function () {
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 });
 
+// btn3.addEventListener("click", function () {
+//   btn3.style.backgroundColor = "#3b73cc";
+//   // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
+//   if (lastActiveButton !== btn3) {
+//     // Check if the last active button was btn1 or btn2
+//     if (lastActiveButton === btn1 || lastActiveButton === btn2) {
+//       lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to gray
+//       DisablelastActiveColor = true;
+//     }
+
+//     // Show all additionalTexts and make btn3 active
+//     console.log("Last active button:", lastActiveButton);
+
+//     setActiveButton([btn3]);
+//     sendToSlider2_2 = true;
+//     // Set lastActiveButton to btn3
+//     lastActiveButton = btn3;
+//   }
+// });
+
+// =======================================
 btn3.addEventListener("click", function () {
+  // Toggle the background color between green and red
+  if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
+    btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red on second click
+  } else {
+    btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to green on first click
+  }
+
   // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
   if (lastActiveButton !== btn3) {
     // Check if the last active button was btn1 or btn2
@@ -450,6 +478,7 @@ btn3.addEventListener("click", function () {
     lastActiveButton = btn3;
   }
 });
+
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 window.addEventListener("DOMContentLoaded", function () {
