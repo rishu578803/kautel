@@ -69,11 +69,22 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
-
-document
+  document
   .getElementById("sliderCard__nextBtn--4")
   .addEventListener("click", function () {
-    showNextCard("sliderCard--card4", "sliderCard--card5");
+    showNextCard("sliderCard--card4", "sliderCard--card6");
+  });
+
+
+  document
+  .getElementById("sliderCard--card6_back_btn")
+  .addEventListener("click", function () {
+    showNextCard("sliderCard--card6", "sliderCard--card4");
+  });
+document
+  .getElementById("sliderCard__nextBtn--5")
+  .addEventListener("click", function () {
+    showNextCard("sliderCard--card5", "sliderCard--card7");
   });
 
 document
@@ -98,7 +109,7 @@ document
 document
   .getElementById("sliderCard__gobackBtn--4")
   .addEventListener("click", function () {
-    showPreviousCard("sliderCard--card2", "sliderCard--card7");
+    showPreviousCard("sliderCard--card4", "sliderCard--card2");
   });
 
 document
@@ -274,8 +285,9 @@ document
     if (clickCount === 1) {
       // Hide sliderCard--card2 when the button is clicked
       headingChange = true;
-
-      if (selectedOptions.length > 1) {
+  
+      if (selectedOptions.length > 1 || selectedButtonTexts.length > 1) {
+     
         // Perform the existing task on the first click
         const sliderCardCard2Heading = document.getElementById(
           "sliderCard--card2---heading"
@@ -288,13 +300,19 @@ document
 
         renderButtons();
         renderSelectedOptions();
-      } else if (selectedOptions.length === 1) {
+
+
+     
+      } else if (selectedButtonTexts.length === 1) {
         showNextCard("sliderCard--card2", "sliderCard--card4");
       }
-
+      console.log("headingChange then",selectedOptions)
+      console.log("headingChange then 2",selectedButtonTexts)
       // Second click
     } else if (clickCount === 2) {
       // Call showNextCard on the second click
+
+     console.log("================================================================")
       showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
