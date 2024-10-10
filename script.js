@@ -49,6 +49,7 @@ function showNextCard(currentCardId, nextCardId) {
   currentCard.style.display = "none";
   nextCard.style.display = "block";
 }
+
 function showPreviousCard(currentCardId, previousCardId) {
   const currentCard = document.getElementById(currentCardId);
   const previousCard = document.getElementById(previousCardId);
@@ -68,16 +69,6 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
-
-// document
-//   .getElementById("sliderCard__nextBtn--3")
-//   .addEventListener("click", function () {
-//     if (selectedButtonTexts) {
-//       showNextCard("sliderCard--card3", "sliderCard--card2");
-//     } else {
-//       showNextCard("sliderCard--card3", "sliderCard--card3");
-//     }
-//   });
 
 document
   .getElementById("sliderCard__nextBtn--4")
@@ -166,7 +157,7 @@ function scrollDown() {
   }
 }
 
-let availableOptions = [
+var availableOptions = [
   "An-/Vorauszahlung",
   "Arbeitszeitkonten",
   "Gewährleistung",
@@ -190,6 +181,7 @@ let availableOptions = [
 
 let selectedOptions = [];
 var selectedButtonTexts = [];
+
 // Render buttons in the left panel (available options)
 function renderButtons() {
   const buttonContainer = document.querySelector(".sliderCard__btnContainer");
@@ -213,45 +205,37 @@ function renderButtons() {
 }
 
 // Render selected options in the right panel (including selectedButtonTexts)
-
-// Assuming selectedButtonTexts is initialized as a string, let's convert it into an array if needed.
-// Initialize as an empty string or handle as an array if that's the intention
-
 function renderSelectedOptions() {
   const selectedList = document.getElementById("sliderCard__selectedList");
 
-  selectedList.innerHTML = ""; // Clear the list first
+  selectedList.innerHTML = "";
+
   console.log("selected options: ", selectedButtonTexts);
-  // Check if selectedButtonTexts is a non-empty string or an array
+
   if (selectedButtonTexts && selectedButtonTexts.length > 0) {
-    // If selectedButtonTexts is a string, split it into an array
-    let selectedTextsArray = selectedButtonTexts; // Assumes comma-separated values
-    selectedTextsArray.forEach((text) => {
-      console.log("list", text);
+    selectedButtonTexts.forEach((text) => {
       const li = document.createElement("li");
-      li.textContent = text; // Trim in case of extra spaces
+      li.textContent = text;
       selectedList.appendChild(li);
-      li.onclick = () => deselectOption(text);
+      li.onclick = () => deselectOption(text); // Clicking li will deselect the option
     });
   } else {
-    selectedOptions.forEach((option) => {
-      const li = document.createElement("li");
-      li.textContent = option;
-
-      li.onclick = () => deselectOption(option); // Add click event for deselect
-      selectedList.appendChild(li);
-    });
   }
+  selectedOptions.forEach((option) => {
+    const li = document.createElement("li");
+    li.textContent = option;
 
-  // Then, render selectedOptions
+    li.onclick = () => deselectOption(option); // Add click event for deselect
+    selectedList.appendChild(li);
+  });
 }
 
 // Handle selecting an option from left panel
 function selectOption(option) {
-  if (!selectedOptions.includes(option)) {
+  if (!selectedButtonTexts.includes(option)) {
     // Remove from available options and add to selected options
     availableOptions = availableOptions.filter((opt) => opt !== option);
-    selectedOptions.push(option);
+    selectedButtonTexts.push(option); // Add to selectedButtonTexts
 
     renderButtons();
     renderSelectedOptions();
@@ -263,9 +247,9 @@ function deselectOption(option) {
   console.log("Deselecting option");
 
   if (!availableOptions.includes(option)) {
-    // Remove from selected options and add back to available options
-    selectedOptions = selectedOptions.filter((opt) => opt !== option);
-    availableOptions.push(option);
+    // Remove from selectedButtonTexts and add back to available options
+    selectedButtonTexts = selectedButtonTexts.filter((opt) => opt !== option);
+    availableOptions.push(option); // Add back to availableOptions
 
     renderButtons();
     renderSelectedOptions();
@@ -478,7 +462,6 @@ btn3.addEventListener("click", function () {
     lastActiveButton = btn3;
   }
 });
-
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 window.addEventListener("DOMContentLoaded", function () {
