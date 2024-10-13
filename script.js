@@ -1,7 +1,8 @@
-/// Track the currently active circle
-let activeCircle = "sliderCard__circle--1"; // default to Einzelbürgschaft
+var activeCircle = "sliderCard__circle--1"; // default to Einzelbürgschaft
 var selectedButtonTexts = [];
+var btn_textContext = [];
 var different_prev = false;
+
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
   const circle = document.getElementById(circleId);
@@ -20,6 +21,8 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
 
     // Set the active circle
     activeCircle = circleId;
+
+    // Log the updated activeCircle value
   });
 }
 
@@ -30,12 +33,17 @@ toggleCircleAndLabel(
   "sliderCard__circle--2",
   "toggleLabel2"
 );
+
 toggleCircleAndLabel(
   "sliderCard__circle--2",
   "toggleLabel2",
   "sliderCard__circle--1",
   "toggleLabel1"
 );
+
+function getActiveCircle() {
+  return activeCircle;
+}
 
 // Default to Einzelbürgschaft (first circle)
 document.getElementById("sliderCard__circle--1").style.backgroundColor = "blue";
@@ -48,6 +56,8 @@ function showNextCard(currentCardId, nextCardId) {
 
   currentCard.style.display = "none";
   nextCard.style.display = "block";
+
+  console.log("Active circle changed to:", activeCircle);
 }
 
 function showPreviousCard(currentCardId, previousCardId) {
@@ -69,14 +79,13 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
-  document
+document
   .getElementById("sliderCard__nextBtn--4")
   .addEventListener("click", function () {
     showNextCard("sliderCard--card4", "sliderCard--card6");
   });
 
-
-  document
+document
   .getElementById("sliderCard--card6_back_btn")
   .addEventListener("click", function () {
     showNextCard("sliderCard--card6", "sliderCard--card4");
@@ -173,21 +182,21 @@ var availableOptions = [
   "Arbeitszeitkonten",
   "Gewährleistung",
   "Mängelansprüche",
-  "Gew. Mietbürgschaft",
-  "Handwerkersicherung",
-  "Vertragserfüllung",
-  "Vertragserfüllung 1",
-  "Vertragserfüllung 2",
-  "Vertragserfüllung 3",
-  "Vertragserfüllung 4",
-  "Vertragserfüllung 5",
-  "Vertragserfüllung 6",
-  "Vertragserfüllung 7",
-  "Vertragserfüllung 8",
-  "Vertragserfüllung 9",
-  "Vertragserfüllung 10",
-  "Vertragserfüllung 11",
-  "Vertragserfüllung 12",
+  // "Gew. Mietbürgschaft",
+  // "Handwerkersicherung",
+  // "Vertragserfüllung",
+  // "Vertragserfüllung 1",
+  // "Vertragserfüllung 2",
+  // "Vertragserfüllung 3",
+  // "Vertragserfüllung 4",
+  // "Vertragserfüllung 5",
+  // "Vertragserfüllung 6",
+  // "Vertragserfüllung 7",
+  // "Vertragserfüllung 8",
+  // "Vertragserfüllung 9",
+  // "Vertragserfüllung 10",
+  // "Vertragserfüllung 11",
+  // "Vertragserfüllung 12",
 ];
 
 let selectedOptions = [];
@@ -217,28 +226,35 @@ function renderButtons() {
 
 // Render selected options in the right panel (including selectedButtonTexts)
 function renderSelectedOptions() {
-  const selectedList = document.getElementById("sliderCard__selectedList");
+  if (activeCircle == "sliderCard__circle--1") {
+    const selectedList = document.getElementById("sliderCard__selectedList");
 
-  selectedList.innerHTML = "";
+    selectedList.innerHTML = "";
 
-  console.log("selected options: ", selectedButtonTexts);
+    console.log("selected options: ", selectedButtonTexts);
 
-  if (selectedButtonTexts && selectedButtonTexts.length > 0) {
-    selectedButtonTexts.forEach((text) => {
-      const li = document.createElement("li");
-      li.textContent = text;
-      selectedList.appendChild(li);
-      li.onclick = () => deselectOption(text); // Clicking li will deselect the option
-    });
+    if (selectedButtonTexts && selectedButtonTexts.length > 0) {
+      selectedButtonTexts.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        selectedList.appendChild(li);
+        li.onclick = () => deselectOption(text); // Clicking li will deselect the option
+      });
+    } else {
+    }
   } else {
-  }
-  selectedOptions.forEach((option) => {
-    const li = document.createElement("li");
-    li.textContent = option;
+    const selectedList = document.getElementById("sliderCard__selectedList");
 
-    li.onclick = () => deselectOption(option); // Add click event for deselect
-    selectedList.appendChild(li);
-  });
+    selectedList.innerHTML = "";
+
+    selectedOptions.forEach((option) => {
+      const li = document.createElement("li");
+      li.textContent = option;
+
+      li.onclick = () => deselectOption(option); // Add click event for deselect
+      selectedList.appendChild(li);
+    });
+  }
 }
 
 // Handle selecting an option from left panel
@@ -279,41 +295,50 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
-    clickCount++; // Increment the click count on each button click
+    if (activeCircle == "sliderCard__circle--1") {
+      // Increment the click count on each button click
+      clickCount++;
+      // First click
+      if (clickCount === 1) {
+        // Hide sliderCard--card2 when the button is clicked
+        headingChange = true;
 
-    // First click
-    if (clickCount === 1) {
-      // Hide sliderCard--card2 when the button is clicked
-      headingChange = true;
-  
-      if (selectedOptions.length > 1 || selectedButtonTexts.length > 1) {
-     
-        // Perform the existing task on the first click
         const sliderCardCard2Heading = document.getElementById(
           "sliderCard--card2---heading"
         );
         const sliderCardCard2_1Heading = document.getElementById(
           "sliderCard--card2-1---heading"
         );
+
         sliderCardCard2Heading.style.display = "none";
         sliderCardCard2_1Heading.style.display = "block";
 
-        renderButtons();
-        renderSelectedOptions();
+        if (selectedButtonTexts.length > 1) {
+          // Perform the existing task on the first click
+          renderButtons();
+          renderSelectedOptions();
+        } else if (selectedButtonTexts.length === 1) {
+          showNextCard("sliderCard--card2", "sliderCard--card4");
+        }
+        console.log("headingChange then", selectedOptions);
+        console.log("headingChange then 2", selectedButtonTexts);
+        // Second click
+      } else if (clickCount == 2) {
+        // Call showNextCard on the second click
 
-
-     
-      } else if (selectedButtonTexts.length === 1) {
-        showNextCard("sliderCard--card2", "sliderCard--card4");
+        showNextCard("sliderCard--card2", "sliderCard--card5");
+      } else if (clickCount >= 3) {
+        console.log("clickcount more than 1", clickCount);
+        if (selectedButtonTexts.length > 1) {
+          // Perform the existing task on the first click
+          renderButtons();
+          renderSelectedOptions();
+          showNextCard("sliderCard--card2", "sliderCard--card5");
+        } else if (selectedButtonTexts.length === 1) {
+          showNextCard("sliderCard--card2", "sliderCard--card4");
+        }
       }
-      console.log("headingChange then",selectedOptions)
-      console.log("headingChange then 2",selectedButtonTexts)
-      // Second click
-    } else if (clickCount === 2) {
-      // Call showNextCard on the second click
-
-     console.log("================================================================")
-      showNextCard("sliderCard--card2", "sliderCard--card5");
+    } else {
     }
   });
 
@@ -434,26 +459,6 @@ btn2.addEventListener("click", function () {
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 });
 
-// btn3.addEventListener("click", function () {
-//   btn3.style.backgroundColor = "#3b73cc";
-//   // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
-//   if (lastActiveButton !== btn3) {
-//     // Check if the last active button was btn1 or btn2
-//     if (lastActiveButton === btn1 || lastActiveButton === btn2) {
-//       lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to gray
-//       DisablelastActiveColor = true;
-//     }
-
-//     // Show all additionalTexts and make btn3 active
-//     console.log("Last active button:", lastActiveButton);
-
-//     setActiveButton([btn3]);
-//     sendToSlider2_2 = true;
-//     // Set lastActiveButton to btn3
-//     lastActiveButton = btn3;
-//   }
-// });
-
 // =======================================
 btn3.addEventListener("click", function () {
   // Toggle the background color between green and red
@@ -497,25 +502,89 @@ document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
     // Create a variable to hold the text of visible buttons
+    if (activeCircle == "sliderCard__circle--2") {
+      // Loop through rightButtons and collect text from visible buttons
+      rightButtons.forEach((button) => {
+        if (button.style.display === "block") {
+          btn_textContext.push(button.textContent);
 
-    // Loop through rightButtons and collect text from visible buttons
-    rightButtons.forEach((button) => {
-      if (button.style.display === "block") {
-        selectedButtonTexts.push(button.textContent);
-      }
-    });
+          console.log("button.textContent array", btn_textContext);
 
-    if (sendToSlider2_2) {
-      showNextCard("sliderCard--card3", "sliderCard--card2");
-      renderButtons();
-      renderSelectedOptions();
-    } else {
-      showNextCard("sliderCard--card3", "sliderCard--card5");
-      different_prev = true;
+          selectedButtonTexts.push(button.textContent);
+        }
+      });
+
+      availableOptions = availableOptions.filter((option) => {
+        console.log(
+          "============================================================"
+        );
+        if (btn_textContext.includes(option)) {
+          selectedButtonTexts.push(option);
+
+          console.log("availableOptions after filter", availableOptions);
+          console.log("selectedButtonTexts after filter", selectedButtonTexts);
+          // Render updated available options and selected options
+          renderButtons();
+          renderSelectedOptions();
+
+          // Handle navigation logic after filtering
+          if (sendToSlider2_2) {
+            const sliderCardCard2Heading = document.getElementById(
+              "sliderCard--card2---heading"
+            );
+            const sliderCardCard2_1Heading = document.getElementById(
+              "sliderCard--card2-1---heading"
+            );
+
+            sliderCardCard2Heading.style.display = "none";
+            sliderCardCard2_1Heading.style.display = "block";
+
+            showNextCard("sliderCard--card3", "sliderCard--card2");
+            renderButtons();
+            renderSelectedOptions();
+          } else {
+            showNextCard("sliderCard--card3", "sliderCard--card5");
+            different_prev = true;
+          }
+
+          // Add the filtered option to selectedButtonTexts
+          return false; // Return false to remove it from availableOptions
+        }
+
+        console.log("availableOptions after filter", availableOptions);
+        console.log("selectedButtonTexts after filter", selectedButtonTexts);
+        // Render updated available options and selected options
+        renderButtons();
+        renderSelectedOptions();
+
+        // Handle navigation logic after filtering
+        if (sendToSlider2_2) {
+          const sliderCardCard2Heading = document.getElementById(
+            "sliderCard--card2---heading"
+          );
+          const sliderCardCard2_1Heading = document.getElementById(
+            "sliderCard--card2-1---heading"
+          );
+
+          sliderCardCard2Heading.style.display = "none";
+          sliderCardCard2_1Heading.style.display = "block";
+
+          showNextCard("sliderCard--card3", "sliderCard--card2");
+          renderButtons();
+          renderSelectedOptions();
+        } else {
+          showNextCard("sliderCard--card3", "sliderCard--card5");
+          different_prev = true;
+
+          return true;
+        } // Keep the options that are not in selectedButtonTexts
+      });
+
+      // Log the collected texts (You can store or use this array as needed)
+      console.log("selectedButtonTexts", selectedButtonTexts);
     }
-
-    // Log the collected texts (You can store or use this array as needed)
-    console.log("selectedButtonTexts", selectedButtonTexts);
 
     // You can now use the selectedButtonTexts array for any further logic.
   });
+
+// ============================================= 211111111111111111111111111111111111111111111

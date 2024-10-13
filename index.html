@@ -97,30 +97,38 @@
             id="sliderCard--card2_1"
             style="display: none">
             <h4 class="sliderCard__heading" id="sliderCard__card2--heading">
-              Bürgschaftsmodell ergänzen
+              Bürgschaftsmodell ergänzen 222222222222
             </h4>
             <p
               class="sliderCard__subheading"
               id="sliderCard__card2--subheading">
               Wählen Sie nun die weiteren Bürgschaftsarten aus
             </p>
-
-            <div class="sliderCard__container">
-              <div class="sliderCard__leftPanel">
-                <p class="sliderCard__description">Bürgschaftsarten</p>
-                <div
-                  class="sliderCard__scrollBtn sliderCard__scrollBtn--up"
-                  onclick="scrollUp()"></div>
-                <div class="sliderCard__btnContainer"></div>
-
-                <div
-                  class="sliderCard__scrollBtn sliderCard__scrollBtn--down"
-                  onclick="scrollDown()"></div>
+            <div class="sliderCard__container2">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="sliderCard__leftPanel">
+                    <p class="sliderCard__description">Bürgschaftsarten</p>
+                    <div
+                      class="sliderCard__scrollBtn sliderCard__scrollBtn--up"
+                      onclick="scrollUp()"></div>
+                    <div class="sliderCard__btnContainer"></div>
+                    <!-- Dynamically filled buttons -->
+    
+                    <div
+                      class="sliderCard__scrollBtn sliderCard__scrollBtn--down"
+                      onclick="scrollDown()"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="sliderCard__rightPanel">
+                    <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
+                    <ul id="sliderCard__selectedList2"></ul>
+                  </div>
+                </div>
               </div>
-              <div class="sliderCard__rightPanel">
-                <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
-                <ul id="sliderCard__selectedList"></ul>
-              </div>
+          
+          
             </div>
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--2.1">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
@@ -133,7 +141,7 @@
           <div class="sliderCard" id="sliderCard--card3" style="display: none">
             <h4 class="sliderCard__heading">Bürgschaftsart auswählen</h4>
             <p class="sliderCard__subheading">
-              Wählen Sie nun die weiteren Bürgschaftsarten aus
+              Wählen Sie nun die weiteren Bürgschaftsarten aus 
             </p>
 
             <!-- ============================================== new button  ================================================-->
@@ -314,7 +322,7 @@
                 <p class="sub_heading">An-/Vorauszahlung</p>
                 <br />
                 <p class="heading">Höhe der Bürgschaft</p>
-                <p class="sub_heading">20.000 €</p>
+                <p class="sub_heading" id="selectedAmount">20.000 €</p>
               </div>
 
               <div class="right-section">
@@ -346,7 +354,7 @@
                 <p class="sub_heading">An-/Vorauszahlung</p>
                 <br />
                 <p class="heading">Höhe der Bürgschaft</p>
-                <p class="sub_heading">75.000 €</p>
+                <p class="sub_heading" id="selectedAmount2">75.000 €</p>
               </div>
 
               <div class="right-section">
