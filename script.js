@@ -126,6 +126,8 @@ document
   .addEventListener("click", function () {
     showPreviousCard("sliderCard--card3", "sliderCard--card1");
   });
+
+
 document
   .getElementById("sliderCard__gobackBtn--5")
   .addEventListener("click", function () {
@@ -178,25 +180,26 @@ function scrollDown() {
 }
 
 var availableOptions = [
+  "RISHU", "KAUSHAL", "YES",
   "An-/Vorauszahlung",
   "Arbeitszeitkonten",
   "Gewährleistung",
   "Mängelansprüche",
-  // "Gew. Mietbürgschaft",
-  // "Handwerkersicherung",
-  // "Vertragserfüllung",
-  // "Vertragserfüllung 1",
-  // "Vertragserfüllung 2",
-  // "Vertragserfüllung 3",
-  // "Vertragserfüllung 4",
-  // "Vertragserfüllung 5",
-  // "Vertragserfüllung 6",
-  // "Vertragserfüllung 7",
-  // "Vertragserfüllung 8",
-  // "Vertragserfüllung 9",
-  // "Vertragserfüllung 10",
-  // "Vertragserfüllung 11",
-  // "Vertragserfüllung 12",
+  "Gew. Mietbürgschaft",
+  "Handwerkersicherung",
+  "Vertragserfüllung",
+  "Vertragserfüllung 1",
+  "Vertragserfüllung 2",
+  "Vertragserfüllung 3",
+  "Vertragserfüllung 4",
+  "Vertragserfüllung 5",
+  "Vertragserfüllung 6",
+  "Vertragserfüllung 7",
+  "Vertragserfüllung 8",
+  "Vertragserfüllung 9",
+  "Vertragserfüllung 10",
+  "Vertragserfüllung 11",
+  "Vertragserfüllung 12",
 ];
 
 let selectedOptions = [];
@@ -247,13 +250,15 @@ function renderSelectedOptions() {
 
     selectedList.innerHTML = "";
 
-    selectedOptions.forEach((option) => {
-      const li = document.createElement("li");
-      li.textContent = option;
-
-      li.onclick = () => deselectOption(option); // Add click event for deselect
-      selectedList.appendChild(li);
-    });
+    if (selectedButtonTexts && selectedButtonTexts.length > 0) {
+      selectedButtonTexts.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        selectedList.appendChild(li);
+        li.onclick = () => deselectOption(text); // Clicking li will deselect the option
+      });
+    } else {
+    }
   }
 }
 
@@ -365,8 +370,10 @@ slider2.oninput = function () {
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 
 // ==============================
-const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
+const basicTexts = ["RISHU", "KAUSHAL", "YES"];
+// const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
 const proTexts = [
+  "RISHU", "KAUSHAL", "YES",
   "An- und Vorauszahlungen",
   "Bauhandwerkersicherung",
   "Gewährleistung",
@@ -406,6 +413,8 @@ let lastActiveButton = null;
 
 // Function to update button text and display them
 function updateButtons(texts) {
+
+  console.log("Updating buttons",texts)
   // Hide all right panel buttons initially
   for (let i = 0; i < rightButtons.length; i++) {
     rightButtons[i].style.display = "none";
@@ -444,7 +453,8 @@ btn1.addEventListener("click", function () {
   // Update buttons and set btn1 as active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
-  firstButtonContent = basicTexts;
+  firstButtonContent = "active";
+  secondButtonContent = "not active";
   lastActiveButton = btn1;
   btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
   btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
@@ -453,7 +463,10 @@ btn1.addEventListener("click", function () {
 btn2.addEventListener("click", function () {
   updateButtons(proTexts);
   setActiveButton([btn2]);
-  secondButtonContent = proTexts;
+
+  secondButtonContent = "active";
+  firstButtonContent = "not active";
+
   lastActiveButton = btn2;
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
@@ -478,7 +491,7 @@ btn3.addEventListener("click", function () {
 
     // Show all additionalTexts and make btn3 active
     console.log("Last active button:", lastActiveButton);
-
+console.log("firstButtonContent",firstButtonContent)
     setActiveButton([btn3]);
     sendToSlider2_2 = true;
     // Set lastActiveButton to btn3
@@ -498,93 +511,67 @@ window.addEventListener("DOMContentLoaded", function () {
 // =========================================
 // Store visible button texts on "Next" button click
 
-document
-  .getElementById("sliderCard__nextBtn--3")
-  .addEventListener("click", function () {
-    // Create a variable to hold the text of visible buttons
-    if (activeCircle == "sliderCard__circle--2") {
-      // Loop through rightButtons and collect text from visible buttons
-      rightButtons.forEach((button) => {
-        if (button.style.display === "block") {
-          btn_textContext.push(button.textContent);
+document.getElementById("sliderCard__nextBtn--3").addEventListener("click", function () {
+  selectedButtonTexts = [];
 
-          console.log("button.textContent array", btn_textContext);
+  if (activeCircle == "sliderCard__circle--2") {
+    console.log("Button clicked, starting process...");
 
-          selectedButtonTexts.push(button.textContent);
+    console.log("Initial basicTexts:",  basicTexts );
+    console.log("Initial proTexts:",  proTexts);
+    console.log("Initial availableOptions:", availableOptions);
+//     console.log("Initial selectedButtonTexts:", selectedButtonTexts);
+// console.log("Initial secondButtonContent:", secondButtonContent);
+
+    if (secondButtonContent === "active") {
+
+      console.log("btn2.classList.contains active");
+      console.log("btn2 is active, processing proTexts:", proTexts);
+ 
+      proTexts.map((text) => {
+      
+        if (!selectedButtonTexts.includes(text)) {
+    
+          selectedButtonTexts.push(text);
+          availableOptions = availableOptions.filter((opt) => opt !== text);
+         
         }
       });
-
-      availableOptions = availableOptions.filter((option) => {
-        console.log(
-          "============================================================"
-        );
-        if (btn_textContext.includes(option)) {
-          selectedButtonTexts.push(option);
-
-          console.log("availableOptions after filter", availableOptions);
-          console.log("selectedButtonTexts after filter", selectedButtonTexts);
-          // Render updated available options and selected options
-          renderButtons();
-          renderSelectedOptions();
-
-          // Handle navigation logic after filtering
-          if (sendToSlider2_2) {
-            const sliderCardCard2Heading = document.getElementById(
-              "sliderCard--card2---heading"
-            );
-            const sliderCardCard2_1Heading = document.getElementById(
-              "sliderCard--card2-1---heading"
-            );
-
-            sliderCardCard2Heading.style.display = "none";
-            sliderCardCard2_1Heading.style.display = "block";
-
-            showNextCard("sliderCard--card3", "sliderCard--card2");
-            renderButtons();
-            renderSelectedOptions();
-          } else {
-            showNextCard("sliderCard--card3", "sliderCard--card5");
-            different_prev = true;
-          }
-
-          // Add the filtered option to selectedButtonTexts
-          return false; // Return false to remove it from availableOptions
+      console.log("after availableOptions: new ", availableOptions,selectedButtonTexts);
+  
+    } else if (firstButtonContent === "active") {
+      console.log("btn1 is active, processing basicTexts:", basicTexts);
+      console.log("btn1.classList.contains active");
+      basicTexts.map((text) => {
+        if (!selectedButtonTexts.includes(text)) {
+          selectedButtonTexts.push(text);
+          availableOptions = availableOptions.filter((opt) => opt !== text);
         }
-
-        console.log("availableOptions after filter", availableOptions);
-        console.log("selectedButtonTexts after filter", selectedButtonTexts);
-        // Render updated available options and selected options
-        renderButtons();
-        renderSelectedOptions();
-
-        // Handle navigation logic after filtering
-        if (sendToSlider2_2) {
-          const sliderCardCard2Heading = document.getElementById(
-            "sliderCard--card2---heading"
-          );
-          const sliderCardCard2_1Heading = document.getElementById(
-            "sliderCard--card2-1---heading"
-          );
-
-          sliderCardCard2Heading.style.display = "none";
-          sliderCardCard2_1Heading.style.display = "block";
-
-          showNextCard("sliderCard--card3", "sliderCard--card2");
-          renderButtons();
-          renderSelectedOptions();
-        } else {
-          showNextCard("sliderCard--card3", "sliderCard--card5");
-          different_prev = true;
-
-          return true;
-        } // Keep the options that are not in selectedButtonTexts
       });
-
-      // Log the collected texts (You can store or use this array as needed)
-      console.log("selectedButtonTexts", selectedButtonTexts);
     }
+    // Check if the arrays have the expected values
+    console.log("After processing:");
 
-    // You can now use the selectedButtonTexts array for any further logic.
-  });
+
+    if (sendToSlider2_2) {
+      renderButtons();
+      renderSelectedOptions();
+
+
+      // Display new heading
+      document.getElementById("sliderCard--card2---heading").style.display = "none";
+      document.getElementById("sliderCard--card2-1---heading").style.display = "block";
+
+      showNextCard("sliderCard--card3", "sliderCard--card2");
+    } else {
+      showNextCard("sliderCard--card3", "sliderCard--card5");
+      different_prev = true;
+    }
+  } else {
+    alert("Please select");
+  }
+});
+
+
 
 // ============================================= 211111111111111111111111111111111111111111111
