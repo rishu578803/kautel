@@ -187,7 +187,6 @@ function scrollDown() {
 }
 
 var availableOptions = [
-  "RISHU", "KAUSHAL", "YES",
   "An-/Vorauszahlung",
   "Arbeitszeitkonten",
   "Gewährleistung",
@@ -397,10 +396,9 @@ slider2.oninput = function () {
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 
 // ==============================
-const basicTexts = ["RISHU", "KAUSHAL", "YES"];
-// const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
+
+const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
 const proTexts = [
-  "RISHU", "KAUSHAL", "YES",
   "An- und Vorauszahlungen",
   "Bauhandwerkersicherung",
   "Gewährleistung",
