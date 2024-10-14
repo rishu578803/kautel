@@ -1,5 +1,6 @@
 var activeCircle = "sliderCard__circle--1"; // default to Einzelbürgschaft
 var selectedButtonTexts = [];
+var savedselectedButtonTexts = [];
 var btn_textContext = [];
 var different_prev = false;
 
@@ -18,7 +19,7 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     // Set the styles for the clicked circle and label
     circle.style.backgroundColor = "blue";
     label.style.color = "blue";
-
+    selectedButtonTexts =[];
     // Set the active circle
     activeCircle = circleId;
 
@@ -74,11 +75,17 @@ document
   .addEventListener("click", function () {
     // Check which circle is active and show the corresponding card
     if (activeCircle === "sliderCard__circle--1") {
+      selectedButtonTexts = [];
+      console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle === "sliderCard__circle--2") {
+      selectedButtonTexts = [];
+      console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
+
+
 document
   .getElementById("sliderCard__nextBtn--4")
   .addEventListener("click", function () {
@@ -203,7 +210,7 @@ var availableOptions = [
 ];
 
 let selectedOptions = [];
-var selectedButtonTexts = [];
+// var selectedButtonTexts = [];
 
 // Render buttons in the left panel (available options)
 function renderButtons() {
@@ -244,8 +251,13 @@ function renderSelectedOptions() {
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
     } else {
+
+      // If no options are selected, display a message
+      const message = document.createElement("p");
+      message.textContent = "Es sind keine Optionen ausgewählt.";
+      selectedList.appendChild(message);
     }
-  } else {
+  } else if (activeCircle == "sliderCard__circle--2")  {
     const selectedList = document.getElementById("sliderCard__selectedList");
 
     selectedList.innerHTML = "";
@@ -258,6 +270,9 @@ function renderSelectedOptions() {
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
     } else {
+      const message = document.createElement("p");
+      message.textContent = "Es sind keine Optionen ausgewählt.";
+      selectedList.appendChild(message);
     }
   }
 }
@@ -297,6 +312,7 @@ var headingChange = false;
 // Initialize a click counter
 let clickCount = 0;
 
+
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
@@ -324,14 +340,21 @@ document
           renderSelectedOptions();
         } else if (selectedButtonTexts.length === 1) {
           showNextCard("sliderCard--card2", "sliderCard--card4");
+          savedselectedButtonTexts = selectedButtonTexts;
+          selectedButtonTexts = [];
         }
         console.log("headingChange then", selectedOptions);
         console.log("headingChange then 2", selectedButtonTexts);
+
+
+   
         // Second click
       } else if (clickCount == 2) {
         // Call showNextCard on the second click
-
+    
         showNextCard("sliderCard--card2", "sliderCard--card5");
+        savedselectedButtonTexts = selectedButtonTexts;
+        selectedButtonTexts = [];
       } else if (clickCount >= 3) {
         console.log("clickcount more than 1", clickCount);
         if (selectedButtonTexts.length > 1) {
@@ -343,7 +366,11 @@ document
           showNextCard("sliderCard--card2", "sliderCard--card4");
         }
       }
-    } else {
+    } else if(activeCircle == "sliderCard__circle--2"){
+      savedselectedButtonTexts = selectedButtonTexts;
+      selectedButtonTexts = [];
+      showNextCard("sliderCard--card2", "sliderCard--card5");
+
     }
   });
 
@@ -496,6 +523,8 @@ console.log("firstButtonContent",firstButtonContent)
     sendToSlider2_2 = true;
     // Set lastActiveButton to btn3
     lastActiveButton = btn3;
+  } else {
+    sendToSlider2_2 = false;
   }
 });
 
@@ -563,7 +592,12 @@ document.getElementById("sliderCard__nextBtn--3").addEventListener("click", func
       document.getElementById("sliderCard--card2-1---heading").style.display = "block";
 
       showNextCard("sliderCard--card3", "sliderCard--card2");
+
+      console.log("After processing: sendToSlider2_2");
+      sendToSlider2_2 = false;
     } else {
+      console.log("After processing: sendToSlider2_2 not");
+ 
       showNextCard("sliderCard--card3", "sliderCard--card5");
       different_prev = true;
     }
