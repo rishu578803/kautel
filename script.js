@@ -9,7 +9,8 @@ var secondButtonContent = false;
 var thirdButtonContent = "";
 var sendToSlider2_2 = false;
 let selectedOptions = [];
-
+var selectedPrice_1 = "20,000" + " €";
+var selectedPrice_2 = "75.000" + " €";
 
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
@@ -28,13 +29,12 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     label.style.color = "blue";
     selectedButtonTexts = [];
 
-    console.log(" from circle selectedButtonTexts",selectedButtonTexts)
+    console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Set the active circle
     activeCircle = circleId;
-    console.log(" from circle selectedButtonTexts",selectedButtonTexts)
+    console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Log the updated activeCircle value
   });
-
 }
 
 // Call the function for both toggle options
@@ -96,8 +96,7 @@ document
         "block";
       document.getElementById("sliderCard--card2-1---heading").style.display =
         "none";
-      
-      
+
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
       // selectedButtonTexts = [];
@@ -106,9 +105,25 @@ document
     }
   });
 
+// document
+//   .getElementById("sliderCard__nextBtn--4")
+//   .addEventListener("click", function () {
+//     document.getElementById('selectedAmount').innerText = selectedPrice_1;
+//     console.log("selectedPrice_1 ", selectedPrice_1)
+//     showNextCard("sliderCard--card4", "sliderCard--card6");
+//   });
+
 document
   .getElementById("sliderCard__nextBtn--4")
   .addEventListener("click", function () {
+    // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+    let selectedAmountElement = document.querySelector(".selectedPrice1");
+
+    selectedAmountElement.innerText = selectedPrice_1;
+
+    console.log("selectedPrice_1:", selectedPrice_1);
+    console.log("selectedAmountElement", selectedAmountElement);
+    // Call the function to show the next card
     showNextCard("sliderCard--card4", "sliderCard--card6");
   });
 
@@ -120,6 +135,13 @@ document
 document
   .getElementById("sliderCard__nextBtn--5")
   .addEventListener("click", function () {
+    let selectedAmountElement = document.querySelector(".selectedPrice2");
+
+    selectedAmountElement.innerText = selectedPrice_2;
+
+    console.log("selectedPrice_1:", selectedPrice_2);
+
+    console.log("selectedPrice_2 ", selectedPrice_2);
     showNextCard("sliderCard--card5", "sliderCard--card7");
   });
 
@@ -173,7 +195,11 @@ document
   .getElementById("calculate-btn_back--2")
   .addEventListener("click", function () {
     if (activeCircle === "sliderCard__circle--1") {
-      showPreviousCard("sliderCard--card7", "sliderCard--card2");
+      if (selectedButtonTexts && selectedButtonTexts.length > 1) {
+        showPreviousCard("sliderCard--card7", "sliderCard--card5");
+      } else {
+        showPreviousCard("sliderCard--card7", "sliderCard--card4");
+      }
     } else if (activeCircle === "sliderCard__circle--2") {
       showPreviousCard("sliderCard--card7", "sliderCard--card5");
     }
@@ -256,8 +282,6 @@ var availableOptions = [
 //   "Prod 19",
 //   "Prod 20"
 // ];
-
-
 
 // Render buttons in the left panel (available options)
 function renderButtons() {
@@ -418,6 +442,7 @@ output.value = "20,000" + " €";
 
 slider.oninput = function () {
   output.value = this.value + " €";
+  selectedPrice_1 = this.value + " €";
 };
 
 // ============
@@ -427,6 +452,7 @@ output2.value = "75,000" + " €";
 
 slider2.oninput = function () {
   output2.value = this.value + " €";
+  selectedPrice_2 = this.value + " €";
 };
 // ==========================
 
@@ -501,13 +527,12 @@ function setActiveButton(buttons) {
   });
 }
 
-
- // Track the last active button
+// Track the last active button
 
 // Button click event listeners
 btn1.addEventListener("click", function () {
   console.log("btn1 clicked");
-  
+
   // Update buttons and set btn1 as active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
@@ -517,13 +542,13 @@ btn1.addEventListener("click", function () {
   lastActiveButton = btn1;
   btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
   btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
-  
-  console.log("firstButtonContent:", firstButtonContent);  // Confirm update
+
+  console.log("firstButtonContent:", firstButtonContent); // Confirm update
 });
 
 btn2.addEventListener("click", function () {
   console.log("btn2 clicked");
-  
+
   updateButtons(proTexts);
   setActiveButton([btn2]);
 
@@ -533,14 +558,14 @@ btn2.addEventListener("click", function () {
   lastActiveButton = btn2;
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
-  
-  console.log("secondButtonContent:", secondButtonContent);  // Confirm update
+
+  console.log("secondButtonContent:", secondButtonContent); // Confirm update
 });
 
 // btn3 event listener
 btn3.addEventListener("click", function () {
   console.log("btn3 clicked");
-  
+
   // Toggle background color between two states
   if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
     btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red
@@ -558,11 +583,11 @@ btn3.addEventListener("click", function () {
     // Make btn3 active
     setActiveButton([btn3]);
     sendToSlider2_2 = true;
-    
+
     // Log the last active button and check the flags
     console.log("Last active button:", lastActiveButton);
-    console.log("firstButtonContent:", firstButtonContent);  // This should reflect the state of btn1
-    console.log("secondButtonContent:", secondButtonContent);  // This should reflect the state of btn2
+    console.log("firstButtonContent:", firstButtonContent); // This should reflect the state of btn1
+    console.log("secondButtonContent:", secondButtonContent); // This should reflect the state of btn2
 
     // Set the last active button to btn3
     lastActiveButton = btn3;
@@ -570,7 +595,6 @@ btn3.addEventListener("click", function () {
     console.log("btn3 clicked again, already active.");
   }
 });
-
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 window.addEventListener("DOMContentLoaded", function () {
