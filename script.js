@@ -3,6 +3,13 @@ var selectedButtonTexts = [];
 var savedselectedButtonTexts = [];
 var btn_textContext = [];
 var different_prev = false;
+var DisablelastActiveColor = false;
+var firstButtonContent = true;
+var secondButtonContent = false;
+var thirdButtonContent = "";
+var sendToSlider2_2 = false;
+let selectedOptions = [];
+
 
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
@@ -19,12 +26,15 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     // Set the styles for the clicked circle and label
     circle.style.backgroundColor = "blue";
     label.style.color = "blue";
-    selectedButtonTexts =[];
+    selectedButtonTexts = [];
+
+    console.log(" from circle selectedButtonTexts",selectedButtonTexts)
     // Set the active circle
     activeCircle = circleId;
-
+    console.log(" from circle selectedButtonTexts",selectedButtonTexts)
     // Log the updated activeCircle value
   });
+
 }
 
 // Call the function for both toggle options
@@ -74,17 +84,27 @@ document
   .getElementById("sliderCard__nextBtn--1")
   .addEventListener("click", function () {
     // Check which circle is active and show the corresponding card
-    if (activeCircle === "sliderCard__circle--1") {
-      selectedButtonTexts = [];
+    if (activeCircle == "sliderCard__circle--1") {
+      // selectedButtonTexts = [];
       console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
+      renderButtons();
+      renderSelectedOptions();
+
+      console.log("sendToSlider2_2 entered");
+      // Display new heading
+      document.getElementById("sliderCard--card2---heading").style.display =
+        "block";
+      document.getElementById("sliderCard--card2-1---heading").style.display =
+        "none";
+      
+      
       showNextCard("sliderCard--card1", "sliderCard--card2");
-    } else if (activeCircle === "sliderCard__circle--2") {
-      selectedButtonTexts = [];
-      console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
+    } else if (activeCircle == "sliderCard__circle--2") {
+      // selectedButtonTexts = [];
+      // console.log("selectedButtonTexts: in 2 card", selectedButtonTexts);
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
-
 
 document
   .getElementById("sliderCard__nextBtn--4")
@@ -120,7 +140,11 @@ document
 document
   .getElementById("sliderCard__gobackBtn--2")
   .addEventListener("click", function () {
-    showPreviousCard("sliderCard--card2", "sliderCard--card1");
+    if (activeCircle == "sliderCard__circle--1") {
+      showPreviousCard("sliderCard--card2", "sliderCard--card1");
+    } else {
+      showPreviousCard("sliderCard--card2", "sliderCard--card3");
+    }
   });
 document
   .getElementById("sliderCard__gobackBtn--4")
@@ -133,7 +157,6 @@ document
   .addEventListener("click", function () {
     showPreviousCard("sliderCard--card3", "sliderCard--card1");
   });
-
 
 document
   .getElementById("sliderCard__gobackBtn--5")
@@ -149,7 +172,11 @@ document
 document
   .getElementById("calculate-btn_back--2")
   .addEventListener("click", function () {
-    showPreviousCard("sliderCard--card7", "sliderCard--card2");
+    if (activeCircle === "sliderCard__circle--1") {
+      showPreviousCard("sliderCard--card7", "sliderCard--card2");
+    } else if (activeCircle === "sliderCard__circle--2") {
+      showPreviousCard("sliderCard--card7", "sliderCard--card5");
+    }
   });
 // ==========================================================   sliderCard--card4
 // Add event listener for the Next button
@@ -230,8 +257,7 @@ var availableOptions = [
 //   "Prod 20"
 // ];
 
-let selectedOptions = [];
-// var selectedButtonTexts = [];
+
 
 // Render buttons in the left panel (available options)
 function renderButtons() {
@@ -272,13 +298,12 @@ function renderSelectedOptions() {
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
     } else {
-
       // If no options are selected, display a message
-      const message = document.createElement("p");
-      message.textContent = "Es sind keine Optionen ausgewählt.";
-      selectedList.appendChild(message);
+      // const message = document.createElement("p");
+      // message.textContent = "Es sind keine Optionen ausgewählt.";
+      // selectedList.appendChild(message);
     }
-  } else if (activeCircle == "sliderCard__circle--2")  {
+  } else if (activeCircle == "sliderCard__circle--2") {
     const selectedList = document.getElementById("sliderCard__selectedList");
 
     selectedList.innerHTML = "";
@@ -291,9 +316,9 @@ function renderSelectedOptions() {
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
     } else {
-      const message = document.createElement("p");
-      message.textContent = "Es sind keine Optionen ausgewählt.";
-      selectedList.appendChild(message);
+      // const message = document.createElement("p");
+      // message.textContent = "Es sind keine Optionen ausgewählt.";
+      // selectedList.appendChild(message);
     }
   }
 }
@@ -333,7 +358,6 @@ var headingChange = false;
 // Initialize a click counter
 let clickCount = 0;
 
-
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
@@ -361,21 +385,15 @@ document
           renderSelectedOptions();
         } else if (selectedButtonTexts.length === 1) {
           showNextCard("sliderCard--card2", "sliderCard--card4");
-          savedselectedButtonTexts = selectedButtonTexts;
-          selectedButtonTexts = [];
         }
         console.log("headingChange then", selectedOptions);
         console.log("headingChange then 2", selectedButtonTexts);
 
-
-   
         // Second click
       } else if (clickCount == 2) {
         // Call showNextCard on the second click
-    
+
         showNextCard("sliderCard--card2", "sliderCard--card5");
-        savedselectedButtonTexts = selectedButtonTexts;
-        selectedButtonTexts = [];
       } else if (clickCount >= 3) {
         console.log("clickcount more than 1", clickCount);
         if (selectedButtonTexts.length > 1) {
@@ -387,11 +405,8 @@ document
           showNextCard("sliderCard--card2", "sliderCard--card4");
         }
       }
-    } else if(activeCircle == "sliderCard__circle--2"){
-      savedselectedButtonTexts = selectedButtonTexts;
-      selectedButtonTexts = [];
+    } else if (activeCircle == "sliderCard__circle--2") {
       showNextCard("sliderCard--card2", "sliderCard--card5");
-
     }
   });
 
@@ -460,8 +475,7 @@ let lastActiveButton = null;
 
 // Function to update button text and display them
 function updateButtons(texts) {
-
-  console.log("Updating buttons",texts)
+  console.log("Updating buttons", texts);
   // Hide all right panel buttons initially
   for (let i = 0; i < rightButtons.length; i++) {
     rightButtons[i].style.display = "none";
@@ -487,66 +501,76 @@ function setActiveButton(buttons) {
   });
 }
 
-var DisablelastActiveColor = false;
-var firstButtonContent = "";
-var secondButtonContent = "";
-var thirdButtonContent = "";
-var sendToSlider2_2 = false;
+
+ // Track the last active button
 
 // Button click event listeners
 btn1.addEventListener("click", function () {
-  // Show all basicTexts and make btn1 active
-
+  console.log("btn1 clicked");
+  
   // Update buttons and set btn1 as active
   updateButtons(basicTexts);
   setActiveButton([btn1]);
-  firstButtonContent = "active";
-  secondButtonContent = "not active";
+  firstButtonContent = true;
+  secondButtonContent = false;
+
   lastActiveButton = btn1;
   btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
   btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
+  
+  console.log("firstButtonContent:", firstButtonContent);  // Confirm update
 });
 
 btn2.addEventListener("click", function () {
+  console.log("btn2 clicked");
+  
   updateButtons(proTexts);
   setActiveButton([btn2]);
 
-  secondButtonContent = "active";
-  firstButtonContent = "not active";
+  secondButtonContent = true;
+  firstButtonContent = false;
 
   lastActiveButton = btn2;
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
+  
+  console.log("secondButtonContent:", secondButtonContent);  // Confirm update
 });
 
-// =======================================
+// btn3 event listener
 btn3.addEventListener("click", function () {
-  // Toggle the background color between green and red
+  console.log("btn3 clicked");
+  
+  // Toggle background color between two states
   if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
-    btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red on second click
+    btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red
   } else {
-    btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to green on first click
+    btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to blue
   }
 
-  // If btn3 is clicked and it wasn't the last active button (btn1 or btn2), update background color
+  // Check if the last active button was btn1 or btn2
   if (lastActiveButton !== btn3) {
-    // Check if the last active button was btn1 or btn2
     if (lastActiveButton === btn1 || lastActiveButton === btn2) {
-      lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to gray
+      lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to active gray
       DisablelastActiveColor = true;
     }
 
-    // Show all additionalTexts and make btn3 active
-    console.log("Last active button:", lastActiveButton);
-console.log("firstButtonContent",firstButtonContent)
+    // Make btn3 active
     setActiveButton([btn3]);
     sendToSlider2_2 = true;
-    // Set lastActiveButton to btn3
+    
+    // Log the last active button and check the flags
+    console.log("Last active button:", lastActiveButton);
+    console.log("firstButtonContent:", firstButtonContent);  // This should reflect the state of btn1
+    console.log("secondButtonContent:", secondButtonContent);  // This should reflect the state of btn2
+
+    // Set the last active button to btn3
     lastActiveButton = btn3;
   } else {
-    sendToSlider2_2 = false;
+    console.log("btn3 clicked again, already active.");
   }
 });
+
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 window.addEventListener("DOMContentLoaded", function () {
@@ -560,72 +584,72 @@ window.addEventListener("DOMContentLoaded", function () {
 // =========================================
 // Store visible button texts on "Next" button click
 
-document.getElementById("sliderCard__nextBtn--3").addEventListener("click", function () {
-  selectedButtonTexts = [];
+document
+  .getElementById("sliderCard__nextBtn--3")
+  .addEventListener("click", function () {
+    // selectedButtonTexts = [];
 
-  if (activeCircle == "sliderCard__circle--2") {
-    console.log("Button clicked, starting process...");
+    if (activeCircle === "sliderCard__circle--2") {
+      console.log(
+        "Button clicked, starting process... =============new process============",
+        firstButtonContent,
+        secondButtonContent
+      );
 
-    console.log("Initial basicTexts:",  basicTexts );
-    console.log("Initial proTexts:",  proTexts);
-    console.log("Initial availableOptions:", availableOptions);
-//     console.log("Initial selectedButtonTexts:", selectedButtonTexts);
-// console.log("Initial secondButtonContent:", secondButtonContent);
+      console.log(
+        "Initial basicTexts: new===================================",
+        basicTexts
+      );
+      console.log("Initial proTexts:", proTexts);
+      console.log("Initial availableOptions:", availableOptions);
+      console.log("Initial selectedButtonTexts:", selectedButtonTexts);
+      // console.log("Initial secondButtonContent:", secondButtonContent);
 
-    if (secondButtonContent === "active") {
+      if (secondButtonContent) {
+        console.log("btn2.classList.contains active");
+        console.log("btn2 is active, processing proTexts:", proTexts);
 
-      console.log("btn2.classList.contains active");
-      console.log("btn2 is active, processing proTexts:", proTexts);
- 
-      proTexts.map((text) => {
-      
-        if (!selectedButtonTexts.includes(text)) {
-    
-          selectedButtonTexts.push(text);
-          availableOptions = availableOptions.filter((opt) => opt !== text);
-         
-        }
-      });
-      console.log("after availableOptions: new ", availableOptions,selectedButtonTexts);
-  
-    } else if (firstButtonContent === "active") {
-      console.log("btn1 is active, processing basicTexts:", basicTexts);
-      console.log("btn1.classList.contains active");
-      basicTexts.map((text) => {
-        if (!selectedButtonTexts.includes(text)) {
-          selectedButtonTexts.push(text);
-          availableOptions = availableOptions.filter((opt) => opt !== text);
-        }
-      });
-    }
-    // Check if the arrays have the expected values
-    console.log("After processing:");
+        proTexts.map((text) => {
+          if (!selectedButtonTexts.includes(text)) {
+            selectedButtonTexts.push(text);
+            availableOptions = availableOptions.filter((opt) => opt !== text);
+          }
+        });
+        console.log("after maping", availableOptions, selectedButtonTexts);
+      } else if (firstButtonContent) {
+        console.log("btn1.classList.contains active");
+        basicTexts.map((text) => {
+          if (!selectedButtonTexts.includes(text)) {
+            selectedButtonTexts.push(text);
+            availableOptions = availableOptions.filter((opt) => opt !== text);
+          }
+        });
+      }
+      // Check if the arrays have the expected values
+      console.log("  after maping", selectedButtonTexts);
 
+      if (sendToSlider2_2) {
+        renderButtons();
+        renderSelectedOptions();
 
-    if (sendToSlider2_2) {
-      renderButtons();
-      renderSelectedOptions();
+        console.log("sendToSlider2_2 entered");
+        // Display new heading
+        document.getElementById("sliderCard--card2---heading").style.display =
+          "none";
+        document.getElementById("sliderCard--card2-1---heading").style.display =
+          "block";
 
+        showNextCard("sliderCard--card3", "sliderCard--card2");
 
-      // Display new heading
-      document.getElementById("sliderCard--card2---heading").style.display = "none";
-      document.getElementById("sliderCard--card2-1---heading").style.display = "block";
-
-      showNextCard("sliderCard--card3", "sliderCard--card2");
-
-      console.log("After processing: sendToSlider2_2");
-      sendToSlider2_2 = false;
+        console.log("After processing: sendToSlider2_2");
+      } else {
+        console.log("After processing: sendToSlider2_2 not");
+        different_prev = true;
+        showNextCard("sliderCard--card3", "sliderCard--card5");
+      }
     } else {
-      console.log("After processing: sendToSlider2_2 not");
- 
-      showNextCard("sliderCard--card3", "sliderCard--card5");
-      different_prev = true;
+      alert("Please select");
     }
-  } else {
-    alert("Please select");
-  }
-});
-
-
+  });
 
 // ============================================= 211111111111111111111111111111111111111111111
