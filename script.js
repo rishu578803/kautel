@@ -185,7 +185,7 @@ function scrollDown() {
     });
   }
 }
-
+//  js updated
 var availableOptions = [
   "An-/Vorauszahlung",
   "Arbeitszeitkonten",
