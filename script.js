@@ -12,6 +12,50 @@ let selectedOptions = [];
 var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
 
+
+var availableOptions = [
+  "An-/Vorauszahlung",
+  "Arbeitszeitkonten",
+  "Gewährleistung",
+  "Mängelansprüche",
+  "Gew. Mietbürgschaft",
+  "Handwerkersicherung",
+  "Vertragserfüllung",
+  "Vertragserfüllung 1",
+  "Vertragserfüllung 2",
+  "Vertragserfüllung 3",
+  "Vertragserfüllung 4",
+  "Vertragserfüllung 5",
+  "Vertragserfüllung 6",
+  "Vertragserfüllung 7",
+  "Vertragserfüllung 8",
+  "Vertragserfüllung 9",
+  "Vertragserfüllung 10",
+  "Vertragserfüllung 11",
+  "Vertragserfüllung 12",
+];
+
+var availableOptions2 = [
+  "An-/Vorauszahlung",
+  "Arbeitszeitkonten",
+  "Gewährleistung",
+  "Mängelansprüche",
+  "Gew. Mietbürgschaft",
+  "Handwerkersicherung",
+  "Vertragserfüllung",
+  "Vertragserfüllung 1",
+  "Vertragserfüllung 2",
+  "Vertragserfüllung 3",
+  "Vertragserfüllung 4",
+  "Vertragserfüllung 5",
+  "Vertragserfüllung 6",
+  "Vertragserfüllung 7",
+  "Vertragserfüllung 8",
+  "Vertragserfüllung 9",
+  "Vertragserfüllung 10",
+  "Vertragserfüllung 11",
+  "Vertragserfüllung 12",
+];
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
   const circle = document.getElementById(circleId);
@@ -28,6 +72,9 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     circle.style.backgroundColor = "blue";
     label.style.color = "blue";
     selectedButtonTexts = [];
+    // renderButtons();
+ 
+
 
     console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Set the active circle
@@ -85,10 +132,13 @@ document
   .addEventListener("click", function () {
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
-      // selectedButtonTexts = [];
+      availableOptions = [];
       console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
-      renderButtons();
-      renderSelectedOptions();
+
+      availableOptions2.map((item) => {
+        availableOptions.push(item)
+      })
+     
 
       console.log("sendToSlider2_2 entered");
       // Display new heading
@@ -96,10 +146,14 @@ document
         "block";
       document.getElementById("sliderCard--card2-1---heading").style.display =
         "none";
-
+        selectedButtonTexts = [];
+        renderButtons();
+        renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
-      // selectedButtonTexts = [];
+      selectedButtonTexts = [];
+      renderButtons();
+      renderSelectedOptions();
       // console.log("selectedButtonTexts: in 2 card", selectedButtonTexts);
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
@@ -239,27 +293,7 @@ function scrollDown() {
   }
 }
 //  js updated
-var availableOptions = [
-  "An-/Vorauszahlung",
-  "Arbeitszeitkonten",
-  "Gewährleistung",
-  "Mängelansprüche",
-  "Gew. Mietbürgschaft",
-  "Handwerkersicherung",
-  "Vertragserfüllung",
-  "Vertragserfüllung 1",
-  "Vertragserfüllung 2",
-  "Vertragserfüllung 3",
-  "Vertragserfüllung 4",
-  "Vertragserfüllung 5",
-  "Vertragserfüllung 6",
-  "Vertragserfüllung 7",
-  "Vertragserfüllung 8",
-  "Vertragserfüllung 9",
-  "Vertragserfüllung 10",
-  "Vertragserfüllung 11",
-  "Vertragserfüllung 12",
-];
+
 // var availableOptions = [
 //   "Prod 1",
 //   "Prod 2",
@@ -385,6 +419,8 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
+  
+
     if (activeCircle == "sliderCard__circle--1") {
       // Increment the click count on each button click
       clickCount++;
@@ -430,6 +466,7 @@ document
         }
       }
     } else if (activeCircle == "sliderCard__circle--2") {
+
       showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
