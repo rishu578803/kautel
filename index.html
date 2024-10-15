@@ -226,12 +226,14 @@
             </div>
             <div class="col-sm-12">
             <div id="Rangeslider2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a></div>
-            <div class="pull-left valueC">2,500</div>
-            <div class="pull-left valueC two">10,000</div>
-            <div class="pull-left valueC three">15,000</div>
-            <div class="pull-left valueC four">20,000</div>
-            <div class="pull-right valueC five">25,000</div>
+            <div class="valueStep">
+            <div class="pull-left valueStep__one">5.000</div>
+            <div class="pull-left valueStep__two">20.000</div>
+            <div class="pull-left valueStep__three">15,000</div>
+            <div class="pull-left valueStep__four">20,000</div>
+            <div class="pull-right valueStep__five">25,000</div>
             <div class="clearfix">&nbsp;</div>
+          </div>
             </div>
             </div>
           <!-- kaushal codes slider 1 end -->
@@ -431,6 +433,16 @@ $(function () {
       inputVal.setAttribute("data-raw-value", ui.value);
     }
   });
+
+  // Update slider when user changes input manually
+  $("input.percentClass").on("change", function () {
+    let rawValue = parseNumber(this.value);
+    if (!isNaN(rawValue) && rawValue >= 5000 && rawValue <= 200000) {
+      $("#Rangeslider2").slider("value", rawValue);
+    } else {
+      alert("Value out of range! Please enter a value between 5.000 and 200.000.");
+    }
+  });
 });
 
 // Format number for German locale (e.g., "5.000")
@@ -443,11 +455,10 @@ function parseNumber(formattedValue) {
   return Number(formattedValue.replace(/\./g, ''));
 }
 
-// Listen for manual input changes and ensure valid numeric input
+// Listen for input changes and validate numeric input
 inputVal.addEventListener("input", function () {
   let rawValue = parseNumber(this.value);
 
-  // Ensure the slider stays in sync with the raw value
   if (!isNaN(rawValue) && rawValue >= 5000 && rawValue <= 200000) {
     $("#Rangeslider2").slider("value", rawValue);
   }
