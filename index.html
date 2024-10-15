@@ -217,14 +217,14 @@
             <p>Berechnen Sie in nur wenigen Schritten Ihren monatlichen Beitrag und schließen Sie die Bürgschaft direkt online ab.</p>
             <b>Höhe der Barkaution</b>
             <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-12 margin-bottom-15">
             <div class="input-group">
-              <input id="bruttoeinkommen2" class="form-control percentClass" type="number"> 
+              <input id="bruttoeinkommen2" class="form-control percentClass" type="number"/> 
               <span class="input-group-addon">€</span>
             </div>
             <div id="validationText2" class="col-xs-12"></div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-12">
             <div id="Rangeslider2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a></div>
             <div class="pull-left valueC">2,500</div>
             <div class="pull-left valueC two">10,000</div>
@@ -410,19 +410,49 @@
       </div>
     </div>
     <script>
-      $( function() {
-    $( "#Rangeslider2" ).slider({
-        value:400,
-        value:10,
-        min: 2500,
-        step: 10,
-        max: 25000,
-            slide: function( event, ui ) {
-                $( ".percentClass" ).html( ui.value );
-            }
-    });
-  } );
-      
+    var initialInputValue = 5000;
+var inputVal = document.querySelector('.percentClass');
+
+// Set initial value with German formatting for display
+inputVal.value = formatNumber(initialInputValue);
+
+$(function () {
+  $("#Rangeslider2").slider({
+    value: initialInputValue,
+    min: 5000,
+    step: 10,
+    max: 200000,
+    slide: function (event, ui) {
+      // Display the German-formatted value in the input field
+      $(".percentClass").val(formatNumber(ui.value));
+    },
+    change: function (event, ui) {
+      // Sync raw value to the input field using a data attribute
+      inputVal.setAttribute("data-raw-value", ui.value);
+    }
+  });
+});
+
+// Format number for German locale (e.g., "5.000")
+function formatNumber(value) {
+  return new Intl.NumberFormat('de-DE').format(value);
+}
+
+// Parse formatted value back to a raw number
+function parseNumber(formattedValue) {
+  return Number(formattedValue.replace(/\./g, ''));
+}
+
+// Listen for manual input changes and ensure valid numeric input
+inputVal.addEventListener("input", function () {
+  let rawValue = parseNumber(this.value);
+
+  // Ensure the slider stays in sync with the raw value
+  if (!isNaN(rawValue) && rawValue >= 5000 && rawValue <= 200000) {
+    $("#Rangeslider2").slider("value", rawValue);
+  }
+});
+
     </script>
     <script src="script.js"></script>
   </body>
