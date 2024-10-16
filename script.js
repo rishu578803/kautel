@@ -127,12 +127,13 @@ function showPreviousCard(currentCardId, previousCardId) {
 document
   .getElementById("sliderCard__nextBtn--1")
   .addEventListener("click", function () {
+
+ 
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
-      selectedButtonTexts &&
-        selectedButtonTexts.map((item) => {
-          savedselectedButtonTexts.push(item);
-        });
+
+  
+    
 
       availableOptions = [];
       selectedButtonTexts = [];
@@ -154,6 +155,12 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
       selectedButtonTexts = [];
+      if (savedselectedButtonTexts.length > 0) {
+        savedselectedButtonTexts.map((item) => {
+          selectedButtonTexts.push(item);
+        })
+      }
+    
       renderButtons();
       renderSelectedOptions();
       // console.log("selectedButtonTexts: in 2 card", selectedButtonTexts);
@@ -201,12 +208,16 @@ document
     showNextCard("sliderCard--card5", "sliderCard--card7");
   });
 
+
 document
   .getElementById("sliderCard__calculate-btn--1")
   .addEventListener("click", function () {
     console.log("calculate");
     showNextCard("sliderCard--card5", "sliderCard--card6");
   });
+
+
+
 
 document
   .getElementById("sliderCard__calculate-btn--2")
@@ -421,6 +432,13 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
+ 
+
+
+
+    // selectedButtonTexts = [];
+
+    console.log("selectedtext for save 2",selectedButtonTexts)
     if (activeCircle == "sliderCard__circle--1") {
       // Increment the click count on each button click
       clickCount++;
@@ -466,6 +484,9 @@ document
         }
       }
     } else if (activeCircle == "sliderCard__circle--2") {
+      selectedButtonTexts && selectedButtonTexts.map((item) => {
+        savedselectedButtonTexts.push(item);
+      });
       showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
@@ -647,9 +668,12 @@ window.addEventListener("DOMContentLoaded", function () {
 document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
-    selectedButtonTexts = [];
+    // selectedButtonTexts = [];
 
     if (activeCircle === "sliderCard__circle--2") {
+
+ 
+
       console.log(
         "Button clicked, starting process... =============new process============",
         firstButtonContent,
@@ -675,6 +699,9 @@ document
             availableOptions = availableOptions.filter((opt) => opt !== text);
           }
         });
+
+  
+
         console.log("after maping", availableOptions, selectedButtonTexts);
       } else if (firstButtonContent) {
         console.log("btn1.classList.contains active");
@@ -684,11 +711,27 @@ document
             availableOptions = availableOptions.filter((opt) => opt !== text);
           }
         });
+
+
+   
       }
       // Check if the arrays have the expected values
       console.log("  after maping", selectedButtonTexts);
 
       if (sendToSlider2_2) {
+
+
+        if (savedselectedButtonTexts.length > 0) {
+          selectedButtonTexts = [];
+          savedselectedButtonTexts.map((item) => {
+            if (!selectedButtonTexts.includes(item)) {
+              selectedButtonTexts.push(item);
+            }
+          });
+        
+          savedselectedButtonTexts = [];
+        }
+        
         renderButtons();
         renderSelectedOptions();
 
