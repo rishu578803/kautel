@@ -12,7 +12,6 @@ let selectedOptions = [];
 var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
 
-
 var availableOptions = [
   "An-/Vorauszahlung",
   "Arbeitszeitkonten",
@@ -71,10 +70,8 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     // Set the styles for the clicked circle and label
     circle.style.backgroundColor = "blue";
     label.style.color = "blue";
-    selectedButtonTexts = [];
-    // renderButtons();
- 
 
+    // renderButtons();
 
     console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Set the active circle
@@ -132,13 +129,18 @@ document
   .addEventListener("click", function () {
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
+      selectedButtonTexts &&
+        selectedButtonTexts.map((item) => {
+          savedselectedButtonTexts.push(item);
+        });
+
       availableOptions = [];
+      selectedButtonTexts = [];
       console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
 
       availableOptions2.map((item) => {
-        availableOptions.push(item)
-      })
-     
+        availableOptions.push(item);
+      });
 
       console.log("sendToSlider2_2 entered");
       // Display new heading
@@ -146,9 +148,9 @@ document
         "block";
       document.getElementById("sliderCard--card2-1---heading").style.display =
         "none";
-        selectedButtonTexts = [];
-        renderButtons();
-        renderSelectedOptions();
+      selectedButtonTexts = [];
+      renderButtons();
+      renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
       selectedButtonTexts = [];
@@ -419,8 +421,6 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
-  
-
     if (activeCircle == "sliderCard__circle--1") {
       // Increment the click count on each button click
       clickCount++;
@@ -466,7 +466,6 @@ document
         }
       }
     } else if (activeCircle == "sliderCard__circle--2") {
-
       showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
@@ -648,7 +647,7 @@ window.addEventListener("DOMContentLoaded", function () {
 document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
-    // selectedButtonTexts = [];
+    selectedButtonTexts = [];
 
     if (activeCircle === "sliderCard__circle--2") {
       console.log(
