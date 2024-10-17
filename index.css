@@ -556,3 +556,8 @@ input[type="range"]::-webkit-slider-runnable-track {
 .margin-bottom-15{
   margin-bottom: 15px;
 }
+
+#sliderCard__selectedList {
+  max-height: 320px; /* Set a maximum height */
+  overflow-y: auto;  /* Enable vertical scrolling */
+}

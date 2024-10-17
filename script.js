@@ -13,47 +13,150 @@ var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
 
 var availableOptions = [
-  "An-/Vorauszahlung",
+
   "Arbeitszeitkonten",
-  "Gewährleistung",
-  "Mängelansprüche",
-  "Gew. Mietbürgschaft",
-  "Handwerkersicherung",
-  "Vertragserfüllung",
-  "Vertragserfüllung 1",
-  "Vertragserfüllung 2",
-  "Vertragserfüllung 3",
-  "Vertragserfüllung 4",
-  "Vertragserfüllung 5",
-  "Vertragserfüllung 6",
-  "Vertragserfüllung 7",
-  "Vertragserfüllung 8",
-  "Vertragserfüllung 9",
-  "Vertragserfüllung 10",
-  "Vertragserfüllung 11",
-  "Vertragserfüllung 12",
+
+"Mitarbeiterguthaben",
+
+"Arbeitnehmerentsendung",
+
+"An-/Vorauszahlungen",
+
+"Architektenleistungen",
+
+"Ausfallbürgschaft",
+
+"Ausführungsbürgschaft",
+
+"Bauhandwerker-Rahmenvertrag",
+
+"Bauhandwerkersicherung	",
+
+"Bietungsbürgschaft",
+
+"Fremdsprachenbürgschaft	",
+
+"Immissionsbürgschaft	",
+
+"Dienstleistungsbürgschaft",
+
+"Erschließungsbürgschaft	",
+
+"Energielieferung",
+
+"Franchise"	,
+
+"Gewährleistung"	,
+
+"IATA-Bürgschaft	",
+
+"Individualbürgschaft	",
+"Lieferantenbürgschaft	",
+
+"Leasingbürgschaft	",
+
+"Lottobürgschaft",
+
+"Mängelansprüche	",
+
+"Gew. Mietkaution",
+
+"Mineralölbürgschaft	",
+
+"Postagentur "	,
+
+"Prozessbürgschaft",
+
+"Recyclingbürgschaft",
+
+"Rekultivierung",
+
+"Rückbaubürgschaft",
+
+"Sonderbürgschaft",
+
+"Tankkartenforderung",
+
+"Verbraucherbürgschaft	",
+
+"Vertragserfüllung",
+
+"Vorauszahlungsbürgschaft	",
+
+"Warenlieferungsbürgschaft",
 ];
 
 var availableOptions2 = [
-  "An-/Vorauszahlung",
-  "Arbeitszeitkonten",
-  "Gewährleistung",
-  "Mängelansprüche",
-  "Gew. Mietbürgschaft",
-  "Handwerkersicherung",
-  "Vertragserfüllung",
-  "Vertragserfüllung 1",
-  "Vertragserfüllung 2",
-  "Vertragserfüllung 3",
-  "Vertragserfüllung 4",
-  "Vertragserfüllung 5",
-  "Vertragserfüllung 6",
-  "Vertragserfüllung 7",
-  "Vertragserfüllung 8",
-  "Vertragserfüllung 9",
-  "Vertragserfüllung 10",
-  "Vertragserfüllung 11",
-  "Vertragserfüllung 12",
+"Arbeitszeitkonten",
+
+"Mitarbeiterguthaben",
+
+"Arbeitnehmerentsendung",
+
+"An-/Vorauszahlungen",
+
+"Architektenleistungen",
+
+"Ausfallbürgschaft",
+
+"Ausführungsbürgschaft",
+
+"Bauhandwerker-Rahmenvertrag",
+
+"Bauhandwerkersicherung	",
+
+"Bietungsbürgschaft",
+
+"Fremdsprachenbürgschaft	",
+
+"Immissionsbürgschaft	",
+
+"Dienstleistungsbürgschaft",
+
+"Erschließungsbürgschaft	",
+
+"Energielieferung",
+
+"Franchise"	,
+
+"Gewährleistung"	,
+
+"IATA-Bürgschaft	",
+
+"Individualbürgschaft	",
+"Lieferantenbürgschaft	",
+
+"Leasingbürgschaft	",
+
+"Lottobürgschaft",
+
+"Mängelansprüche	",
+
+"Gew. Mietkaution",
+
+"Mineralölbürgschaft	",
+
+"Postagentur "	,
+
+"Prozessbürgschaft",
+
+"Recyclingbürgschaft",
+
+"Rekultivierung",
+
+"Rückbaubürgschaft",
+
+"Sonderbürgschaft",
+
+"Tankkartenforderung",
+
+"Verbraucherbürgschaft	",
+
+"Vertragserfüllung",
+
+"Vorauszahlungsbürgschaft	",
+
+"Warenlieferungsbürgschaft",
 ];
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
