@@ -11,152 +11,165 @@ var sendToSlider2_2 = false;
 let selectedOptions = [];
 var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
-
+var change_selected_text = 1;
+var active_button_content = 1;
 var availableOptions = [
+"rishu 1",
+"rishu 2",
+"rishu 3",
+"rishu 4",
+"rishu 5",
+//   "Arbeitszeitkonten",
 
-  "Arbeitszeitkonten",
+// "Mitarbeiterguthaben",
 
-"Mitarbeiterguthaben",
+// "Arbeitnehmerentsendung",
 
-"Arbeitnehmerentsendung",
+// "An-/Vorauszahlungen",
 
-"An-/Vorauszahlungen",
+// "Architektenleistungen",
 
-"Architektenleistungen",
+// "Ausfallbürgschaft",
 
-"Ausfallbürgschaft",
+// "Ausführungsbürgschaft",
 
-"Ausführungsbürgschaft",
+// "Bauhandwerker-Rahmenvertrag",
 
-"Bauhandwerker-Rahmenvertrag",
+// "Bauhandwerkersicherung	",
 
-"Bauhandwerkersicherung	",
+// "Bietungsbürgschaft",
 
-"Bietungsbürgschaft",
+// "Fremdsprachenbürgschaft	",
 
-"Fremdsprachenbürgschaft	",
+// "Immissionsbürgschaft	",
 
-"Immissionsbürgschaft	",
+// "Dienstleistungsbürgschaft",
 
-"Dienstleistungsbürgschaft",
+// "Erschließungsbürgschaft	",
 
-"Erschließungsbürgschaft	",
+// "Energielieferung",
 
-"Energielieferung",
+// "Franchise"	,
 
-"Franchise"	,
+// "Gewährleistung"	,
 
-"Gewährleistung"	,
+// "IATA-Bürgschaft	",
 
-"IATA-Bürgschaft	",
+// "Individualbürgschaft	",
+// "Lieferantenbürgschaft	",
 
-"Individualbürgschaft	",
-"Lieferantenbürgschaft	",
+// "Leasingbürgschaft	",
 
-"Leasingbürgschaft	",
+// "Lottobürgschaft",
 
-"Lottobürgschaft",
+// "Mängelansprüche	",
 
-"Mängelansprüche	",
+// "Gew. Mietkaution",
 
-"Gew. Mietkaution",
+// "Mineralölbürgschaft	",
 
-"Mineralölbürgschaft	",
+// "Postagentur "	,
 
-"Postagentur "	,
+// "Prozessbürgschaft",
 
-"Prozessbürgschaft",
+// "Recyclingbürgschaft",
 
-"Recyclingbürgschaft",
+// "Rekultivierung",
 
-"Rekultivierung",
+// "Rückbaubürgschaft",
 
-"Rückbaubürgschaft",
+// "Sonderbürgschaft",
 
-"Sonderbürgschaft",
+// "Tankkartenforderung",
 
-"Tankkartenforderung",
+// "Verbraucherbürgschaft	",
 
-"Verbraucherbürgschaft	",
+// "Vertragserfüllung",
 
-"Vertragserfüllung",
+// "Vorauszahlungsbürgschaft	",
 
-"Vorauszahlungsbürgschaft	",
-
-"Warenlieferungsbürgschaft",
+// "Warenlieferungsbürgschaft",
 ];
 
 var availableOptions2 = [
-"Arbeitszeitkonten",
 
-"Mitarbeiterguthaben",
+  "rishu 1",
+"rishu 2",
+"rishu 3",
+"rishu 4",
+  "rishu 5",
 
-"Arbeitnehmerentsendung",
 
-"An-/Vorauszahlungen",
+// "Arbeitszeitkonten",
 
-"Architektenleistungen",
+// "Mitarbeiterguthaben",
 
-"Ausfallbürgschaft",
+// "Arbeitnehmerentsendung",
 
-"Ausführungsbürgschaft",
+// "An-/Vorauszahlungen",
 
-"Bauhandwerker-Rahmenvertrag",
+// "Architektenleistungen",
 
-"Bauhandwerkersicherung	",
+// "Ausfallbürgschaft",
 
-"Bietungsbürgschaft",
+// "Ausführungsbürgschaft",
 
-"Fremdsprachenbürgschaft	",
+// "Bauhandwerker-Rahmenvertrag",
 
-"Immissionsbürgschaft	",
+// "Bauhandwerkersicherung	",
 
-"Dienstleistungsbürgschaft",
+// "Bietungsbürgschaft",
 
-"Erschließungsbürgschaft	",
+// "Fremdsprachenbürgschaft	",
 
-"Energielieferung",
+// "Immissionsbürgschaft	",
 
-"Franchise"	,
+// "Dienstleistungsbürgschaft",
 
-"Gewährleistung"	,
+// "Erschließungsbürgschaft	",
 
-"IATA-Bürgschaft	",
+// "Energielieferung",
 
-"Individualbürgschaft	",
-"Lieferantenbürgschaft	",
+// "Franchise"	,
 
-"Leasingbürgschaft	",
+// "Gewährleistung"	,
 
-"Lottobürgschaft",
+// "IATA-Bürgschaft	",
 
-"Mängelansprüche	",
+// "Individualbürgschaft	",
+// "Lieferantenbürgschaft	",
 
-"Gew. Mietkaution",
+// "Leasingbürgschaft	",
 
-"Mineralölbürgschaft	",
+// "Lottobürgschaft",
 
-"Postagentur "	,
+// "Mängelansprüche	",
 
-"Prozessbürgschaft",
+// "Gew. Mietkaution",
 
-"Recyclingbürgschaft",
+// "Mineralölbürgschaft	",
 
-"Rekultivierung",
+// "Postagentur "	,
 
-"Rückbaubürgschaft",
+// "Prozessbürgschaft",
 
-"Sonderbürgschaft",
+// "Recyclingbürgschaft",
 
-"Tankkartenforderung",
+// "Rekultivierung",
 
-"Verbraucherbürgschaft	",
+// "Rückbaubürgschaft",
 
-"Vertragserfüllung",
+// "Sonderbürgschaft",
 
-"Vorauszahlungsbürgschaft	",
+// "Tankkartenforderung",
 
-"Warenlieferungsbürgschaft",
+// "Verbraucherbürgschaft	",
+
+// "Vertragserfüllung",
+
+// "Vorauszahlungsbürgschaft	",
+
+// "Warenlieferungsbürgschaft",
 ];
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
@@ -174,11 +187,12 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     circle.style.backgroundColor = "blue";
     label.style.color = "blue";
 
-    // renderButtons();
+    renderButtons();
 
     console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Set the active circle
     activeCircle = circleId;
+    change_selected_text = circleId;
     console.log(" from circle selectedButtonTexts", selectedButtonTexts);
     // Log the updated activeCircle value
   });
@@ -234,29 +248,38 @@ document
  
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
+    console.log("save selected",savedselectedButtonTexts)
 
+      if (change_selected_text === "sliderCard__circle--1") {
   
-    
+        selectedButtonTexts = [];
+      } else {
+        console.log("saved selected text",savedselectedButtonTexts);
+      }
 
+      
       availableOptions = [];
-      selectedButtonTexts = [];
+
       console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
 
       availableOptions2.map((item) => {
         availableOptions.push(item);
       });
 
+
+      // selectedButtonTexts = [];
       console.log("sendToSlider2_2 entered");
       // Display new heading
       document.getElementById("sliderCard--card2---heading").style.display =
         "block";
       document.getElementById("sliderCard--card2-1---heading").style.display =
         "none";
-      selectedButtonTexts = [];
+
       renderButtons();
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
+      // change_selected_text = 2;
       selectedButtonTexts = [];
       if (savedselectedButtonTexts.length > 0) {
         savedselectedButtonTexts.map((item) => {
@@ -698,11 +721,13 @@ btn1.addEventListener("click", function () {
   setActiveButton([btn1]);
   firstButtonContent = true;
   secondButtonContent = false;
-
+  active_button_content = 1;
   lastActiveButton = btn1;
   btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
   btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
 
+  availableOptions = availableOptions2;
+  savedselectedButtonTexts = [];
   console.log("firstButtonContent:", firstButtonContent); // Confirm update
 });
 
@@ -714,11 +739,14 @@ btn2.addEventListener("click", function () {
 
   secondButtonContent = true;
   firstButtonContent = false;
-
+  active_button_content = 2;
   lastActiveButton = btn2;
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 
+
+  availableOptions = availableOptions2;
+  savedselectedButtonTexts = [];
   console.log("secondButtonContent:", secondButtonContent); // Confirm update
 });
 
@@ -771,11 +799,11 @@ window.addEventListener("DOMContentLoaded", function () {
 document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
-    // selectedButtonTexts = [];
+    selectedButtonTexts = [];
 
     if (activeCircle === "sliderCard__circle--2") {
 
- 
+      console.log("selectedButtonTexts frst",selectedButtonTexts)
 
       console.log(
         "Button clicked, starting process... =============new process============",
@@ -793,7 +821,7 @@ document
       // console.log("Initial secondButtonContent:", secondButtonContent);
 
       if (secondButtonContent) {
-        console.log("btn2.classList.contains active");
+        console.log("active_button_content",active_button_content);
         console.log("btn2 is active, processing proTexts:", proTexts);
 
         proTexts.map((text) => {
