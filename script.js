@@ -13,163 +13,155 @@ var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
 var change_selected_text = 1;
 var active_button_content = 1;
+
+
+
 var availableOptions = [
-"rishu 1",
-"rishu 2",
-"rishu 3",
-"rishu 4",
-"rishu 5",
-//   "Arbeitszeitkonten",
 
-// "Mitarbeiterguthaben",
+  "Arbeitszeitkonten",
 
-// "Arbeitnehmerentsendung",
+"Mitarbeiterguthaben",
 
-// "An-/Vorauszahlungen",
+"Arbeitnehmerentsendung",
 
-// "Architektenleistungen",
+"An-/Vorauszahlungen",
 
-// "Ausfallbürgschaft",
+"Architektenleistungen",
 
-// "Ausführungsbürgschaft",
+"Ausfallbürgschaft",
 
-// "Bauhandwerker-Rahmenvertrag",
+"Ausführungsbürgschaft",
 
-// "Bauhandwerkersicherung	",
+"Bauhandwerker-Rahmenvertrag",
 
-// "Bietungsbürgschaft",
+"Bauhandwerkersicherung	",
 
-// "Fremdsprachenbürgschaft	",
+"Bietungsbürgschaft",
 
-// "Immissionsbürgschaft	",
+"Fremdsprachenbürgschaft	",
 
-// "Dienstleistungsbürgschaft",
+"Immissionsbürgschaft	",
 
-// "Erschließungsbürgschaft	",
+"Dienstleistungsbürgschaft",
 
-// "Energielieferung",
+"Erschließungsbürgschaft	",
 
-// "Franchise"	,
+"Energielieferung",
 
-// "Gewährleistung"	,
+"Franchise"	,
 
-// "IATA-Bürgschaft	",
+"Gewährleistung"	,
 
-// "Individualbürgschaft	",
-// "Lieferantenbürgschaft	",
+"IATA-Bürgschaft	",
 
-// "Leasingbürgschaft	",
+"Individualbürgschaft	",
+"Lieferantenbürgschaft	",
 
-// "Lottobürgschaft",
+"Leasingbürgschaft	",
 
-// "Mängelansprüche	",
+"Lottobürgschaft",
 
-// "Gew. Mietkaution",
+"Mängelansprüche	",
 
-// "Mineralölbürgschaft	",
+"Gew. Mietkaution",
 
-// "Postagentur "	,
+"Mineralölbürgschaft	",
 
-// "Prozessbürgschaft",
+"Postagentur "	,
 
-// "Recyclingbürgschaft",
+"Prozessbürgschaft",
 
-// "Rekultivierung",
+"Recyclingbürgschaft",
 
-// "Rückbaubürgschaft",
+"Rekultivierung",
 
-// "Sonderbürgschaft",
+"Rückbaubürgschaft",
 
-// "Tankkartenforderung",
+"Sonderbürgschaft",
 
-// "Verbraucherbürgschaft	",
+"Tankkartenforderung",
 
-// "Vertragserfüllung",
+"Verbraucherbürgschaft	",
 
-// "Vorauszahlungsbürgschaft	",
+"Vertragserfüllung",
 
-// "Warenlieferungsbürgschaft",
+"Vorauszahlungsbürgschaft	",
+
+"Warenlieferungsbürgschaft",
 ];
 
 var availableOptions2 = [
 
-  "rishu 1",
-"rishu 2",
-"rishu 3",
-"rishu 4",
-  "rishu 5",
+"Arbeitszeitkonten",
 
+"Mitarbeiterguthaben",
 
-// "Arbeitszeitkonten",
+"Arbeitnehmerentsendung",
 
-// "Mitarbeiterguthaben",
+"An-/Vorauszahlungen",
 
-// "Arbeitnehmerentsendung",
+"Architektenleistungen",
 
-// "An-/Vorauszahlungen",
+"Ausfallbürgschaft",
 
-// "Architektenleistungen",
+"Ausführungsbürgschaft",
 
-// "Ausfallbürgschaft",
+"Bauhandwerker-Rahmenvertrag",
 
-// "Ausführungsbürgschaft",
+"Bauhandwerkersicherung	",
 
-// "Bauhandwerker-Rahmenvertrag",
+"Bietungsbürgschaft",
 
-// "Bauhandwerkersicherung	",
+"Fremdsprachenbürgschaft	",
 
-// "Bietungsbürgschaft",
+"Immissionsbürgschaft	",
 
-// "Fremdsprachenbürgschaft	",
+"Dienstleistungsbürgschaft",
 
-// "Immissionsbürgschaft	",
+"Erschließungsbürgschaft	",
 
-// "Dienstleistungsbürgschaft",
+"Energielieferung",
 
-// "Erschließungsbürgschaft	",
+"Franchise"	,
 
-// "Energielieferung",
+"Gewährleistung"	,
 
-// "Franchise"	,
+"IATA-Bürgschaft	",
 
-// "Gewährleistung"	,
+"Individualbürgschaft	",
+"Lieferantenbürgschaft	",
 
-// "IATA-Bürgschaft	",
+"Leasingbürgschaft	",
 
-// "Individualbürgschaft	",
-// "Lieferantenbürgschaft	",
+"Lottobürgschaft",
 
-// "Leasingbürgschaft	",
+"Mängelansprüche	",
 
-// "Lottobürgschaft",
+"Gew. Mietkaution",
 
-// "Mängelansprüche	",
+"Mineralölbürgschaft	",
 
-// "Gew. Mietkaution",
+"Postagentur "	,
 
-// "Mineralölbürgschaft	",
+"Prozessbürgschaft",
 
-// "Postagentur "	,
+"Recyclingbürgschaft",
 
-// "Prozessbürgschaft",
+"Rekultivierung",
 
-// "Recyclingbürgschaft",
+"Rückbaubürgschaft",
 
-// "Rekultivierung",
+"Sonderbürgschaft",
 
-// "Rückbaubürgschaft",
+"Tankkartenforderung",
 
-// "Sonderbürgschaft",
+"Verbraucherbürgschaft	",
 
-// "Tankkartenforderung",
+"Vertragserfüllung",
 
-// "Verbraucherbürgschaft	",
+"Vorauszahlungsbürgschaft	",
 
-// "Vertragserfüllung",
-
-// "Vorauszahlungsbürgschaft	",
-
-// "Warenlieferungsbürgschaft",
+"Warenlieferungsbürgschaft",
 ];
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
