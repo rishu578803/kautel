@@ -253,13 +253,16 @@ document
       if (change_selected_text === "sliderCard__circle--1") {
   
         selectedButtonTexts = [];
+        availableOptions2.map((item) => {
+          availableOptions.push(item);
+        });
       } else {
         console.log("saved selected text",savedselectedButtonTexts);
       }
 
       
       availableOptions = [];
-
+      selectedButtonTexts = [];
       console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
 
       availableOptions2.map((item) => {
@@ -280,12 +283,12 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
       // change_selected_text = 2;
-      selectedButtonTexts = [];
-      if (savedselectedButtonTexts.length > 0) {
-        savedselectedButtonTexts.map((item) => {
-          selectedButtonTexts.push(item);
-        })
-      }
+      // selectedButtonTexts = [];
+      // if (savedselectedButtonTexts.length > 0) {
+      //   savedselectedButtonTexts.map((item) => {
+      //     selectedButtonTexts.push(item);
+      //   })
+      // }
     
       renderButtons();
       renderSelectedOptions();
@@ -711,7 +714,7 @@ function setActiveButton(buttons) {
 }
 
 // Track the last active button
-
+var btnStatus = "not changed";
 // Button click event listeners
 btn1.addEventListener("click", function () {
   console.log("btn1 clicked");
@@ -728,6 +731,9 @@ btn1.addEventListener("click", function () {
 
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
+  selectedButtonTexts = [];
+  btnStatus =  "changed";
+  console.log("availableOptions from btn",availableOptions)
   console.log("firstButtonContent:", firstButtonContent); // Confirm update
 });
 
@@ -744,9 +750,11 @@ btn2.addEventListener("click", function () {
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 
-
+  btnStatus =  "changed";
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
+  // selectedButtonTexts = [];
+  console.log("availableOptions from btn",availableOptions)
   console.log("secondButtonContent:", secondButtonContent); // Confirm update
 });
 
@@ -799,11 +807,15 @@ window.addEventListener("DOMContentLoaded", function () {
 document
   .getElementById("sliderCard__nextBtn--3")
   .addEventListener("click", function () {
-    selectedButtonTexts = [];
+    // selectedButtonTexts = [];
 
     if (activeCircle === "sliderCard__circle--2") {
 
-      console.log("selectedButtonTexts frst",selectedButtonTexts)
+      if (btnStatus === "changed"){
+        selectedButtonTexts = [];
+   
+      } 
+      console.log("selectedButtonTexts frst 19 oct",selectedButtonTexts)
 
       console.log(
         "Button clicked, starting process... =============new process============",
@@ -821,8 +833,9 @@ document
       // console.log("Initial secondButtonContent:", secondButtonContent);
 
       if (secondButtonContent) {
-        console.log("active_button_content",active_button_content);
-        console.log("btn2 is active, processing proTexts:", proTexts);
+    // selectedButtonTexts = [];
+
+        console.log("enter in secondButtonContent",selectedButtonTexts);
 
         proTexts.map((text) => {
           if (!selectedButtonTexts.includes(text)) {
@@ -833,29 +846,30 @@ document
 
   
 
-        console.log("after maping", availableOptions, selectedButtonTexts);
+       
       } else if (firstButtonContent) {
-        console.log("btn1.classList.contains active");
+        console.log("enter in firstButtonContent")
+            // selectedButtonTexts = [];
         basicTexts.map((text) => {
           if (!selectedButtonTexts.includes(text)) {
             selectedButtonTexts.push(text);
             availableOptions = availableOptions.filter((opt) => opt !== text);
           }
         });
-
-
-   
       }
       // Check if the arrays have the expected values
-      console.log("  after maping", selectedButtonTexts);
+
 
       if (sendToSlider2_2) {
-
+        console.log("enter in sendToSlider2_2",savedselectedButtonTexts)
 
         if (savedselectedButtonTexts.length > 0) {
-          selectedButtonTexts = [];
+          // selectedButtonTexts = [];
+  
           savedselectedButtonTexts.map((item) => {
+
             if (!selectedButtonTexts.includes(item)) {
+           
               selectedButtonTexts.push(item);
             }
           });
@@ -865,7 +879,7 @@ document
         
         renderButtons();
         renderSelectedOptions();
-
+btnStatus = "not changed"
         console.log("sendToSlider2_2 entered");
         // Display new heading
         document.getElementById("sliderCard--card2---heading").style.display =
