@@ -232,6 +232,34 @@ function showPreviousCard(currentCardId, previousCardId) {
 
   currentCard.style.display = "none";
   previousCard.style.display = "block";
+
+
+
+
+
+  const circle = document.getElementById('sliderCard__circle--1');
+  const label = document.getElementById('toggleLabel1');
+  const otherCircle = document.getElementById('sliderCard__circle--2');
+  const otherLabel = document.getElementById('toggleLabel2');
+
+
+
+  otherCircle.style.backgroundColor = "#A1B1CE";
+  otherLabel.style.color = "#A1B1CE";
+
+
+  circle.style.backgroundColor = "blue";
+  label.style.color = "blue";
+
+  renderButtons();
+
+  console.log(" from circle selectedButtonTexts", selectedButtonTexts);
+  // Set the active circle
+  activeCircle = 'sliderCard__circle--1';
+  change_selected_text = 'sliderCard__circle--1';
+  console.log(" from circle selectedButtonTexts", selectedButtonTexts);
+
+ 
 }
 
 // Modify the event listener for the first "Next" button
@@ -285,14 +313,7 @@ document
       btn1.style.backgroundColor = "#304eba";
       // DisablelastActiveColor = true;
     
-      // change_selected_text = 2;
-      // selectedButtonTexts = [];
-      // if (savedselectedButtonTexts.length > 0) {
-      //   savedselectedButtonTexts.map((item) => {
-      //     selectedButtonTexts.push(item);
-      //   })
-      // }
-    
+  
       renderButtons();
       renderSelectedOptions();
       // console.log("selectedButtonTexts: in 2 card", selectedButtonTexts);
@@ -300,13 +321,7 @@ document
     }
   });
 
-// document
-//   .getElementById("sliderCard__nextBtn--4")
-//   .addEventListener("click", function () {
-//     document.getElementById('selectedAmount').innerText = selectedPrice_1;
-//     console.log("selectedPrice_1 ", selectedPrice_1)
-//     showNextCard("sliderCard--card4", "sliderCard--card6");
-//   });
+
 
 document
   .getElementById("sliderCard__nextBtn--4")
@@ -404,10 +419,7 @@ document
     }
   });
 // ==========================================================   sliderCard--card4
-// Add event listener for the Next button
 
-// The rest of the code remains the same
-// Existing array to store selected button texts
 let currentIndex = 0;
 const buttonsToShow = 5;
 const buttonHeight = 50;
@@ -437,30 +449,6 @@ function scrollDown() {
     });
   }
 }
-//  js updated
-
-// var availableOptions = [
-//   "Prod 1",
-//   "Prod 2",
-//   "Prod 3",
-//   "Prod 4",
-//   "Prod 5",
-//   "Prod 6",
-//   "Prod 7",
-//   "Prod 8",
-//   "Prod 9",
-//   "Prod 10",
-//   "Prod 11",
-//   "Prod 12",
-//   "Prod 13",
-//   "Prod 14",
-//   "Prod 15",
-//   "Prod 16",
-//   "Prod 17",
-//   "Prod 18",
-//   "Prod 19",
-//   "Prod 20"
-// ];
 
 // Render buttons in the left panel (available options)
 function renderButtons() {
