@@ -226,7 +226,9 @@ function showNextCard(currentCardId, nextCardId) {
 
 function showPreviousCard(currentCardId, previousCardId) {
   const currentCard = document.getElementById(currentCardId);
-  const previousCard = document.getElementById(previousCardId);
+
+
+  const previousCard = document.getElementById('sliderCard--card1');
 
   currentCard.style.display = "none";
   previousCard.style.display = "block";
@@ -237,33 +239,24 @@ document
   .getElementById("sliderCard__nextBtn--1")
   .addEventListener("click", function () {
 
- 
+
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
     console.log("save selected",savedselectedButtonTexts)
-
-      if (change_selected_text === "sliderCard__circle--1") {
-  
-        selectedButtonTexts = [];
-        availableOptions2.map((item) => {
-          availableOptions.push(item);
-        });
-      } else {
-        console.log("saved selected text",savedselectedButtonTexts);
-      }
-
+    availableOptions2.map((item) => {
+      availableOptions.push(item);
+    });
       
-      availableOptions = [];
+
+
+   
+      
+
       selectedButtonTexts = [];
-      console.log("selectedButtonTexts: in 1 card", selectedButtonTexts);
+  
+      savedselectedButtonTexts = [];
 
-      availableOptions2.map((item) => {
-        availableOptions.push(item);
-      });
-
-
-      // selectedButtonTexts = [];
-      console.log("sendToSlider2_2 entered");
+    
       // Display new heading
       document.getElementById("sliderCard--card2---heading").style.display =
         "block";
@@ -274,6 +267,16 @@ document
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
+
+
+      setActiveButton([btn1]);
+      selectedButtonTexts = [];
+      savedselectedButtonTexts = [];
+      const btn3 = document.getElementById("btn3")
+      btn3.style.backgroundColor = "#a0aec8"; // Change background color to active gray
+      DisablelastActiveColor = true;
+
+    
       // change_selected_text = 2;
       // selectedButtonTexts = [];
       // if (savedselectedButtonTexts.length > 0) {
