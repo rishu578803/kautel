@@ -267,15 +267,23 @@ document
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
-
+      const btn1 = document.getElementById("btn1");
+      const btn3 = document.getElementById("btn3");
+      const btn2 = document.getElementById("btn2");
 
       setActiveButton([btn1]);
       selectedButtonTexts = [];
       savedselectedButtonTexts = [];
-      const btn3 = document.getElementById("btn3")
-      btn3.style.backgroundColor = "#a0aec8"; // Change background color to active gray
-      DisablelastActiveColor = true;
-
+      updateButtons(basicTexts);
+      sendToSlider2_2 = false;
+      firstButtonContent = true;
+      secondButtonContent = false;
+      lastActiveButton = btn1;
+      
+      btn3.style.backgroundColor = "#a0aec8";
+      btn2.style.backgroundColor = "#a0aec8";// Change background color to active gray
+      btn1.style.backgroundColor = "#304eba";
+      // DisablelastActiveColor = true;
     
       // change_selected_text = 2;
       // selectedButtonTexts = [];
@@ -805,11 +813,8 @@ document
     // selectedButtonTexts = [];
 
     if (activeCircle === "sliderCard__circle--2") {
-
-      if (btnStatus === "changed"){
-        selectedButtonTexts = [];
+      selectedButtonTexts = [];
    
-      } 
       console.log("selectedButtonTexts frst 19 oct",selectedButtonTexts)
 
       console.log(
