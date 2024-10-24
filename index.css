@@ -561,3 +561,21 @@ input[type="range"]::-webkit-slider-runnable-track {
   max-height: 320px; /* Set a maximum height */
   overflow-y: auto;  /* Enable vertical scrolling */
 }
+
+/* range slider */
+.valueC.two {
+  left: 9%;
+}
+.valueC.three {
+  left: 14%;
+}
+.valueC.four {
+  left: 22%;
+}
+.valueC.five {
+  left: -65px;
+}
+.valueC.six {
+  left: auto;
+  right:-65px;
+}

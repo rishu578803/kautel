@@ -13,12 +13,15 @@
       integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://dev.kautel.de/templates/corporate-v3-5/css/bootstrap.min.css">
       <link rel="stylesheet" href="./css/jquery-ui.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="./css/custom.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="./index.css" />
     
 		<script src="./js/jquery.min.js" type="text/javascript"></script>
 		<script src="./js/jquery-ui.js" type="text/javascript"></script>
     <script src="./js/jquery.ui.touch-punch.js" type="text/javascript"></script>
+    
   </head>
   <body>
     <div class="container mt-5">
@@ -221,60 +224,32 @@
           <!-- =============== -->
           <div class="sliderCard" id="sliderCard--card4" style="display: none">
 
-            <!-- kaushal codes slider 1 start -->
-            <h1>Kautionsbürgschaft berechnen</h1>
-            <p>Berechnen Sie in nur wenigen Schritten Ihren monatlichen Beitrag und schließen Sie die Bürgschaft direkt online ab.</p>
-            <b>Höhe der Barkaution</b>
-            <div class="row">
-            <div class="col-sm-12 margin-bottom-15">
-            <div class="input-group">
-              <input id="bruttoeinkommen2" class="form-control percentClass" type="number"/> 
-              <span class="input-group-addon">€</span>
-            </div>
-            <div id="validationText2" class="col-xs-12"></div>
-            </div>
-            <div class="col-sm-12">
-            <div id="Rangeslider2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a></div>
-            <div class="valueStep">
-            <div class="pull-left valueStep__one">5.000</div>
-            <div class="pull-left valueStep__two">20.000</div>
-            <div class="pull-left valueStep__three">15,000</div>
-            <div class="pull-left valueStep__four">20,000</div>
-            <div class="pull-right valueStep__five">25,000</div>
-            <div class="clearfix">&nbsp;</div>
-          </div>
-            </div>
-            </div>
-          <!-- kaushal codes slider 1 end -->
+            <!-- kaushal start -->
+<div class="row">
+  <div class="col-sm-12">
+  <div class="input-group">
+    <input id="bruttoeinkommen" class="form-control percentClass" type="number" /> <span class="input-group-addon">€</span></div>
+  <div id="validationText" class="col-xs-12"></div>
+  </div>
+  <div class="col-sm-12">
+  <div id="Rangeslider"></div>
+  <div class="pull-left valueC">5.000</div>
+  <div class="pull-left valueC two">50.000</div>
+  <div class="pull-left valueC three">80.000</div>
+  <div class="pull-left valueC four">120.000</div>
+  <div class="pull-right valueC five">160000</div>
+  <div class="pull-right valueC six">200000</div>
+  <div class="clearfix"> </div>
+  </div>
+  </div>
+<!-- kaushal end -->
 
             <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
             <p class="sliderCard__subheading">
               Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus
               (max. 8 Mio €)"**
             </p>
-            <div class="sliderCard__container">
-              <div class="amount-section">
-                <label for="amountRange" class="form-label"
-                  >Gewählter Betrag</label
-                >
-                <input
-                  type="text"
-                  id="selectedAmount"
-                  value="20,000 €"
-                  class="form-control selected_Amount" />
-              </div>
-            </div>
 
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="80000"
-                value="50"
-                class="slider myRange"
-                id="myRange" />
-              <!-- <p>Value: <span id="demo"></span></p> -->
-            </div>
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
@@ -420,60 +395,28 @@
         </div>
       </div>
     </div>
-    <script>
-    var initialInputValue = 5000;
-var inputVal = document.querySelector('.percentClass');
-
-// Set initial value with German formatting for display
-inputVal.value = formatNumber(initialInputValue);
-
-$(function () {
-  $("#Rangeslider2").slider({
-    value: initialInputValue,
-    min: 5000,
-    step: 10,
-    max: 200000,
-    slide: function (event, ui) {
-      // Display the German-formatted value in the input field
-      $(".percentClass").val(formatNumber(ui.value));
-    },
-    change: function (event, ui) {
-      // Sync raw value to the input field using a data attribute
-      inputVal.setAttribute("data-raw-value", ui.value);
-    }
-  });
-
-  // Update slider when user changes input manually
-  $("input.percentClass").on("change", function () {
-    let rawValue = parseNumber(this.value);
-    if (!isNaN(rawValue) && rawValue >= 5000 && rawValue <= 200000) {
-      $("#Rangeslider2").slider("value", rawValue);
-    } else {
-      alert("Value out of range! Please enter a value between 5.000 and 200.000.");
-    }
-  });
-});
-
-// Format number for German locale (e.g., "5.000")
-function formatNumber(value) {
-  return new Intl.NumberFormat('de-DE').format(value);
-}
-
-// Parse formatted value back to a raw number
-function parseNumber(formattedValue) {
-  return Number(formattedValue.replace(/\./g, ''));
-}
-
-// Listen for input changes and validate numeric input
-inputVal.addEventListener("input", function () {
-  let rawValue = parseNumber(this.value);
-
-  if (!isNaN(rawValue) && rawValue >= 5000 && rawValue <= 200000) {
-    $("#Rangeslider2").slider("value", rawValue);
-  }
-});
-
-    </script>
     <script src="script.js"></script>
+    <script>
+      jQuery( function() {
+        var initialValue = 5000;
+        jQuery('.percentClass').val(initialValue);
+      jQuery("#Rangeslider").slider({
+									value:initialValue,
+									min: 5000,
+									step: 10,
+									max: 200000,
+									range: "min",
+                  slide: function(event, ui) {
+                      console.log(ui.value);
+                      jQuery('.percentClass').val(ui.value);
+                  }									
+								});
+								jQuery("input.percentClass").change(function () {
+									var value = this.value;
+									jQuery("#Rangeslider").slider("value", parseInt(value));
+								});	
+              } );
+                
+    </script>
   </body>
 </html>

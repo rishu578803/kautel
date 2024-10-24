@@ -552,11 +552,6 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
- 
-
-
-
-    // selectedButtonTexts = [];
 
     console.log("selectedtext for save 2",selectedButtonTexts)
     if (activeCircle == "sliderCard__circle--1") {
