@@ -912,3 +912,46 @@ document
   });
 
 // ============================================= 211111111111111111111111111111111111111111111
+
+const productDetails = [
+  {productName:"Arbeitszeitkonten", prodId:"K001"},
+  {productName:"Mitarbeiterguthaben", prodId:"K002"},
+  {productName:"Arbeitnehmerentsendung", prodId:"K003"},
+  {productName:"An- und Vorauszahlungen", prodId:"K004"},
+  {productName:"Architektenleistungen", prodId:"K005"},
+  {productName:"Ausfallbürgschaft", prodId:"K006"},
+  {productName:"Ausführungsbürgschaft", prodId:"K007"},
+  {productName:"Bauhandwerker-Rahmenvertrag", prodId:"K008"},
+  {productName:"Bauhandwerkersicherung", prodId:"K009"},
+  {productName:"Bietungsbürgschaft", prodId:"K0010"},
+  {productName:"Fremdsprachenbürgschaft", prodId:"K0011"},
+  {productName:"Immissionsbürgschaft", prodId:"K0012"},
+  {productName:"Dienstleistungsbürgschaft", prodId:"K0013"},
+  {productName:"Erschließungsbürgschaft", prodId:"K0014"},
+  {productName:"Energielieferung", prodId:"K0015"},
+  {productName:"Franchise", prodId:"K0016"},
+  {productName:"Gewährleistung", prodId:"K0017"},
+  {productName:"IATA-Bürgschaft", prodId:"K0018"},
+  {productName:"Individualbürgschaft", prodId:"K0019"},
+  {productName:"Lieferantenbürgschaft", prodId:"K0020"},
+  {productName:"Leasingbürgschaft", prodId:"K0021"},
+  {productName:"Lottobürgschaft", prodId:"K0022"},
+  {productName:"Mängelansprüche", prodId:"K0023"},
+  {productName:"Mietkaution gew.", prodId:"K0024"},
+  {productName:"Mineralölbürgschaft", prodId:"K0025"},
+  {productName:"Postagentur", prodId:"K0026"},
+  {productName:"Prozessbürgschaft", prodId:"K0027"},
+  {productName:"Recyclingbürgschaft", prodId:"K0028"},
+  {productName:"Rekultivierung", prodId:"K0029"},
+  {productName:"Rückbaubürgschaft", prodId:"K0030"},
+  {productName:"Sonderbürgschaft", prodId:"K0031"},
+  {productName:"Tankkartenforderung", prodId:"K0032"},
+  {productName:"Verbraucherbürgschaft", prodId:"K0033"},
+  {productName:"Vertragserfüllung", prodId:"K0034"},
+  {productName:"Vorauszahlungsbürgschaft", prodId:"K0035"},
+  {productName:"Warenlieferungsbürgschaft", prodId:"K0036"}
+]
+const url= "https://dev.kautel.de/kautionLead";
+// var link1 = url?productId=k001
+debugger;
+// var link1 = `url?productId=${productDetails.prodId[10]}`
