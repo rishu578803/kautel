@@ -608,14 +608,14 @@ document
 
 // ===============================================================
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("selectedAmount");
-output.value = "20,000" + " €";
+// var slider = document.getElementById("myRange");
+// var output = document.getElementById("selectedAmount");
+// output.value = "20,000" + " €";
 
-slider.oninput = function () {
-  output.value = this.value + " €";
-  selectedPrice_1 = this.value + " €";
-};
+// slider.oninput = function () {
+//   output.value = this.value + " €";
+//   selectedPrice_1 = this.value + " €";
+// };
 
 // ============
 var slider2 = document.getElementById("myRange2");
