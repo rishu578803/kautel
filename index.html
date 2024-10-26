@@ -10,9 +10,7 @@
       integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-    <link
-      rel="stylesheet"
-      href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link
       rel="stylesheet"
       href="./css/jquery-ui.css"
@@ -111,7 +109,7 @@
             id="sliderCard--card2_1"
             style="display: none">
             <h4 class="sliderCard__heading" id="sliderCard__card2--heading">
-              Bürgschaftsmodell ergänzen 222222222222
+              Bürgschaftsmodell ergänzen
             </h4>
             <p
               class="sliderCard__subheading"
@@ -230,16 +228,24 @@
           <div class="sliderCard" id="sliderCard--card4" style="display: none">
             <!-- kaushal start -->
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-12 mb-4">
+                <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
+                <p class="sliderCard__subheading">
+                  Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                  aus (max. 8 Mio €)"**
+                </p>
+
                 <div class="input-group">
                   <input
                     id="bruttoeinkommen"
                     class="form-control percentClass"
-                    type="number" />
+                    type="number"
+                    class="slider myRange" />
                   <span class="input-group-addon">€</span>
                 </div>
                 <div id="validationText" class="col-xs-12"></div>
               </div>
+
               <div class="col-sm-12">
                 <div id="Rangeslider"></div>
                 <div class="pull-left valueC">5.000</div>
@@ -253,11 +259,46 @@
             </div>
             <!-- kaushal end -->
 
-            <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
-            <p class="sliderCard__subheading">
-              Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus
-              (max. 8 Mio €)"**
-            </p>
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow"></i>
+            </div>
+          </div>
+                <div class="sliderCard" id="sliderCard--card4" style="display: none">
+            <!-- kaushal start -->
+            <div class="row">
+              <div class="col-sm-12 mb-4">
+                <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
+                <p class="sliderCard__subheading">
+                  Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                  aus (max. 8 Mio €)"**
+                </p>
+
+                <div class="input-group">
+                  <input
+                    id="bruttoeinkommen"
+                    class="form-control percentClass"
+                    type="number"
+                    class="slider myRange" />
+                  <span class="input-group-addon">€</span>
+                </div>
+                <div id="validationText" class="col-xs-12"></div>
+              </div>
+
+              <div class="col-sm-12">
+                <div id="Rangeslider"></div>
+                <div class="pull-left valueC">5.000</div>
+                <div class="pull-left valueC two">50.000</div>
+                <div class="pull-left valueC three">80.000</div>
+                <div class="pull-left valueC four">120.000</div>
+                <div class="pull-right valueC five">160000</div>
+                <div class="pull-right valueC six">200000</div>
+                <div class="clearfix"> </div>
+              </div>
+            </div>
+            <!-- kaushal end -->
 
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
@@ -344,7 +385,9 @@
             <div class="info-box">
               <div class="left-section">
                 <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
-                <p class="sub_heading">An-/Vorauszahlung</p>
+                <div id="sliderCard--card6_left-section">
+                  <p class="sub_heading">An-/Vorauszahlung</p>
+                </div>
                 <br />
                 <p class="heading">Höhe der Bürgschaft</p>
                 <p class="sub_heading selectedPrice1" id="selectedAmount">
@@ -364,6 +407,42 @@
                 </div>
                 <button class="calculate-btn">
                   Beitrag berechnen
+                  <span class="arrow" id="sliderCard__calculate-btn--2">➔</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="sliderCard" id="sliderCard--card6.1" style="display: none">
+            <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
+            <p class="sliderCard__subheading">
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
+            </p>
+            <div class="info-box">
+              <div class="left-section">
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <div id="sliderCard--card6_left-section">
+                  <p class="sub_heading">An-/Vorauszahlung</p>
+                </div>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading selectedPrice1" id="selectedAmount">
+                  20.000 €
+                </p>
+              </div>
+
+              <div class="right-section">
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <div
+                  class="sliderCard__gobackbtn"
+                  id="sliderCard--card6_back_btn">
+                  <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
+                </div>
+                <button class="calculate-btn">
+                  Angebot anfordern
                   <span class="arrow" id="sliderCard__calculate-btn--2">➔</span>
                 </button>
               </div>
@@ -419,11 +498,18 @@
           range: "min",
           slide: function (event, ui) {
             console.log(ui.value);
+
+            // Set the value in the element with class 'percentClass'
             jQuery(".percentClass").val(ui.value);
+
+            // Set the value in the element with ID 'selectedAmount'
+            jQuery("#selectedAmount").text(ui.value);
           },
         });
         jQuery("input.percentClass").change(function () {
           var value = this.value;
+
+          console.log("value of range: ", value);
           jQuery("#Rangeslider").slider("value", parseInt(value));
         });
       });

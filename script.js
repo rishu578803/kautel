@@ -14,154 +14,150 @@ var selectedPrice_2 = "75.000" + " €";
 var change_selected_text = 1;
 var active_button_content = 1;
 
-
-
 var availableOptions = [
-
   "Arbeitszeitkonten",
 
-"Mitarbeiterguthaben",
+  "Mitarbeiterguthaben",
 
-"Arbeitnehmerentsendung",
+  "Arbeitnehmerentsendung",
 
-"An-/Vorauszahlungen",
+  "An-/Vorauszahlungen",
 
-"Architektenleistungen",
+  "Architektenleistungen",
 
-"Ausfallbürgschaft",
+  "Ausfallbürgschaft",
 
-"Ausführungsbürgschaft",
+  "Ausführungsbürgschaft",
 
-"Bauhandwerker-Rahmenvertrag",
+  "Bauhandwerker-Rahmenvertrag",
 
-"Bauhandwerkersicherung	",
+  "Bauhandwerkersicherung	",
 
-"Bietungsbürgschaft",
+  "Bietungsbürgschaft",
 
-"Fremdsprachenbürgschaft	",
+  "Fremdsprachenbürgschaft	",
 
-"Immissionsbürgschaft	",
+  "Immissionsbürgschaft	",
 
-"Dienstleistungsbürgschaft",
+  "Dienstleistungsbürgschaft",
 
-"Erschließungsbürgschaft	",
+  "Erschließungsbürgschaft	",
 
-"Energielieferung",
+  "Energielieferung",
 
-"Franchise"	,
+  "Franchise",
 
-"Gewährleistung"	,
+  "Gewährleistung",
 
-"IATA-Bürgschaft	",
+  "IATA-Bürgschaft	",
 
-"Individualbürgschaft	",
-"Lieferantenbürgschaft	",
+  "Individualbürgschaft	",
+  "Lieferantenbürgschaft	",
 
-"Leasingbürgschaft	",
+  "Leasingbürgschaft	",
 
-"Lottobürgschaft",
+  "Lottobürgschaft",
 
-"Mängelansprüche	",
+  "Mängelansprüche	",
 
-"Gew. Mietkaution",
+  "Gew. Mietkaution",
 
-"Mineralölbürgschaft	",
+  "Mineralölbürgschaft	",
 
-"Postagentur "	,
+  "Postagentur ",
 
-"Prozessbürgschaft",
+  "Prozessbürgschaft",
 
-"Recyclingbürgschaft",
+  "Recyclingbürgschaft",
 
-"Rekultivierung",
+  "Rekultivierung",
 
-"Rückbaubürgschaft",
+  "Rückbaubürgschaft",
 
-"Sonderbürgschaft",
+  "Sonderbürgschaft",
 
-"Tankkartenforderung",
+  "Tankkartenforderung",
 
-"Verbraucherbürgschaft	",
+  "Verbraucherbürgschaft	",
 
-"Vertragserfüllung",
+  "Vertragserfüllung",
 
-"Vorauszahlungsbürgschaft	",
+  "Vorauszahlungsbürgschaft	",
 
-"Warenlieferungsbürgschaft",
+  "Warenlieferungsbürgschaft",
 ];
 
 var availableOptions2 = [
+  "Arbeitszeitkonten",
 
-"Arbeitszeitkonten",
+  "Mitarbeiterguthaben",
 
-"Mitarbeiterguthaben",
+  "Arbeitnehmerentsendung",
 
-"Arbeitnehmerentsendung",
+  "An-/Vorauszahlungen",
 
-"An-/Vorauszahlungen",
+  "Architektenleistungen",
 
-"Architektenleistungen",
+  "Ausfallbürgschaft",
 
-"Ausfallbürgschaft",
+  "Ausführungsbürgschaft",
 
-"Ausführungsbürgschaft",
+  "Bauhandwerker-Rahmenvertrag",
 
-"Bauhandwerker-Rahmenvertrag",
+  "Bauhandwerkersicherung	",
 
-"Bauhandwerkersicherung	",
+  "Bietungsbürgschaft",
 
-"Bietungsbürgschaft",
+  "Fremdsprachenbürgschaft	",
 
-"Fremdsprachenbürgschaft	",
+  "Immissionsbürgschaft	",
 
-"Immissionsbürgschaft	",
+  "Dienstleistungsbürgschaft",
 
-"Dienstleistungsbürgschaft",
+  "Erschließungsbürgschaft	",
 
-"Erschließungsbürgschaft	",
+  "Energielieferung",
 
-"Energielieferung",
+  "Franchise",
 
-"Franchise"	,
+  "Gewährleistung",
 
-"Gewährleistung"	,
+  "IATA-Bürgschaft	",
 
-"IATA-Bürgschaft	",
+  "Individualbürgschaft	",
+  "Lieferantenbürgschaft	",
 
-"Individualbürgschaft	",
-"Lieferantenbürgschaft	",
+  "Leasingbürgschaft	",
 
-"Leasingbürgschaft	",
+  "Lottobürgschaft",
 
-"Lottobürgschaft",
+  "Mängelansprüche	",
 
-"Mängelansprüche	",
+  "Gew. Mietkaution",
 
-"Gew. Mietkaution",
+  "Mineralölbürgschaft	",
 
-"Mineralölbürgschaft	",
+  "Postagentur ",
 
-"Postagentur "	,
+  "Prozessbürgschaft",
 
-"Prozessbürgschaft",
+  "Recyclingbürgschaft",
 
-"Recyclingbürgschaft",
+  "Rekultivierung",
 
-"Rekultivierung",
+  "Rückbaubürgschaft",
 
-"Rückbaubürgschaft",
+  "Sonderbürgschaft",
 
-"Sonderbürgschaft",
+  "Tankkartenforderung",
 
-"Tankkartenforderung",
+  "Verbraucherbürgschaft	",
 
-"Verbraucherbürgschaft	",
+  "Vertragserfüllung",
 
-"Vertragserfüllung",
+  "Vorauszahlungsbürgschaft	",
 
-"Vorauszahlungsbürgschaft	",
-
-"Warenlieferungsbürgschaft",
+  "Warenlieferungsbürgschaft",
 ];
 // Function to toggle circles and set active circle
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
@@ -227,26 +223,18 @@ function showNextCard(currentCardId, nextCardId) {
 function showPreviousCard(currentCardId, previousCardId) {
   const currentCard = document.getElementById(currentCardId);
 
-
-  const previousCard = document.getElementById('sliderCard--card1');
+  const previousCard = document.getElementById("sliderCard--card1");
 
   currentCard.style.display = "none";
   previousCard.style.display = "block";
 
-
-
-
-
-  const circle = document.getElementById('sliderCard__circle--1');
-  const label = document.getElementById('toggleLabel1');
-  const otherCircle = document.getElementById('sliderCard__circle--2');
-  const otherLabel = document.getElementById('toggleLabel2');
-
-
+  const circle = document.getElementById("sliderCard__circle--1");
+  const label = document.getElementById("toggleLabel1");
+  const otherCircle = document.getElementById("sliderCard__circle--2");
+  const otherLabel = document.getElementById("toggleLabel2");
 
   otherCircle.style.backgroundColor = "#A1B1CE";
   otherLabel.style.color = "#A1B1CE";
-
 
   circle.style.backgroundColor = "blue";
   label.style.color = "blue";
@@ -255,36 +243,26 @@ function showPreviousCard(currentCardId, previousCardId) {
 
   console.log(" from circle selectedButtonTexts", selectedButtonTexts);
   // Set the active circle
-  activeCircle = 'sliderCard__circle--1';
-  change_selected_text = 'sliderCard__circle--1';
+  activeCircle = "sliderCard__circle--1";
+  change_selected_text = "sliderCard__circle--1";
   console.log(" from circle selectedButtonTexts", selectedButtonTexts);
-
- 
 }
 
 // Modify the event listener for the first "Next" button
 document
   .getElementById("sliderCard__nextBtn--1")
   .addEventListener("click", function () {
-
-
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
-    console.log("save selected",savedselectedButtonTexts)
-    availableOptions2.map((item) => {
-      availableOptions.push(item);
-    });
-      
-
-
-   
-      
+      console.log("save selected", savedselectedButtonTexts);
+      availableOptions2.map((item) => {
+        availableOptions.push(item);
+      });
 
       selectedButtonTexts = [];
-  
+
       savedselectedButtonTexts = [];
 
-    
       // Display new heading
       document.getElementById("sliderCard--card2---heading").style.display =
         "block";
@@ -307,13 +285,12 @@ document
       firstButtonContent = true;
       secondButtonContent = false;
       lastActiveButton = btn1;
-      
+
       btn3.style.backgroundColor = "#a0aec8";
-      btn2.style.backgroundColor = "#a0aec8";// Change background color to active gray
+      btn2.style.backgroundColor = "#a0aec8"; // Change background color to active gray
       btn1.style.backgroundColor = "#304eba";
       // DisablelastActiveColor = true;
-    
-  
+
       renderButtons();
       renderSelectedOptions();
       // console.log("selectedButtonTexts: in 2 card", selectedButtonTexts);
@@ -321,20 +298,78 @@ document
     }
   });
 
-
-
 document
   .getElementById("sliderCard__nextBtn--4")
   .addEventListener("click", function () {
-    // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
-    let selectedAmountElement = document.querySelector(".selectedPrice1");
+    console.log("selected product", selectedButtonTexts);
 
-    selectedAmountElement.innerText = selectedPrice_1;
+    const product = selectedButtonTexts;
 
-    console.log("selectedPrice_1:", selectedPrice_1);
-    console.log("selectedAmountElement", selectedAmountElement);
-    // Call the function to show the next card
-    showNextCard("sliderCard--card4", "sliderCard--card6");
+
+    const input_val = document.getElementById("bruttoeinkommen").value;
+
+    console.log("in", input_val)
+    
+    if (input_val >= 50.000) {
+      const leftSection = document.getElementById(
+        "sliderCard--card6_left-section"
+      );
+  
+      console.log("left_section", leftSection, selectedButtonTexts);
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+  
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+  
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+      let selectedAmountElement = document.querySelector(".selectedPrice1");
+  
+      selectedAmountElement.innerText = selectedPrice_1;
+  
+      console.log("selectedPrice_1:", selectedPrice_1);
+      console.log("selectedAmountElement", selectedAmountElement);
+      // Call the function to show the next card
+      showNextCard("sliderCard--card4", "sliderCard--card6");
+    } else {
+      const leftSection = document.getElementById(
+        "sliderCard--card6_left-section"
+      );
+  
+      console.log("left_section", leftSection, selectedButtonTexts);
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+  
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+  
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+      let selectedAmountElement = document.querySelector(".selectedPrice1");
+  
+      selectedAmountElement.innerText = selectedPrice_1;
+  
+      console.log("selectedPrice_1:", selectedPrice_1);
+      console.log("selectedAmountElement", selectedAmountElement);
+      // Call the function to show the next card
+      showNextCard("sliderCard--card4", "sliderCard--card6.1");
+    }
+    // Select the .left-section element inside .sliderCard--card6
+
+   
   });
 
 document
@@ -355,16 +390,12 @@ document
     showNextCard("sliderCard--card5", "sliderCard--card7");
   });
 
-
 document
   .getElementById("sliderCard__calculate-btn--1")
   .addEventListener("click", function () {
     console.log("calculate");
     showNextCard("sliderCard--card5", "sliderCard--card6");
   });
-
-
-
 
 document
   .getElementById("sliderCard__calculate-btn--2")
@@ -552,8 +583,7 @@ let clickCount = 0;
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
-
-    console.log("selectedtext for save 2",selectedButtonTexts)
+    console.log("selectedtext for save 2", selectedButtonTexts);
     if (activeCircle == "sliderCard__circle--1") {
       // Increment the click count on each button click
       clickCount++;
@@ -599,9 +629,10 @@ document
         }
       }
     } else if (activeCircle == "sliderCard__circle--2") {
-      selectedButtonTexts && selectedButtonTexts.map((item) => {
-        savedselectedButtonTexts.push(item);
-      });
+      selectedButtonTexts &&
+        selectedButtonTexts.map((item) => {
+          savedselectedButtonTexts.push(item);
+        });
       showNextCard("sliderCard--card2", "sliderCard--card5");
     }
   });
@@ -718,8 +749,8 @@ btn1.addEventListener("click", function () {
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
   selectedButtonTexts = [];
-  btnStatus =  "changed";
-  console.log("availableOptions from btn",availableOptions)
+  btnStatus = "changed";
+  console.log("availableOptions from btn", availableOptions);
   console.log("firstButtonContent:", firstButtonContent); // Confirm update
 });
 
@@ -736,11 +767,11 @@ btn2.addEventListener("click", function () {
   btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
   btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
 
-  btnStatus =  "changed";
+  btnStatus = "changed";
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
   // selectedButtonTexts = [];
-  console.log("availableOptions from btn",availableOptions)
+  console.log("availableOptions from btn", availableOptions);
   console.log("secondButtonContent:", secondButtonContent); // Confirm update
 });
 
@@ -797,8 +828,8 @@ document
 
     if (activeCircle === "sliderCard__circle--2") {
       selectedButtonTexts = [];
-   
-      console.log("selectedButtonTexts frst 19 oct",selectedButtonTexts)
+
+      console.log("selectedButtonTexts frst 19 oct", selectedButtonTexts);
 
       console.log(
         "Button clicked, starting process... =============new process============",
@@ -816,9 +847,9 @@ document
       // console.log("Initial secondButtonContent:", secondButtonContent);
 
       if (secondButtonContent) {
-    // selectedButtonTexts = [];
+        // selectedButtonTexts = [];
 
-        console.log("enter in secondButtonContent",selectedButtonTexts);
+        console.log("enter in secondButtonContent", selectedButtonTexts);
 
         proTexts.map((text) => {
           if (!selectedButtonTexts.includes(text)) {
@@ -826,13 +857,9 @@ document
             availableOptions = availableOptions.filter((opt) => opt !== text);
           }
         });
-
-  
-
-       
       } else if (firstButtonContent) {
-        console.log("enter in firstButtonContent")
-            // selectedButtonTexts = [];
+        console.log("enter in firstButtonContent");
+        // selectedButtonTexts = [];
         basicTexts.map((text) => {
           if (!selectedButtonTexts.includes(text)) {
             selectedButtonTexts.push(text);
@@ -842,27 +869,24 @@ document
       }
       // Check if the arrays have the expected values
 
-
       if (sendToSlider2_2) {
-        console.log("enter in sendToSlider2_2",savedselectedButtonTexts)
+        console.log("enter in sendToSlider2_2", savedselectedButtonTexts);
 
         if (savedselectedButtonTexts.length > 0) {
           // selectedButtonTexts = [];
-  
-          savedselectedButtonTexts.map((item) => {
 
+          savedselectedButtonTexts.map((item) => {
             if (!selectedButtonTexts.includes(item)) {
-           
               selectedButtonTexts.push(item);
             }
           });
-        
+
           savedselectedButtonTexts = [];
         }
-        
+
         renderButtons();
         renderSelectedOptions();
-btnStatus = "not changed"
+        btnStatus = "not changed";
         console.log("sendToSlider2_2 entered");
         // Display new heading
         document.getElementById("sliderCard--card2---heading").style.display =

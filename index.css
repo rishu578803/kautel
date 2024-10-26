@@ -579,3 +579,23 @@ input[type="range"]::-webkit-slider-runnable-track {
   left: auto;
   right:-65px;
 }
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width: 200px !important;
+  margin: 0 auto !important;
+}
+
+.ui-widget-content {
+  border: 7px solid #f3f5fa;
+  background: #8590a3;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+div#sliderCard--card6_left-section {
+  height: 77px;
+  overflow-y: scroll;
+}
