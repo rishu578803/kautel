@@ -308,34 +308,39 @@
             </div>
           </div>
           <div class="sliderCard" id="sliderCard--card5" style="display: none">
-            <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
-            <p class="sliderCard__subheading">
-              Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie aus
-              (max. 8 Mio €)"**
-            </p>
-            <div class="sliderCard__container">
-              <div class="amount-section">
-                <label for="amountRange" class="form-label"
-                  >Gewählter Betrag</label
-                >
-                <input
-                  type="text"
-                  id="selectedAmount2"
-                  value="75,000 €"
-                  class="form-control selected_Amount" />
+      
+               <!-- kaushal start -->
+               <div class="row">
+                <div class="col-sm-12 mb-4">
+                  <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
+                  <p class="sliderCard__subheading">
+                    Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                    aus (max. 8 Mio €)"**
+                  </p>
+  
+                  <div class="input-group">
+                    <input
+                      id="bruttoeinkommen"
+                      class="form-control percentClass"
+                      type="number"
+                      class="slider myRange" />
+                    <span class="input-group-addon">€</span>
+                  </div>
+                  <div id="validationText" class="col-xs-12"></div>
+                </div>
+  
+                <div class="col-sm-12">
+                  <div id="Rangeslider"></div>
+                  <div class="pull-left valueC">5.000</div>
+                  <div class="pull-left valueC two">50.000</div>
+                  <div class="pull-left valueC three">80.000</div>
+                  <div class="pull-left valueC four">120.000</div>
+                  <div class="pull-right valueC five">160000</div>
+                  <div class="pull-right valueC six">200000</div>
+                  <div class="clearfix"> </div>
+                </div>
               </div>
-            </div>
-
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="80000"
-                value="50"
-                class="slider myRange"
-                id="myRange2" />
-              <!-- <p>Value: <span id="demo"></span></p> -->
-            </div>
+              <!-- kaushal end -->
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--5">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
@@ -390,8 +395,7 @@
                 </div>
                 <br />
                 <p class="heading">Höhe der Bürgschaft</p>
-                <p class="sub_heading selectedPrice1" id="selectedAmount">
-                  20.000 €
+                <p class="sub_heading" id="selectedprocuctAmount">
                 </p>
               </div>
 
@@ -498,7 +502,6 @@
           range: "min",
           slide: function (event, ui) {
             console.log(ui.value);
-
             // Set the value in the element with class 'percentClass'
             jQuery(".percentClass").val(ui.value);
 

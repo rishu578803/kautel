@@ -307,8 +307,12 @@ document
 
 
     const input_val = document.getElementById("bruttoeinkommen").value;
-
-    console.log("in", input_val)
+    document.getElementById("selectedprocuctAmount").innerText = input_val + " €";
+    const p_element = document.getElementById("selectedprocuctAmount");
+    
+    // p_element.innerHTML = input_val; 
+    console.log("p_element",p_element,input_val)
+    // console.log("in", input_val)
     
     if (input_val >= 50.000) {
       const leftSection = document.getElementById(
@@ -649,14 +653,14 @@ document
 // };
 
 // ============
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("selectedAmount2");
-output2.value = "75,000" + " €";
+// var slider2 = document.getElementById("myRange2");
+// var output2 = document.getElementById("selectedAmount2");
+// output2.value = "75,000" + " €";
 
-slider2.oninput = function () {
-  output2.value = this.value + " €";
-  selectedPrice_2 = this.value + " €";
-};
+// slider2.oninput = function () {
+//   output2.value = this.value + " €";
+//   selectedPrice_2 = this.value + " €";
+// };
 // ==========================
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
