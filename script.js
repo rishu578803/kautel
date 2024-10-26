@@ -13,7 +13,7 @@ var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
 var change_selected_text = 1;
 var active_button_content = 1;
-
+var fullUrl = 'https://dev.kautel.de/kautionLead?productId=k001'
 var availableOptions = [
   "Arbeitszeitkonten",
   "Mitarbeiterguthaben",
@@ -146,6 +146,15 @@ function showNextCard(currentCardId, nextCardId) {
 }
 
 function showPreviousCard(currentCardId, previousCardId) {
+
+  selectedButtonTexts = [];
+  var leftSection = document.getElementById(
+    "sliderCard--card6_left-section"
+  );
+
+  if (leftSection) {
+    leftSection.innerHTML = "";
+  }
   const currentCard = document.getElementById(currentCardId);
 
   const previousCard = document.getElementById("sliderCard--card1");
@@ -278,18 +287,18 @@ document
       .filter((product) => selectedButtonTexts.includes(product.productName))
       .map((product) => product.prodId);
 
-    const calculateBtn = document.getElementById(
-      "sliderCard--card6_calculate-btn"
-    );
+    
+    console.log("filteredProdIds", filteredProdIds);
+  
 
     const baseUrl = "https://dev.kautel.de/kautionLead";
     const params = filteredProdIds
       .map((prodId) => `productId=${prodId}`)
       .join("&");
-    const fullUrl = `${baseUrl}?${params}`;
-    calculateBtn.addEventListener("click", function () {
-      window.open(fullUrl, "_blank");
-    });
+fullUrl = `${baseUrl}?${params}`;
+    console.log("full", fullUrl);
+
+   
 
     if (input_val >= 50.0) {
       const leftSection = document.getElementById(
@@ -341,9 +350,21 @@ document
     }
   });
 
+
+  const calculateBtn = document.getElementById(
+    "sliderCard--card6_calculate-btn"
+);
+if (calculateBtn) {
+  calculateBtn.addEventListener("click", function () {
+    window.open(fullUrl, "_blank");
+  });
+}
+
 document
   .getElementById("sliderCard--card6_back_btn")
   .addEventListener("click", function () {
+    selectedButtonTexts = [];
+    savedselectedButtonTexts = [];
     showPreviousCard("sliderCard--card6", "sliderCard--card1");
   });
 document
