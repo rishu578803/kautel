@@ -97,7 +97,7 @@
                 <ul id="sliderCard__selectedList"></ul>
               </div>
             </div>
-            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--2">
+            <div class="sliderCard__gobackbtn"  id="sliderCard__goback_Btn">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--2">
@@ -163,7 +163,7 @@
               </div>
             </div>
             <!-- ============================== new button end ============================================= -->
-            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--3">
+            <div class="sliderCard__gobackbtn"  id="sliderCard__goback_Btn">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--3">
@@ -209,7 +209,7 @@
 
             <!-- kaushal end -->
 
-            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
+            <div class="sliderCard__gobackbtn"  id="sliderCard__goback_Btn">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4">
@@ -250,7 +250,7 @@
               </div>
             </div>
             <!-- kaushal end -->
-            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--5">
+            <div class="sliderCard__gobackbtn"  id="sliderCard__goback_Btn">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--5">
@@ -285,7 +285,7 @@
                 </p>
                 <div
                   class="sliderCard__gobackbtn"
-                  id="sliderCard--card6_back_btn">
+                 id="sliderCard__goback_Btn">
                   <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
                 </div>
 
@@ -326,7 +326,7 @@
                 </p>
                 <div
                   class="sliderCard__gobackbtn"
-                  id="sliderCard--card6.1_back_btn">
+                  id="sliderCard__goback_Btn">
                   <i class="fa-solid fa-arrow-left-long sliderCard__arrow"></i>
                 </div>
 
@@ -340,7 +340,7 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
     <script>
       jQuery(function () {
         var initialValue = 5000;
@@ -366,9 +366,8 @@
         });
 
         // Event listener to reset value when 'Go Back' button is clicked
-        const previous = document.getElementById("sliderCard__gobackBtn--4");
-        const previous1 = document.getElementById("sliderCard--card6.1_back_btn");
-        const previous2 = document.getElementById("sliderCard--card6_back_btn");
+        const previous = document.getElementById("sliderCard__goback_Btn");
+  
         if (previous) {
           previous.addEventListener("click", function () {
             jQuery("#Rangeslider").slider("value", initialValue);
@@ -377,22 +376,7 @@
           });
         }
 
-        if(previous1){
-          previous1.addEventListener("click", function () {
-            jQuery("#Rangeslider").slider("value", initialValue);
-            jQuery(".percentClass").val(initialValue);
-            jQuery("#selectedAmount").text(initialValue);
-          });
-        }
-
-        if(previous2){
-          previous2.addEventListener("click", function () {
-            jQuery("#Rangeslider").slider("value", initialValue);
-            jQuery(".percentClass").val(initialValue);
-            jQuery("#selectedAmount").text(initialValue);
-          });
-        }
-
+        
         // Handle changes in the input field and update the slider
         jQuery("input.percentClass").change(function () {
           var value = parseInt(this.value) || initialValue; // Default to initial value if input is invalid
