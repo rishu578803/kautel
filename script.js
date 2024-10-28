@@ -11,6 +11,7 @@ var sendToSlider2_2 = false;
 let selectedOptions = [];
 var selectedPrice_1 = "20,000" + " €";
 var selectedPrice_2 = "75.000" + " €";
+var initialValue = 5000;
 var change_selected_text = 1;
 var active_button_content = 1;
 var fullUrl = "https://dev.kautel.de/kautionLead?productId=k001";
@@ -147,6 +148,11 @@ function showNextCard(currentCardId, nextCardId) {
 
 function showPreviousCard(currentCardId, previousCardId) {
   selectedButtonTexts = [];
+  initialValue = 5000;
+
+ document.getElementById("bruttoeinkommen").value = 5000;
+
+  
   var leftSection = document.getElementById("sliderCard--card6_left-section");
   var leftSection2 = document.getElementById("sliderCard--card6.1_left-section");
 
