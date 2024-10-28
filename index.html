@@ -341,30 +341,77 @@
     <script src="script.js"></script>
     <script>
       jQuery(function () {
-        var initialValue = 5000;
-        jQuery(".percentClass").val(initialValue);
-        jQuery("#Rangeslider").slider({
-          value: initialValue,
-          min: 5000,
-          step: 10,
-          max: 200000,
-          range: "min",
-          slide: function (event, ui) {
-            console.log(ui.value);
-            // Set the value in the element with class 'percentClass'
-            jQuery(".percentClass").val(ui.value);
+  var initialValue = 5000;
+  
+  // Set the initial value in the input and display element
+  jQuery(".percentClass").val(initialValue);
+  jQuery("#selectedAmount").text(initialValue);
 
-            // Set the value in the element with ID 'selectedAmount'
-            jQuery("#selectedAmount").text(ui.value);
-          },
-        });
-        jQuery("input.percentClass").change(function () {
-          var value = this.value;
+  // Initialize the slider
+  jQuery("#Rangeslider").slider({
+    value: initialValue,
+    min: 5000,
+    step: 10,
+    max: 200000,
+    range: "min",
+    slide: function (event, ui) {
+      console.log(ui.value);
 
-          console.log("value of range: ", value);
-          jQuery("#Rangeslider").slider("value", parseInt(value));
-        });
-      });
+      // Update the value in the input and display element
+      jQuery(".percentClass").val(ui.value);
+      jQuery("#selectedAmount").text(ui.value);
+    }
+  });
+
+  // Event listener to reset value when 'Go Back' button is clicked
+  const previous = document.getElementById("sliderCard__gobackBtn--4");
+  if (previous) {
+    previous.addEventListener("click", function () {
+      jQuery("#Rangeslider").slider("value", initialValue);
+      jQuery(".percentClass").val(initialValue);
+      jQuery("#selectedAmount").text(initialValue);
+    });
+  }
+
+  // Handle changes in the input field and update the slider
+  jQuery("input.percentClass").change(function () {
+    var value = parseInt(this.value) || initialValue; // Default to initial value if input is invalid
+
+    console.log("Value of range:", value);
+    jQuery("#Rangeslider").slider("value", value);
+    jQuery("#selectedAmount").text(value);
+  });
+});
+
+      // jQuery(function () {
+      //   var initialValue = 5000;
+      //   jQuery(".percentClass").val(initialValue);
+      //   jQuery("#Rangeslider").slider({
+      //     value: initialValue,
+      //     min: 5000,
+      //     step: 10,
+      //     max: 200000,
+      //     range: "min",
+      //     slide: function (event, ui) {
+      //       console.log(ui.value);
+      //       // Set the value in the element with class 'percentClass'
+      //       jQuery(".percentClass").val(ui.value);
+
+      //       // Set the value in the element with ID 'selectedAmount'
+      //       jQuery("#selectedAmount").text(ui.value);
+      //       const privious = document.getElementById("sliderCard__gobackBtn--4");
+      //       privious.addEventListener("click", function () {
+      //         jQuery("#selectedAmount").text(initialValue);
+      //       });
+      //     },
+      //   });
+      //   jQuery("input.percentClass").change(function () {
+      //     var value = this.value;
+
+      //     console.log("value of range: ", value);
+      //     jQuery("#Rangeslider").slider("value", parseInt(value));
+      //   });
+      // });
     </script>
   </body>
 </html>
