@@ -150,11 +150,12 @@ function showPreviousCard(currentCardId, previousCardId) {
   selectedButtonTexts = [];
   initialValue = 5000;
 
- document.getElementById("bruttoeinkommen").value = 5000;
+  document.getElementById("bruttoeinkommen").value = 5000;
 
-  
   var leftSection = document.getElementById("sliderCard--card6_left-section");
-  var leftSection2 = document.getElementById("sliderCard--card6.1_left-section");
+  var leftSection2 = document.getElementById(
+    "sliderCard--card6.1_left-section"
+  );
 
   if (leftSection) {
     leftSection.innerHTML = "";
@@ -297,27 +298,21 @@ document
 
     console.log("filteredProdIds", filteredProdIds);
 
+    console.log("selectedButtonTexts", selectedButtonTexts);
 
-    console.log("selectedButtonTexts", selectedButtonTexts)
-    
     if (selectedButtonTexts.length == 1) {
       const baseUrl = "https://dev.kautel.de/kautionLead";
       const params = filteredProdIds
-      .map((prodId) => `productId=${prodId}`)
+        .map((prodId) => `productId=${prodId}`)
         .join(",");
-        fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+      fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
     } else {
-     
       const baseUrl = "https://dev.kautel.de/kautionLead?productId=k007&apIds";
-      const params = filteredProdIds
-        .map((prodId) => `${prodId}`)
-        .join(",");
-      
-      
+      const params = filteredProdIds.map((prodId) => `${prodId}`).join(",");
+
       fullUrl = `${baseUrl}=${params}&beitrag=${input_val}`;
       console.log("full", fullUrl);
     }
-
 
     if (input_val && input_val < 50000) {
       const leftSection = document.getElementById(
@@ -332,40 +327,34 @@ document
       // Iterate over product array and create <p> elements
       product.forEach((item) => {
         const pElement = document.createElement("p");
-        pElement.className = "sub_heading"; // Add a class for styling if needed
-        pElement.textContent = item; // Set the text to the product item
-        leftSection.appendChild(pElement); // Append the <p> element to left-section
+        pElement.className = "sub_heading"; 
+        pElement.textContent = item; 
+        leftSection.appendChild(pElement); 
       });
 
-      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
-      // Call the function to show the next card
       showNextCard("sliderCard--card4", "sliderCard--card6");
     } else {
-
-
       const leftSection = document.getElementById(
         "sliderCard--card6.1_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
-      input_val + " €";
+        input_val + " €";
       if (!leftSection) {
         console.error("leftSection not found");
         return;
       }
 
-      // Iterate over product array and create <p> elements
       product.forEach((item) => {
         const pElement = document.createElement("p");
-        pElement.className = "sub_heading"; // Add a class for styling if needed
-        pElement.textContent = item; // Set the text to the product item
-        leftSection.appendChild(pElement); // Append the <p> element to left-section
+        pElement.className = "sub_heading"; 
+        pElement.textContent = item; 
+        leftSection.appendChild(pElement); 
       });
 
-      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+     
 
-
-      // Call the function to show the next card
+    
       showNextCard("sliderCard--card4", "sliderCard--card6.1");
     }
   });
@@ -376,7 +365,9 @@ if (calculateBtn) {
     window.open(fullUrl, "_blank");
   });
 }
-const calculateBtn2 = document.getElementById("sliderCard--card6.1_calculate-btn");
+const calculateBtn2 = document.getElementById(
+  "sliderCard--card6.1_calculate-btn"
+);
 if (calculateBtn2) {
   calculateBtn2.addEventListener("click", function () {
     window.open(fullUrl, "_blank");
@@ -385,18 +376,51 @@ if (calculateBtn2) {
 
 
 
-document
-  .getElementById("sliderCard__goback_Btn")
-  .addEventListener("click", function () {
-    console.log("hello");
+const previousButtons = document.getElementsByClassName(
+  "sliderCard__gobackbtn"
+);
 
-    // Optional: the rest of your code
-    selectedButtonTexts = [];
-    savedselectedButtonTexts = [];
-    showPreviousCard("sliderCard--card6", "sliderCard--card1");
+if (previousButtons.length > 0) {
+  Array.from(previousButtons).forEach((previous) => {
+    previous.addEventListener("click", function () {
+      initialValue = typeof initialValue !== "undefined" ? initialValue : 0;
+      console.log("back to previous");
+      const Rangeslider = document.getElementById("Rangeslider");
+      const percentInput = document.querySelector(".percentClass");
+      const selectedAmount = document.getElementById("selectedAmount");
+      const uiElements = document.getElementsByClassName("ui-state-default");
+      const uiElements2 = document.getElementsByClassName("ui-slider-range");
+
+      Array.from(uiElements).forEach((element) => {
+        element.style.left = "0px";
+      });
+      Array.from(uiElements2).forEach((element) => {
+        element.style.width = "0px";
+      });
+      if (Rangeslider) Rangeslider.value = 5000;
+      if (percentInput) percentInput.value = 5000;
+      if (selectedAmount) selectedAmount.textContent = 5000;
+      selectedButtonTexts = [];
+      savedselectedButtonTexts = [];
+
+      const sliderCards = document.getElementsByClassName("sliderCard");
+
+      Array.from(sliderCards).forEach((card) => {
+        card.style.display = "none";
+      });
+
+      const firstCard = document.getElementById("sliderCard--card1");
+      if (firstCard) {
+        firstCard.style.display = "block";
+      }
+    });
   });
 
+} else {
+  console.log("not selected previous card");
+}
 
+// ===================================================================================================
 
 document
   .getElementById("sliderCard__nextBtn--5")
@@ -407,12 +431,6 @@ document
 
     showNextCard("sliderCard--card5", "sliderCard--card7");
   });
-
-
-
-
-
-
 
 // ==========================================================   sliderCard--card4
 
@@ -446,7 +464,6 @@ function scrollDown() {
   }
 }
 
-// Render buttons in the left panel (available options)
 function renderButtons() {
   const buttonContainer = document.querySelector(".sliderCard__btnContainer");
 
@@ -468,7 +485,6 @@ function renderButtons() {
   }
 }
 
-// Render selected options in the right panel (including selectedButtonTexts)
 function renderSelectedOptions() {
   if (activeCircle == "sliderCard__circle--1") {
     const selectedList = document.getElementById("sliderCard__selectedList");
@@ -483,10 +499,7 @@ function renderSelectedOptions() {
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
     } else {
-      // If no options are selected, display a message
-      // const message = document.createElement("p");
-      // message.textContent = "Es sind keine Optionen ausgewählt.";
-      // selectedList.appendChild(message);
+     console.log("renderSelectedOptions else")
     }
   } else if (activeCircle == "sliderCard__circle--2") {
     const selectedList = document.getElementById("sliderCard__selectedList");
@@ -498,7 +511,7 @@ function renderSelectedOptions() {
         const li = document.createElement("li");
         li.textContent = text;
         selectedList.appendChild(li);
-        li.onclick = () => deselectOption(text); // Clicking li will deselect the option
+        li.onclick = () => deselectOption(text); 
       });
     } else {
       console.log("else selected");
@@ -506,10 +519,10 @@ function renderSelectedOptions() {
   }
 }
 
-// Handle selecting an option from left panel
+
 function selectOption(option) {
   if (!selectedButtonTexts.includes(option)) {
-    // Remove from available options and add to selected options
+   
     availableOptions = availableOptions.filter((opt) => opt !== option);
     selectedButtonTexts.push(option); // Add to selectedButtonTexts
 
@@ -518,10 +531,10 @@ function selectOption(option) {
   }
 }
 
-// Handle deselecting an option from right panel
+
 function deselectOption(option) {
   if (!availableOptions.includes(option)) {
-    // Remove from selectedButtonTexts and add back to available options
+
     selectedButtonTexts = selectedButtonTexts.filter((opt) => opt !== option);
     availableOptions.push(option); // Add back to availableOptions
 
@@ -532,22 +545,22 @@ function deselectOption(option) {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderButtons();
-  renderSelectedOptions(); // Ensure that selectedButtonTexts are rendered when page loads
+  renderSelectedOptions(); 
 });
 
 var headingChange = false;
-// Initialize a click counter
+
 let clickCount = 0;
 
 document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
     if (activeCircle == "sliderCard__circle--1") {
-      // Increment the click count on each button click
+k
       clickCount++;
       // First click
       if (clickCount === 1) {
-        // Hide sliderCard--card2 when the button is clicked
+ 
         headingChange = true;
 
         const sliderCardCard2Heading = document.getElementById(
@@ -571,7 +584,7 @@ document
 
         // Second click
       } else if (clickCount == 2) {
-        // Call showNextCard on the second click
+
         if (selectedButtonTexts.length > 1) {
           // Perform the existing task on the first click
           const sliderHeader = document.getElementById("slider_header");
@@ -638,49 +651,49 @@ const rightButtons = [
   document.getElementById("right-button-8"),
 ];
 
-// Variable to keep track of the last active button (btn1 or btn2)
+
 let lastActiveButton = null;
 
-// Function to update button text and display them
+
 function updateButtons(texts) {
-  // Hide all right panel buttons initially
+
   for (let i = 0; i < rightButtons.length; i++) {
     rightButtons[i].style.display = "none";
   }
 
-  // Show and update button text
+
   for (let i = 0; i < texts.length; i++) {
     rightButtons[i].textContent = texts[i];
     rightButtons[i].style.display = "block";
   }
 }
 
-// Function to set active state for left panel buttons
+
 function setActiveButton(buttons) {
-  // Remove active class from all buttons first
+
   [btn1, btn2, btn3].forEach((button) => {
     button.classList.remove("active");
   });
 
-  // Add active class to specified buttons
+
   buttons.forEach((button) => {
     button.classList.add("active");
   });
 }
 
-// Track the last active button
+
 var btnStatus = "not changed";
-// Button click event listeners
+
 btn1.addEventListener("click", function () {
-  // Update buttons and set btn1 as active
+
   updateButtons(basicTexts);
   setActiveButton([btn1]);
   firstButtonContent = true;
   secondButtonContent = false;
   active_button_content = 1;
   lastActiveButton = btn1;
-  btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
-  btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
+  btn1.style.backgroundColor = "#304eba"; 
+  btn2.style.backgroundColor = "#a0aec8"; 
 
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
@@ -696,28 +709,28 @@ btn2.addEventListener("click", function () {
   firstButtonContent = false;
   active_button_content = 2;
   lastActiveButton = btn2;
-  btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
-  btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
+  btn2.style.backgroundColor = "#304eba"; 
+  btn1.style.backgroundColor = "#a0aec8"; 
 
   btnStatus = "changed";
   availableOptions = availableOptions2;
   savedselectedButtonTexts = [];
-  // selectedButtonTexts = [];
+
 });
 
-// btn3 event listener
+
 btn3.addEventListener("click", function () {
-  // Toggle background color between two states
+
   if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
-    btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red
+    btn3.style.backgroundColor = "rgb(160, 174, 200)"; 
   } else {
-    btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to blue
+    btn3.style.backgroundColor = "rgb(48, 78, 186)"; 
   }
 
-  // Check if the last active button was btn1 or btn2
+
   if (lastActiveButton !== btn3) {
     if (lastActiveButton === btn1 || lastActiveButton === btn2) {
-      lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to active gray
+      lastActiveButton.style.backgroundColor = "#304eba"; 
       DisablelastActiveColor = true;
     }
 
@@ -725,16 +738,16 @@ btn3.addEventListener("click", function () {
     setActiveButton([btn3]);
     sendToSlider2_2 = true;
 
-    // Log the last active button and check the flags
+   
 
-    // Set the last active button to btn3
+    
     lastActiveButton = btn3;
   } else {
     console.log("btn3 clicked again, already active.");
   }
 });
 
-// Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
+
 window.addEventListener("DOMContentLoaded", function () {
   updateButtons(basicTexts);
   setActiveButton([btn1]);
@@ -744,7 +757,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 // =========================================
-// Store visible button texts on "Next" button click
+
 
 document
   .getElementById("sliderCard__nextBtn--3")
@@ -768,7 +781,6 @@ document
           }
         });
       }
-      // Check if the arrays have the expected values
 
       if (sendToSlider2_2) {
         if (savedselectedButtonTexts.length > 0) {
