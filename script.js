@@ -594,6 +594,13 @@ document
   .getElementById("sliderCard__nextBtn--2")
   .addEventListener("click", function () {
     if (activeCircle == "sliderCard__circle--1") {
+
+
+      if (selectedButtonTexts.length <= 0) {
+        console.log("Please select at least two options.");
+        alert("Please select at least two options")
+        return false;
+      }
       // Increment the click count on each button click
       clickCount++;
       // First click
