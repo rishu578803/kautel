@@ -721,7 +721,7 @@ let lastActiveButton = null;
 // Function to update button text and display them
 function updateButtons(texts) {
   // Hide all right panel buttons initially
-  if(rightButtons){
+  if(rightButtons.length>0){
     for (let i = 0; i < rightButtons.length; i++) {
       rightButtons[i].style.display = "none";
     }
