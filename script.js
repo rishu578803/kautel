@@ -1,3 +1,4 @@
+
 var activeCircle = "sliderCard__circle--1"; // default to Einzelbürgschaft
 var selectedButtonTexts = [];
 var savedselectedButtonTexts = [];
@@ -98,7 +99,7 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
   const label = document.getElementById(labelId);
   const otherCircle = document.getElementById(otherCircleId);
   const otherLabel = document.getElementById(otherLabelId);
-
+if(circle){
   circle.addEventListener("click", function () {
     otherCircle.style.backgroundColor = "#A1B1CE";
     otherLabel.style.color = "#A1B1CE";
@@ -113,6 +114,7 @@ function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
     change_selected_text = circleId;
     // Log the updated activeCircle value
   });
+}
 }
 
 toggleCircleAndLabel(
@@ -134,7 +136,11 @@ function getActiveCircle() {
 }
 
 // Default to Einzelbürgschaft (first circle)
+const sliderCard__circle1 = document.getElementById("sliderCard__circle--1");
+if(sliderCard__circle1)
 document.getElementById("sliderCard__circle--1").style.backgroundColor = "blue";
+const toggleLabel1 = document.getElementById("toggleLabel1");
+if(toggleLabel1)
 document.getElementById("toggleLabel1").style.color = "blue";
 
 // Function to show the next card
