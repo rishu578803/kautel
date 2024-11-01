@@ -524,25 +524,28 @@ if(buttonContainer)
     if(buttonContainer)
     buttonContainer.appendChild(button);
   });
-
-  if (availableOptions.length > 0) {
-    buttonContainer.style.display = "block";
-  } else {
-    buttonContainer.style.display = "none";
+  if(buttonContainer){
+    if (availableOptions.length > 0) {
+      buttonContainer.style.display = "block";
+    } else {
+      buttonContainer.style.display = "none";
+    }
   }
+  
 }
 
 // Render selected options in the right panel (including selectedButtonTexts)
 function renderSelectedOptions() {
   if (activeCircle == "sliderCard__circle--1") {
     const selectedList = document.getElementById("sliderCard__selectedList");
-
+    if(selectedList)
     selectedList.innerHTML = "";
 
     if (selectedButtonTexts && selectedButtonTexts.length > 0) {
       selectedButtonTexts.forEach((text) => {
         const li = document.createElement("li");
         li.textContent = text;
+        if(selectedList)
         selectedList.appendChild(li);
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
@@ -554,13 +557,14 @@ function renderSelectedOptions() {
     }
   } else if (activeCircle == "sliderCard__circle--2") {
     const selectedList = document.getElementById("sliderCard__selectedList");
-
+if(selectedList)
     selectedList.innerHTML = "";
 
     if (selectedButtonTexts && selectedButtonTexts.length > 0) {
       selectedButtonTexts.forEach((text) => {
         const li = document.createElement("li");
         li.textContent = text;
+        if(selectedList)
         selectedList.appendChild(li);
         li.onclick = () => deselectOption(text); // Clicking li will deselect the option
       });
