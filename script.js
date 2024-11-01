@@ -512,7 +512,7 @@ function scrollDown() {
 // Render buttons in the left panel (available options)
 function renderButtons() {
   const buttonContainer = document.querySelector(".sliderCard__btnContainer");
-
+if(buttonContainer)
   buttonContainer.innerHTML = "";
 
   availableOptions.forEach((option) => {
@@ -521,6 +521,7 @@ function renderButtons() {
     button.textContent = option;
 
     button.onclick = () => selectOption(option);
+    if(buttonContainer)
     buttonContainer.appendChild(button);
   });
 
