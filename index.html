@@ -197,7 +197,7 @@
                 <div class="input-group">
                   <input
                     id="bruttoeinkommen"
-                    class="form-control percentClass"
+                    class="form-control kautelpercentClass"
                     type="number"
                     class="slider myRange" />
                   <span class="input-group-addon">€</span>
@@ -244,7 +244,7 @@
                 <div class="input-group">
                   <input
                     id="bruttoeinkommen"
-                    class="form-control percentClass"
+                    class="form-control kautelpercentClass"
                     type="number"
                     class="slider myRange" />
                   <span class="input-group-addon">€</span>
@@ -376,7 +376,7 @@
         var initialValue = 5000;
 
         // Set the initial value in the input and display element
-        jQuery(".percentClass").val(initialValue);
+        jQuery(".kautelpercentClass").val(initialValue);
         jQuery("#selectedAmount").text(initialValue);
 
         // Initialize the slider
@@ -390,7 +390,7 @@
             console.log(ui.value);
 
             // Update the value in the input and display element
-            jQuery(".percentClass").val(ui.value);
+            jQuery(".kautelpercentClass").val(ui.value);
             jQuery("#selectedAmount").text(ui.value);
           },
         });
@@ -402,7 +402,7 @@
         if (previous) {
           previous.addEventListener("click", function () {
             jQuery("#KautelRangeslider").slider("value", initialValue);
-            jQuery(".percentClass").val(initialValue);
+            jQuery(".kautelpercentClass").val(initialValue);
             jQuery("#selectedAmount").text(initialValue);
           });
         }
@@ -410,7 +410,7 @@
         if(previous1){
           previous1.addEventListener("click", function () {
             jQuery("#KautelRangeslider").slider("value", initialValue);
-            jQuery(".percentClass").val(initialValue);
+            jQuery(".kautelpercentClass").val(initialValue);
             jQuery("#selectedAmount").text(initialValue);
           });
         }
@@ -418,13 +418,13 @@
         if(previous2){
           previous2.addEventListener("click", function () {
             jQuery("#KautelRangeslider").slider("value", initialValue);
-            jQuery(".percentClass").val(initialValue);
+            jQuery(".kautelpercentClass").val(initialValue);
             jQuery("#selectedAmount").text(initialValue);
           });
         }
 
         // Handle changes in the input field and update the slider
-        jQuery("input.percentClass").change(function () {
+        jQuery("input.kautelpercentClass").change(function () {
           var value = parseInt(this.value) || initialValue; // Default to initial value if input is invalid
 
           console.log("Value of range:", value);
