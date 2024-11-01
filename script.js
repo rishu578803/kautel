@@ -195,8 +195,9 @@ function showPreviousCard(currentCardId, previousCardId) {
 }
 
 // Modify the event listener for the first "Next" button
-document
-  .getElementById("sliderCard__nextBtn--1")
+const nextBtn1 = document.getElementById("sliderCard__nextBtn--1");
+if(nextBtn1){
+  nextBtn1
   .addEventListener("click", function () {
     // Check which circle is active and show the corresponding card
     if (activeCircle == "sliderCard__circle--1") {
@@ -246,10 +247,11 @@ document
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
   });
+}
 
-document
-  .getElementById("sliderCard__nextBtn--4")
-  .addEventListener("click", function () {
+const nextBtn4 = document.getElementById("sliderCard__nextBtn--4");
+if(nextBtn4){
+  nextBtn4.addEventListener("click", function () {
     const product = selectedButtonTexts;
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -375,6 +377,7 @@ document
       showNextCard("sliderCard--card4", "sliderCard--card6.1");
     }
   });
+}
 
 const calculateBtn = document.getElementById("sliderCard--card6_calculate-btn");
 if (calculateBtn) {
@@ -390,60 +393,61 @@ if (calculateBtn2) {
 }
 
 
-
-document
-  .getElementById("sliderCard--card6_back_btn")
-  .addEventListener("click", function () {
+const card6Back = document.getElementById("sliderCard--card6_back_btn");
+if(card6Back){
+  card6Back.addEventListener("click", function () {
     selectedButtonTexts = [];
     savedselectedButtonTexts = [];
     showPreviousCard("sliderCard--card6", "sliderCard--card1");
   });
+}
+const card6_1Back = document.getElementById("sliderCard--card6.1_back_btn");
+  if(card6_1Back){
+    card6_1Back.addEventListener("click", function () {
+      selectedButtonTexts = [];
+      savedselectedButtonTexts = [];
+      showPreviousCard("sliderCard--card6.1", "sliderCard--card1");
+    });
+  }
 
 
-  document
-  .getElementById("sliderCard--card6.1_back_btn")
-  .addEventListener("click", function () {
-    selectedButtonTexts = [];
-    savedselectedButtonTexts = [];
-    showPreviousCard("sliderCard--card6.1", "sliderCard--card1");
-  });
-
-
-
-document
-  .getElementById("sliderCard__nextBtn--5")
-  .addEventListener("click", function () {
+const nextBtn5 = document.getElementById("sliderCard__nextBtn--5");
+if(nextBtn5){
+  nextBtn5.addEventListener("click", function () {
     let selectedAmountElement = document.querySelector(".selectedPrice2");
-
     selectedAmountElement.innerText = selectedPrice_2;
-
     showNextCard("sliderCard--card5", "sliderCard--card7");
   });
+}
 
-document
-  .getElementById("sliderCard__gobackBtn--2")
-  .addEventListener("click", function () {
+const gobackBtn2 = document.getElementById("sliderCard__gobackBtn--2");
+if(gobackBtn2){
+  gobackBtn2.addEventListener("click", function () {
     if (activeCircle == "sliderCard__circle--1") {
       showPreviousCard("sliderCard--card2", "sliderCard--card1");
     } else {
       showPreviousCard("sliderCard--card2", "sliderCard--card3");
     }
   });
-document
-  .getElementById("sliderCard__gobackBtn--4")
-  .addEventListener("click", function () {
+}
+
+const gobackBtn4 = document.getElementById("sliderCard__gobackBtn--4");
+if(gobackBtn4){
+  gobackBtn4.addEventListener("click", function () {
     showPreviousCard("sliderCard--card4", "sliderCard--card2");
   });
+}
 
-document
-  .getElementById("sliderCard__gobackBtn--3")
-  .addEventListener("click", function () {
+const gobackBtn3 = document.getElementById("sliderCard__gobackBtn--3");
+if(gobackBtn3){
+  gobackBtn3.addEventListener("click", function () {
     showPreviousCard("sliderCard--card3", "sliderCard--card1");
   });
+}
 
-document
-  .getElementById("sliderCard__gobackBtn--5")
-  .addEventListener("click", function () {
+const gobackBtn5 = document.getElementById("sliderCard__gobackBtn--5");
+if(gobackBtn5){
+  gobackBtn5.addEventListener("click", function () {
     if (different_prev) {
       showPreviousCard("sliderCard--card5", "sliderCard--card3");
       different_prev = false;
@@ -451,6 +455,8 @@ document
       showPreviousCard("sliderCard--card5", "sliderCard--card2");
     }
   });
+}
+
 
 const calculateBtnBack = document.getElementById("calculate-btn_back--2");
 
@@ -596,9 +602,9 @@ var headingChange = false;
 // Initialize a click counter
 let clickCount = 0;
 
-document
-  .getElementById("sliderCard__nextBtn--2")
-  .addEventListener("click", function () {
+const nextBtn2 = document.getElementById("sliderCard__nextBtn--2");
+if(nextBtn2){
+  nextBtn2.addEventListener("click", function () {
     if (activeCircle == "sliderCard__circle--1") {
 
 
@@ -675,6 +681,8 @@ document
       clickCount = 0;
     }
   });
+}
+
 
 const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
 const proTexts = [
