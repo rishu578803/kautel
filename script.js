@@ -713,7 +713,7 @@ const rightButtons = [
   document.getElementById("right-button-6"),
   document.getElementById("right-button-7"),
   document.getElementById("right-button-8"),
-];
+].filter(button => button !== null);
 
 // Variable to keep track of the last active button (btn1 or btn2)
 let lastActiveButton = null;
@@ -737,9 +737,11 @@ function updateButtons(texts) {
 // Function to set active state for left panel buttons
 function setActiveButton(buttons) {
   // Remove active class from all buttons first
+  if(btn1 && btn2 && btn3){
   [btn1, btn2, btn3].forEach((button) => {
     button.classList.remove("active");
   });
+}
 
   // Add active class to specified buttons
   buttons.forEach((button) => {
