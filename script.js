@@ -742,9 +742,9 @@ function setActiveButton(buttons) {
     button.classList.remove("active");
   });
 }
-
+  const validButtons = buttons.filter(button => button !== null);
   // Add active class to specified buttons
-  buttons.forEach((button) => {
+  validButtons.forEach((button) => {
     button.classList.add("active");
   });
 }
@@ -828,7 +828,9 @@ window.addEventListener("DOMContentLoaded", function () {
   updateButtons(basicTexts);
   setActiveButton([btn1]);
   lastActiveButton = btn1;
+  if(btn1)
   btn1.style.backgroundColor = "#304eba";
+if(btn2)
   btn2.style.backgroundColor = "#a0aec8";
 });
 
