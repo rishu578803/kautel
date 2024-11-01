@@ -119,15 +119,14 @@
   cursor: pointer;
 }
 .sliderCard__gobackbtn .sliderCard__arrow {
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
+  transform: rotate(180deg);
+  position: relative;
+  left: -7px;
 }
 
 .sliderCard__nextbtn .sliderCard__arrow {
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
+  position: relative;
+  right: -5px;
 }
 
 #sliderCard--card2 {
@@ -523,7 +522,6 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 /* Style for active buttons */
 .active {
-  background-color: #304eba;
   color: white;
 }
 
@@ -580,7 +578,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   right:-65px;
 }
 
-.input-group {
+.sliderCard .input-group {
   position: relative;
   display: table;
   border-collapse: separate;
