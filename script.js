@@ -743,68 +743,76 @@ function setActiveButton(buttons) {
 // Track the last active button
 var btnStatus = "not changed";
 // Button click event listeners
-btn1.addEventListener("click", function () {
-  // Update buttons and set btn1 as active
-  updateButtons(basicTexts);
-  setActiveButton([btn1]);
-  firstButtonContent = true;
-  secondButtonContent = false;
-  active_button_content = 1;
-  lastActiveButton = btn1;
-  btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
-  btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
+if(btn1){
+  btn1.addEventListener("click", function () {
+    // Update buttons and set btn1 as active
+    updateButtons(basicTexts);
+    setActiveButton([btn1]);
+    firstButtonContent = true;
+    secondButtonContent = false;
+    active_button_content = 1;
+    lastActiveButton = btn1;
+    btn1.style.backgroundColor = "#304eba"; // Change btn1's background to active color
+    btn2.style.backgroundColor = "#a0aec8"; // Change btn2's background to inactive color
+  
+    availableOptions = availableOptions2;
+    savedselectedButtonTexts = [];
+    selectedButtonTexts = [];
+    btnStatus = "changed";
+  });
+}
 
-  availableOptions = availableOptions2;
-  savedselectedButtonTexts = [];
-  selectedButtonTexts = [];
-  btnStatus = "changed";
-});
+if(btn2){
+  btn2.addEventListener("click", function () {
+    updateButtons(proTexts);
+    setActiveButton([btn2]);
+  
+    secondButtonContent = true;
+    firstButtonContent = false;
+    active_button_content = 2;
+    lastActiveButton = btn2;
+    btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
+    btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
+  
+    btnStatus = "changed";
+    availableOptions = availableOptions2;
+    savedselectedButtonTexts = [];
+    // selectedButtonTexts = [];
+  });
+}
 
-btn2.addEventListener("click", function () {
-  updateButtons(proTexts);
-  setActiveButton([btn2]);
-
-  secondButtonContent = true;
-  firstButtonContent = false;
-  active_button_content = 2;
-  lastActiveButton = btn2;
-  btn2.style.backgroundColor = "#304eba"; // Change btn2's background to active color
-  btn1.style.backgroundColor = "#a0aec8"; // Change btn1's background to inactive color
-
-  btnStatus = "changed";
-  availableOptions = availableOptions2;
-  savedselectedButtonTexts = [];
-  // selectedButtonTexts = [];
-});
 
 // btn3 event listener
-btn3.addEventListener("click", function () {
-  // Toggle background color between two states
-  if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
-    btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red
-  } else {
-    btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to blue
-  }
-
-  // Check if the last active button was btn1 or btn2
-  if (lastActiveButton !== btn3) {
-    if (lastActiveButton === btn1 || lastActiveButton === btn2) {
-      lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to active gray
-      DisablelastActiveColor = true;
+if(btn3){
+  btn3.addEventListener("click", function () {
+    // Toggle background color between two states
+    if (btn3.style.backgroundColor === "rgb(48, 78, 186)") {
+      btn3.style.backgroundColor = "rgb(160, 174, 200)"; // Set to red
+    } else {
+      btn3.style.backgroundColor = "rgb(48, 78, 186)"; // Set to blue
     }
+  
+    // Check if the last active button was btn1 or btn2
+    if (lastActiveButton !== btn3) {
+      if (lastActiveButton === btn1 || lastActiveButton === btn2) {
+        lastActiveButton.style.backgroundColor = "#304eba"; // Change background color to active gray
+        DisablelastActiveColor = true;
+      }
+  
+      // Make btn3 active
+      setActiveButton([btn3]);
+      sendToSlider2_2 = true;
+  
+      // Log the last active button and check the flags
+  
+      // Set the last active button to btn3
+      lastActiveButton = btn3;
+    } else {
+      console.log("btn3 clicked again, already active.");
+    }
+  });
+}
 
-    // Make btn3 active
-    setActiveButton([btn3]);
-    sendToSlider2_2 = true;
-
-    // Log the last active button and check the flags
-
-    // Set the last active button to btn3
-    lastActiveButton = btn3;
-  } else {
-    console.log("btn3 clicked again, already active.");
-  }
-});
 
 // Trigger default state (btn1 active and basicTexts displayed) when DOM is fully loaded
 window.addEventListener("DOMContentLoaded", function () {
@@ -818,9 +826,9 @@ window.addEventListener("DOMContentLoaded", function () {
 // =========================================
 // Store visible button texts on "Next" button click
 
-document
-  .getElementById("sliderCard__nextBtn--3")
-  .addEventListener("click", function () {
+const nextBtn3 = document.getElementById("sliderCard__nextBtn--3");
+if(nextBtn3){
+  nextBtn3.addEventListener("click", function () {
     if (activeCircle === "sliderCard__circle--2") {
       selectedButtonTexts = [];
 
@@ -873,3 +881,5 @@ document
       alert("Please select");
     }
   });
+}
+
