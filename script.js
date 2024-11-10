@@ -259,44 +259,6 @@ if(nextBtn4){
       input_val + " €";
     const p_element = document.getElementById("selectedprocuctAmount");
 
-    // const productDetails = [
-    //   { productName: "Arbeitszeitkonten", prodId: "K001" },
-    //   { productName: "Mitarbeiterguthaben", prodId: "" },
-    //   { productName: "Arbeitnehmerentsendung", prodId: "K002" },
-    //   { productName: "An- und Vorauszahlungen", prodId: "K003" },
-    //   { productName: "Architektenleistungen", prodId: "K004" },
-    //   { productName: "Ausfallbürgschaft", prodId: "K005" },
-    //   { productName: "Ausführungsbürgschaft", prodId: "K006" },
-    //   { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
-    //   { productName: "Bauhandwerkersicherung", prodId: "K008" },
-    //   { productName: "Bietungsbürgschaft", prodId: "K009" },
-    //   { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
-    //   { productName: "Immissionsbürgschaft", prodId: "K011" },
-    //   { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
-    //   { productName: "Erschließungsbürgschaft", prodId: "K013" },
-    //   { productName: "Energielieferung", prodId: "K014" },
-    //   { productName: "Franchise", prodId: "K0016" },
-    //   { productName: "Gewährleistung", prodId: "K0017" },
-    //   { productName: "IATA-Bürgschaft", prodId: "K0018" },
-    //   { productName: "Individualbürgschaft", prodId: "K0019" },
-    //   { productName: "Lieferantenbürgschaft", prodId: "K0020" },
-    //   { productName: "Leasingbürgschaft", prodId: "K0021" },
-    //   { productName: "Lottobürgschaft", prodId: "K0022" },
-    //   { productName: "Mängelansprüche", prodId: "K0023" },
-    //   { productName: "Mietkaution gew.", prodId: "K0024" },
-    //   { productName: "Mineralölbürgschaft", prodId: "K0025" },
-    //   { productName: "Postagentur", prodId: "K0026" },
-    //   { productName: "Prozessbürgschaft", prodId: "K0027" },
-    //   { productName: "Recyclingbürgschaft", prodId: "K0028" },
-    //   { productName: "Rekultivierung", prodId: "K0029" },
-    //   { productName: "Rückbaubürgschaft", prodId: "K0030" },
-    //   { productName: "Sonderbürgschaft", prodId: "K0031" },
-    //   { productName: "Tankkartenforderung", prodId: "K0032" },
-    //   { productName: "Verbraucherbürgschaft", prodId: "K0033" },
-    //   { productName: "Vertragserfüllung", prodId: "K0034" },
-    //   { productName: "Vorauszahlungsbürgschaft", prodId: "K0035" },
-    //   { productName: "Warenlieferungsbürgschaft", prodId: "K0036" },
-    // ];
 
     const productDetails = [
       { productName: "Arbeitszeitkonten", prodId: "K001" },
@@ -410,13 +372,163 @@ if(nextBtn4){
       });
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
-
-
+      const cal_amount = document.getElementById('calculated_Amount').innerText;
+      document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
-      showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      showNextCard("sliderCard--card4", "sliderCard--card4_1");
+      
     }
   });
 }
+
+
+const nextBtn4_1 = document.getElementById('sliderCard__nextBtn--4_1');
+
+if (nextBtn4_1) {
+  nextBtn4_1.addEventListener('click', function () {
+
+
+    const product = selectedButtonTexts;
+
+
+
+
+    const input_val = document.getElementById("bruttoeinkommen").value;
+    document.getElementById("selectedprocuctAmount").innerText =
+      input_val + " €";
+    const p_element = document.getElementById("selectedprocuctAmount");
+
+
+    const productDetails = [
+      { productName: "Arbeitszeitkonten", prodId: "K001" },
+      { productName: "Mitarbeiterguthaben", prodId: "??" },
+      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
+      { productName: "An- und Vorauszahlungen", prodId: "K003" },
+      { productName: "Architektenleistungen", prodId: "K004" },
+      { productName: "Ausfallbürgschaft", prodId: "K005" },
+      { productName: "Ausführungsbürgschaft", prodId: "K006" },
+      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
+      { productName: "Bauhandwerkersicherung", prodId: "K008" },
+      { productName: "Bietungsbürgschaft", prodId: "K009" },
+      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
+      { productName: "Immissionsbürgschaft", prodId: "K011" },
+      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
+      { productName: "Erschließungsbürgschaft", prodId: "K014" },
+      { productName: "Energielieferung", prodId: "K015" },
+      { productName: "Franchise", prodId: "K018" },
+      { productName: "Gewährleistung", prodId: "K019" },
+      { productName: "IATA-Bürgschaft", prodId: "K020" },
+      { productName: "Individualbürgschaft", prodId: "K021" },
+      { productName: "Lieferantenbürgschaft", prodId: "K022" },
+      { productName: "Leasingbürgschaft", prodId: "K023" },
+      { productName: "Lottobürgschaft", prodId: "K024" },
+      { productName: "Mängelansprüche", prodId: "K025" },
+      { productName: "Mietkaution gew.", prodId: "K026" },
+      { productName: "Mineralölbürgschaft", prodId: "K028" },
+      { productName: "Postagentur", prodId: "K029" },
+      { productName: "Prozessbürgschaft", prodId: "K030" },
+      { productName: "Recyclingbürgschaft", prodId: "K031" },
+      { productName: "Rekultivierung", prodId: "K032" },
+      { productName: "Rückbaubürgschaft", prodId: "K033" },
+      { productName: "Sonderbürgschaft", prodId: "K034" },
+      { productName: "Tankkartenforderung", prodId: "K035" },
+      { productName: "Verbraucherbürgschaft", prodId: "K036" },
+      { productName: "Vertragserfüllung", prodId: "K037" },
+      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
+      { productName: "Warenlieferungsbürgschaft", prodId: "K039" }
+    ];    
+
+    // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array
+    const filteredProdIds = productDetails
+      .filter((product) => selectedButtonTexts.includes(product.productName))
+      .map((product) => product.prodId);
+
+    console.log("filteredProdIds", filteredProdIds);
+
+
+    console.log("selectedButtonTexts", selectedButtonTexts)
+    
+    if (selectedButtonTexts.length == 1) {
+      const baseUrl = "https://dev.kautel.de/kautionLead";
+      const params = filteredProdIds
+      .map((prodId) => `productId=${prodId}`)
+        .join(",");
+        fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+    } else {
+     
+      const baseUrl = "https://dev.kautel.de/kautionLead?productId=k021&apIds";
+      const params = filteredProdIds
+        .map((prodId) => `${prodId}`)
+        .join(",");
+      
+      
+      fullUrl = `${baseUrl}=${params}&beitrag=${input_val}`;
+      console.log("full", fullUrl);
+    }
+
+
+    if (input_val && input_val < 50000) {
+      const leftSection = document.getElementById(
+        "sliderCard--card6_left-section"
+      );
+
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+
+      // Call the function to show the next card
+
+      showNextCard("sliderCard--card4_1", "sliderCard--card6");
+
+      const product = selectedButtonTexts;
+    } else {
+
+
+      const leftSection = document.getElementById(
+        "sliderCard--card6.1_left-section"
+      );
+      document.getElementById("selectedprocuctAmount2").innerText =
+      input_val + " €";
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+      const cal_amount = document.getElementById('calculated_Amount').innerText;
+      document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
+      // Call the function to show the next card
+      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      showNextCard("sliderCard--card4", "sliderCard--card6");
+      
+    }
+
+
+
+  })
+}
+
+
 
 const calculateBtn = document.getElementById("sliderCard--card6_calculate-btn");
 if (calculateBtn) {
@@ -476,7 +588,12 @@ if(gobackBtn4){
     showPreviousCard("sliderCard--card4", "sliderCard--card2");
   });
 }
-
+const gobackBtn4_1 = document.getElementById("sliderCard__gobackBtn--4_1");
+if(gobackBtn4_1){
+  gobackBtn4_1.addEventListener("click", function () {
+    showPreviousCard("sliderCard--card4_1", "sliderCard--card2");
+  });
+}
 const gobackBtn3 = document.getElementById("sliderCard__gobackBtn--3");
 if(gobackBtn3){
   gobackBtn3.addEventListener("click", function () {
