@@ -223,6 +223,10 @@ if(nextBtn1){
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
     } else if (activeCircle == "sliderCard__circle--2") {
+
+      document.getElementById('link_calculation').style.display = 'block';
+
+
       const btn1 = document.getElementById("btn1");
       const btn3 = document.getElementById("btn3");
       const btn2 = document.getElementById("btn2");
@@ -250,8 +254,12 @@ if(nextBtn1){
 }
 
 const nextBtn4 = document.getElementById("sliderCard__nextBtn--4");
-if(nextBtn4){
+if (nextBtn4) {
+  
+  console.log("sliderCard  circle",activeCircle)
   nextBtn4.addEventListener("click", function () {
+
+
     const product = selectedButtonTexts;
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -349,7 +357,12 @@ if(nextBtn4){
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
-      showNextCard("sliderCard--card4", "sliderCard--card6");
+      document.getElementById('calculated_Amount').innerText = 5000;
+
+      // if (activeCircle == 'sliderCard__circle--1') {
+      //   showNextCard("sliderCard--card4", "sliderCard--card6");
+      // }
+    
     } else {
 
 
@@ -376,7 +389,8 @@ if(nextBtn4){
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6.1");
-      showNextCard("sliderCard--card4", "sliderCard--card4_1");
+      document.getElementById('calculated_Amount').innerText = 5000;
+      showNextCard("sliderCard--card4", "sliderCard--card6.1");
       
     }
   });
@@ -489,7 +503,7 @@ console.log("products selected",product)
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
-
+      document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6");
 
 
@@ -518,7 +532,10 @@ console.log("products selected",product)
       const cal_amount = document.getElementById('calculated_Amount').innerText;
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
+
       // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+
+      document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6");
       
     }
@@ -528,7 +545,153 @@ console.log("products selected",product)
   })
 }
 
+const calculated_Amount_details = document.getElementById('calculated_Amount_details');
 
+if (calculated_Amount_details) {
+  calculated_Amount_details.addEventListener('click', function () {
+
+    const product = selectedButtonTexts;
+
+    const input_val = document.getElementById("bruttoeinkommen").value;
+    document.getElementById("selectedprocuctAmount").innerText =
+      input_val + " €";
+    const p_element = document.getElementById("selectedprocuctAmount");
+
+
+    const productDetails = [
+      { productName: "Arbeitszeitkonten", prodId: "K001" },
+      { productName: "Mitarbeiterguthaben", prodId: "??" },
+      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
+      { productName: "An- und Vorauszahlungen", prodId: "K003" },
+      { productName: "Architektenleistungen", prodId: "K004" },
+      { productName: "Ausfallbürgschaft", prodId: "K005" },
+      { productName: "Ausführungsbürgschaft", prodId: "K006" },
+      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
+      { productName: "Bauhandwerkersicherung", prodId: "K008" },
+      { productName: "Bietungsbürgschaft", prodId: "K009" },
+      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
+      { productName: "Immissionsbürgschaft", prodId: "K011" },
+      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
+      { productName: "Erschließungsbürgschaft", prodId: "K014" },
+      { productName: "Energielieferung", prodId: "K015" },
+      { productName: "Franchise", prodId: "K018" },
+      { productName: "Gewährleistung", prodId: "K019" },
+      { productName: "IATA-Bürgschaft", prodId: "K020" },
+      { productName: "Individualbürgschaft", prodId: "K021" },
+      { productName: "Lieferantenbürgschaft", prodId: "K022" },
+      { productName: "Leasingbürgschaft", prodId: "K023" },
+      { productName: "Lottobürgschaft", prodId: "K024" },
+      { productName: "Mängelansprüche", prodId: "K025" },
+      { productName: "Mietkaution gew.", prodId: "K026" },
+      { productName: "Mineralölbürgschaft", prodId: "K028" },
+      { productName: "Postagentur", prodId: "K029" },
+      { productName: "Prozessbürgschaft", prodId: "K030" },
+      { productName: "Recyclingbürgschaft", prodId: "K031" },
+      { productName: "Rekultivierung", prodId: "K032" },
+      { productName: "Rückbaubürgschaft", prodId: "K033" },
+      { productName: "Sonderbürgschaft", prodId: "K034" },
+      { productName: "Tankkartenforderung", prodId: "K035" },
+      { productName: "Verbraucherbürgschaft", prodId: "K036" },
+      { productName: "Vertragserfüllung", prodId: "K037" },
+      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
+      { productName: "Warenlieferungsbürgschaft", prodId: "K039" }
+    ];    
+
+    // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array
+    const filteredProdIds = productDetails
+      .filter((product) => selectedButtonTexts.includes(product.productName))
+      .map((product) => product.prodId);
+
+    console.log("filteredProdIds", filteredProdIds);
+
+
+    console.log("selectedButtonTexts", selectedButtonTexts)
+    
+    if (selectedButtonTexts.length == 1) {
+      const baseUrl = "https://dev.kautel.de/kautionLead";
+      const params = filteredProdIds
+      .map((prodId) => `productId=${prodId}`)
+        .join(",");
+        fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+    } else {
+     
+      const baseUrl = "https://dev.kautel.de/kautionLead?productId=k021&apIds";
+      const params = filteredProdIds
+        .map((prodId) => `${prodId}`)
+        .join(",");
+      
+      
+      fullUrl = `${baseUrl}=${params}&beitrag=${input_val}`;
+      console.log("full", fullUrl);
+    }
+
+
+    if (input_val && input_val < 50000) {
+      const leftSection = document.getElementById(
+        "sliderCard--card6_left-section"
+      );
+
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+
+      // Call the function to show the next card
+      document.getElementById('calculated_Amount').innerText = 5000;
+      
+      showNextCard("sliderCard--card4", "sliderCard--card4_1");
+
+
+    } else {
+
+
+      const leftSection = document.getElementById(
+        "sliderCard--card6.1_left-section"
+      );
+      document.getElementById("selectedprocuctAmount2").innerText =
+      input_val + " €";
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+
+      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+      const cal_amount = document.getElementById('calculated_Amount').innerText;
+      document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
+      // Call the function to show the next card
+      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      showNextCard("sliderCard--card4", "sliderCard--card4_1");
+      
+    }
+
+    document.getElementById('calculated_Amount').innerText = 5000;
+
+
+
+
+
+
+    showNextCard("sliderCard--card4", "sliderCard--card4_1");
+  })
+}
 
 const calculateBtn = document.getElementById("sliderCard--card6_calculate-btn");
 if (calculateBtn) {
@@ -541,6 +704,7 @@ if (calculateBtn2) {
   calculateBtn2.addEventListener("click", function () {
     window.open(fullUrl, "_blank");
   });
+  
 }
 
 
@@ -767,7 +931,12 @@ const nextBtn2 = document.getElementById("sliderCard__nextBtn--2");
 if(nextBtn2){
   nextBtn2.addEventListener("click", function () {
     if (activeCircle == "sliderCard__circle--1") {
+      const link_cal = document.getElementById('link_calculation');
 
+
+      if (link_cal) {
+        link_cal.style.display = "none";
+      }
 
       if (selectedButtonTexts.length <= 0) {
         console.log("Please select at least two options.");
@@ -834,6 +1003,10 @@ if(nextBtn2){
         }
       }
     } else if (activeCircle == "sliderCard__circle--2") {
+      const link_cal = document.getElementById('link_calculation');
+      if (link_cal) {
+        link_cal.style.display = "block";
+      }
       selectedButtonTexts &&
         selectedButtonTexts.map((item) => {
           savedselectedButtonTexts.push(item);
