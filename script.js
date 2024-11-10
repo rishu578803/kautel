@@ -728,13 +728,13 @@ if(nextBtn2){
 }
 
 
+
 const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
 const proTexts = [
   "An- und Vorauszahlungen",
-  "Bauhandwerkersicherung",
   "Gewährleistung",
   "Mängelansprüche",
-  "Mietkaution gew.",
+  "Vertragserfüllung",
 ];
 
 // Get left panel buttons

@@ -62,7 +62,7 @@
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--1">
               <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
           </div>
@@ -101,12 +101,12 @@
             </div>
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--2">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--2">
               <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
           </div>
@@ -171,12 +171,12 @@
             <!-- ============================== new button end ============================================= -->
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--3">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--3">
               <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
           </div>
@@ -203,7 +203,6 @@
                   <span class="input-group-addon">€</span>
                 </div>
                 <div id="validationText" class="col-xs-12"></div>
-
               </div>
 
               <div class="col-sm-12">
@@ -217,21 +216,22 @@
                 <div class="clearfix"> </div>
               </div>
             </div>
-            <div style="margin:50px auto;text-align: center;">
-            Amount - 120.52
-            <div><button>link</button></div>
+            <div style="margin: 50px auto; text-align: center">
+              <h6 id="calculated_Amount"></h6>
+
+              <div><button>link</button></div>
             </div>
 
             <!-- kaushal end -->
 
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4">
               <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
           </div>
@@ -271,12 +271,12 @@
             <!-- kaushal end -->
             <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--5">
               <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
             <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--5">
               <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
               </i>
             </div>
           </div>
@@ -310,7 +310,7 @@
                   class="sliderCard__gobackbtn"
                   id="sliderCard--card6_back_btn">
                   <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                    <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                    <img width="37" height="31" src="/images/icons/arrow.svg" />
                   </i>
                 </div>
 
@@ -318,7 +318,10 @@
                   Beitrag berechnen
                   <span class="arrow" id="sliderCard__calculate-btn--2">
                     <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                      <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                      <img
+                        width="37"
+                        height="31"
+                        src="/images/icons/arrow.svg" />
                     </i>
                   </span>
                 </a>
@@ -357,7 +360,7 @@
                   class="sliderCard__gobackbtn"
                   id="sliderCard--card6.1_back_btn">
                   <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
-                    <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                    <img width="37" height="31" src="/images/icons/arrow.svg" />
                   </i>
                 </div>
 
@@ -365,7 +368,10 @@
                   Angebot anfordern
                   <span class="arrow" id="sliderCard__calculate-btn--2">
                     <i class="fa-solid fa-arrow-right sliderCard__arrow">
-                      <img width="37" height="31" src="/images/icons/arrow.svg"/>
+                      <img
+                        width="37"
+                        height="31"
+                        src="/images/icons/arrow.svg" />
                     </i>
                   </span>
                 </a>
@@ -392,9 +398,38 @@
           max: 200000,
           range: "min",
           slide: function (event, ui) {
-            console.log(ui.value);
+            console.log("input value", ui.value);
 
             // Update the value in the input and display element
+
+            if (ui.value >= 5000 && ui.value <= 24999) {
+  // Use 100% of ui.value
+  const calculatedValue = ui.value;
+
+  document.getElementById("calculated_Amount").innerText = `€${calculatedValue}`;
+  console.log("Calculated", `€${calculatedValue}`);
+} else if (ui.value >= 25000 && ui.value <= 149999) {
+  // Calculate 30% of ui.value
+  const calculatedValue = ui.value * 0.3;
+
+  document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+  console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+} else if (ui.value >= 150000 && ui.value <= 499999) {
+  // Calculate 25% of ui.value
+  const calculatedValue = ui.value * 0.25;
+
+  document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+  console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+}else if(ui.value >= 500000 && ui.value < 750000){
+  // Calculate 20% of ui.value
+}else if(ui.value >= 750000 && ui.value < 2000000){
+  // Calculate 15% of ui.value
+}else if(ui.value >= 2000000 && ui.value < 2500000){
+  // Calculate 12% of ui.value
+}else if(ui.value >= 2500000 && ui.value < 5000000){
+  // Calculate 10% of ui.value
+}
+
             jQuery(".kautelpercentClass").val(ui.value);
             jQuery("#selectedAmount").text(ui.value);
           },
@@ -402,7 +437,9 @@
 
         // Event listener to reset value when 'Go Back' button is clicked
         const previous = document.getElementById("sliderCard__gobackBtn--4");
-        const previous1 = document.getElementById("sliderCard--card6.1_back_btn");
+        const previous1 = document.getElementById(
+          "sliderCard--card6.1_back_btn"
+        );
         const previous2 = document.getElementById("sliderCard--card6_back_btn");
         if (previous) {
           previous.addEventListener("click", function () {
@@ -412,7 +449,7 @@
           });
         }
 
-        if(previous1){
+        if (previous1) {
           previous1.addEventListener("click", function () {
             jQuery("#KautelRangeslider").slider("value", initialValue);
             jQuery(".kautelpercentClass").val(initialValue);
@@ -420,7 +457,7 @@
           });
         }
 
-        if(previous2){
+        if (previous2) {
           previous2.addEventListener("click", function () {
             jQuery("#KautelRangeslider").slider("value", initialValue);
             jQuery(".kautelpercentClass").val(initialValue);
@@ -437,8 +474,6 @@
           jQuery("#selectedAmount").text(value);
         });
       });
-
-    
     </script>
   </body>
 </html>
