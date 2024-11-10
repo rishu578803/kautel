@@ -225,6 +225,8 @@ if(nextBtn1){
     } else if (activeCircle == "sliderCard__circle--2") {
 
       document.getElementById('link_calculation').style.display = 'block';
+      // document.getElementById('calculated_Amount_4_1').innerText = '5000';
+      // document.getElementById('bruttoeinkommen').innerText = '5000';
 
 
       const btn1 = document.getElementById("btn1");
@@ -676,6 +678,7 @@ if (calculated_Amount_details) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
       const cal_amount = document.getElementById('calculated_Amount').innerText;
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
+      document.getElementById('calculated_Amount').innerText = 5000;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6.1");
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
