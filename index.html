@@ -217,9 +217,10 @@
               </div>
             </div>
             <div style="margin: 50px auto; text-align: center">
+              <h4>Höchstbetrag je Bürgschaft</h4>
               <h6 id="calculated_Amount"></h6>
 
-              <div><button>link</button></div>
+              <div><a href="#">Beträge je Einzelbürgschaft erhöhen</a></div>
             </div>
 
             <!-- kaushal end -->
@@ -422,12 +423,27 @@
   console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
 }else if(ui.value >= 500000 && ui.value < 750000){
   // Calculate 20% of ui.value
+  const calculatedValue = ui.value * 0.2;
+
+document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
 }else if(ui.value >= 750000 && ui.value < 2000000){
   // Calculate 15% of ui.value
+  const calculatedValue = ui.value * 0.15;
+
+document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
 }else if(ui.value >= 2000000 && ui.value < 2500000){
-  // Calculate 12% of ui.value
+  const calculatedValue = ui.value * 0.12;
+
+document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
 }else if(ui.value >= 2500000 && ui.value < 5000000){
   // Calculate 10% of ui.value
+  const calculatedValue = ui.value * 0.1;
+
+document.getElementById("calculated_Amount").innerText = `€${calculatedValue.toFixed(2)}`;
+console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
 }
 
             jQuery(".kautelpercentClass").val(ui.value);
