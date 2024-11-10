@@ -391,7 +391,7 @@ if (nextBtn4_1) {
 
     const product = selectedButtonTexts;
 
-
+console.log("products selected",product)
 
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -468,7 +468,7 @@ if (nextBtn4_1) {
     }
 
 
-    if (input_val && input_val < 50000) {
+    if (input_val && input_val < 5000000) {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
       );
@@ -492,7 +492,7 @@ if (nextBtn4_1) {
 
       showNextCard("sliderCard--card4_1", "sliderCard--card6");
 
-      const product = selectedButtonTexts;
+
     } else {
 
 
@@ -519,7 +519,7 @@ if (nextBtn4_1) {
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6.1");
-      showNextCard("sliderCard--card4", "sliderCard--card6");
+      showNextCard("sliderCard--card4_1", "sliderCard--card6");
       
     }
 
