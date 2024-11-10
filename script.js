@@ -141,7 +141,7 @@ if(sliderCard__circle1)
 document.getElementById("sliderCard__circle--1").style.backgroundColor = "blue";
 const toggleLabel1 = document.getElementById("toggleLabel1");
 if(toggleLabel1)
-document.getElementById("toggleLabel1").style.color = "blue";
+document.getElementById("toggleLabel1").style.color = "#2F4EBA";
 
 // Function to show the next card
 function showNextCard(currentCardId, nextCardId) {
