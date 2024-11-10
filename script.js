@@ -729,7 +729,7 @@ if(nextBtn2){
 
 
 
-const basicTexts = ["Gewährleistung", "Mängelansprüche", "Mietkaution gew."];
+const basicTexts = [ "An- und Vorauszahlungen","Gewährleistung", "Mängelansprüche"];
 const proTexts = [
   "An- und Vorauszahlungen",
   "Gewährleistung",
