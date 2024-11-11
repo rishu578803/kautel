@@ -325,11 +325,12 @@ if (nextBtn4) {
     console.log("selectedButtonTexts", selectedButtonTexts);
 
     if (selectedButtonTexts.length == 1) {
+     // https://dev.kautel.de/kautionLead?productId=selectedProductID&geBetrag=164640
       const baseUrl = "https://dev.kautel.de/kautionLead";
       const params = filteredProdIds
         .map((prodId) => `productId=${prodId}`)
         .join(",");
-      fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+      fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
     } else {
       // const baseUrl = "https://dev.kautel.de/kautionLead?productId=k00&apIds";
       // const params = filteredProdIds
@@ -340,12 +341,13 @@ if (nextBtn4) {
       // console.log("full", fullUrl);
 
       // =============================================
-
+      // productId=k021&selectedProductID&geBetrag=75000&hoBetrag=22500
+      // https://dev.kautel.de/kautionLead?productId=selectedProductID&geBetrag=164640
       const baseUrl = "https://dev.kautel.de/kautionLead";
       const params = filteredProdIds
         .map((prodId) => `productId=${prodId}`)
         .join(",");
-      fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+      fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
     }
 
     if (activeCircle == "sliderCard__circle--1") {
