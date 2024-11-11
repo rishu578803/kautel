@@ -160,7 +160,7 @@ function showPreviousCard(currentCardId, previousCardId) {
 
   
   var leftSection = document.getElementById("sliderCard--card6_left-section");
-  var leftSection2 = document.getElementById("sliderCard--card6.1_left-section");
+  var leftSection2 = document.getElementById("sliderCard--card6__1_left-section");
 
   if (leftSection) {
     leftSection.innerHTML = "";
@@ -362,14 +362,14 @@ if (nextBtn4) {
 
 
       if (activeCircle == 'sliderCard__circle--2') {
-        showNextCard("sliderCard--card4", "sliderCard--card6.1");
+        showNextCard("sliderCard--card4", "sliderCard--card6__1");
       }
     
     } else {
 
 
       const leftSection = document.getElementById(
-        "sliderCard--card6.1_left-section"
+        "sliderCard--card6__1_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
       input_val + " €";
@@ -390,9 +390,9 @@ if (nextBtn4) {
       const cal_amount = document.getElementById('calculated_Amount').innerText;
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
-      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      // showNextCard("sliderCard--card4", "sliderCard--card6__1");
       document.getElementById('calculated_Amount').innerText = 5000;
-      showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      showNextCard("sliderCard--card4", "sliderCard--card6__1");
       
     }
   });
@@ -513,7 +513,7 @@ console.log("products selected",product)
 
 
       const leftSection = document.getElementById(
-        "sliderCard--card6.1_left-section"
+        "sliderCard--card6__1_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
       input_val + " €";
@@ -535,7 +535,7 @@ console.log("products selected",product)
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       // Call the function to show the next card
 
-      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      // showNextCard("sliderCard--card4", "sliderCard--card6__1");
 
       document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6");
@@ -658,7 +658,7 @@ if (calculated_Amount_details) {
 
 
       const leftSection = document.getElementById(
-        "sliderCard--card6.1_left-section"
+        "sliderCard--card6__1_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
       input_val + " €";
@@ -680,7 +680,7 @@ if (calculated_Amount_details) {
       document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
       document.getElementById('calculated_Amount').innerText = 5000;
       // Call the function to show the next card
-      // showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      // showNextCard("sliderCard--card4", "sliderCard--card6__1");
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
       
     }
@@ -702,7 +702,7 @@ if (calculateBtn) {
     window.open(fullUrl, "_blank");
   });
 }
-const calculateBtn2 = document.getElementById("sliderCard--card6.1_calculate-btn");
+const calculateBtn2 = document.getElementById("sliderCard--card6__1_calculate-btn");
 if (calculateBtn2) {
   calculateBtn2.addEventListener("click", function () {
     window.open(fullUrl, "_blank");
@@ -719,12 +719,12 @@ if(card6Back){
     showPreviousCard("sliderCard--card6", "sliderCard--card1");
   });
 }
-const card6_1Back = document.getElementById("sliderCard--card6.1_back_btn");
+const card6_1Back = document.getElementById("sliderCard--card6__1_back_btn");
   if(card6_1Back){
     card6_1Back.addEventListener("click", function () {
       selectedButtonTexts = [];
       savedselectedButtonTexts = [];
-      showPreviousCard("sliderCard--card6.1", "sliderCard--card1");
+      showPreviousCard("sliderCard--card6__1", "sliderCard--card1");
     });
   }
 

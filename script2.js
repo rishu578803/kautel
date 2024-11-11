@@ -154,7 +154,7 @@ function showPreviousCard(currentCardId, previousCardId) {
 
   var leftSection = document.getElementById("sliderCard--card6_left-section");
   var leftSection2 = document.getElementById(
-    "sliderCard--card6.1_left-section"
+    "sliderCard--card6__1_left-section"
   );
 
   if (leftSection) {
@@ -336,7 +336,7 @@ document
       showNextCard("sliderCard--card4", "sliderCard--card6");
     } else {
       const leftSection = document.getElementById(
-        "sliderCard--card6.1_left-section"
+        "sliderCard--card6__1_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
         input_val + " €";
@@ -355,7 +355,7 @@ document
      
 
     
-      showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      showNextCard("sliderCard--card4", "sliderCard--card6__1");
     }
   });
 
@@ -366,7 +366,7 @@ if (calculateBtn) {
   });
 }
 const calculateBtn2 = document.getElementById(
-  "sliderCard--card6.1_calculate-btn"
+  "sliderCard--card6__1_calculate-btn"
 );
 if (calculateBtn2) {
   calculateBtn2.addEventListener("click", function () {
