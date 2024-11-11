@@ -219,6 +219,8 @@ if(nextBtn1){
       document.getElementById("sliderCard--card2-1---heading").style.display =
         "none";
 
+      console.log("left section in first section", leftSection);
+      
       renderButtons();
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
@@ -231,6 +233,8 @@ if(nextBtn1){
 
       const btn1 = document.getElementById("btn1");
       const btn3 = document.getElementById("btn3");
+
+
       const btn2 = document.getElementById("btn2");
 
       setActiveButton([btn1]);
@@ -246,6 +250,16 @@ if(nextBtn1){
       btn2.style.backgroundColor = "#a0aec8"; // Change background color to active gray
       btn1.style.backgroundColor = "#304eba";
       // DisablelastActiveColor = true;
+
+      selectedButtonTexts = [];
+
+      savedselectedButtonTexts = [];
+      const leftSection = document.getElementById(
+        "sliderCard--card6_left-section"
+      );
+
+      leftSection.innerHTML = "";
+
 
       renderButtons();
       renderSelectedOptions();
@@ -338,7 +352,7 @@ if (nextBtn4) {
     }
 
 
-    if (input_val && input_val < 50000) {
+    if (activeCircle == 'sliderCard__circle--1') {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
       );
@@ -359,17 +373,15 @@ if (nextBtn4) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
+      showNextCard("sliderCard--card4", "sliderCard--card6");
 
-
-      if (activeCircle == 'sliderCard__circle--2') {
-        showNextCard("sliderCard--card4", "sliderCard--card6__1");
-      }
+     
     
     } else {
 
 
       const leftSection = document.getElementById(
-        "sliderCard--card6__1_left-section"
+        "sliderCard--card6_left-section"
       );
       document.getElementById("selectedprocuctAmount2").innerText =
       input_val + " €";
@@ -392,7 +404,7 @@ if (nextBtn4) {
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6__1");
       document.getElementById('calculated_Amount').innerText = 5000;
-      showNextCard("sliderCard--card4", "sliderCard--card6__1");
+      showNextCard("sliderCard--card4", "sliderCard--card6");
       
     }
   });
@@ -484,11 +496,11 @@ console.log("products selected",product)
     }
 
 
-    if (input_val && input_val < 5000000) {
+    if (activeCircle == 'sliderCard__circle--2') {
       const leftSection = document.getElementById(
-        "sliderCard--card6_left-section"
+        "sliderCard--card6__1_left-section"
       );
-
+      // sliderCard--card6__1
       if (!leftSection) {
         console.error("leftSection not found");
         return;
@@ -505,40 +517,13 @@ console.log("products selected",product)
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
-      document.getElementById('calculated_Amount').innerText = 5000;
-      showNextCard("sliderCard--card4_1", "sliderCard--card6");
-
+      // document.getElementById('calculated_Amount').innerText = 5000;
+      showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
 
     } else {
 
 
-      const leftSection = document.getElementById(
-        "sliderCard--card6__1_left-section"
-      );
-      document.getElementById("selectedprocuctAmount2").innerText =
-      input_val + " €";
-      if (!leftSection) {
-        console.error("leftSection not found");
-        return;
-      }
-
-      // Iterate over product array and create <p> elements
-      product.forEach((item) => {
-        const pElement = document.createElement("p");
-        pElement.className = "sub_heading"; // Add a class for styling if needed
-        pElement.textContent = item; // Set the text to the product item
-        leftSection.appendChild(pElement); // Append the <p> element to left-section
-      });
-
-      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
-      const cal_amount = document.getElementById('calculated_Amount').innerText;
-      document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
-      // Call the function to show the next card
-
-      // showNextCard("sliderCard--card4", "sliderCard--card6__1");
-
-      document.getElementById('calculated_Amount').innerText = 5000;
-      showNextCard("sliderCard--card4_1", "sliderCard--card6");
+      
       
     }
 
@@ -628,9 +613,9 @@ if (calculated_Amount_details) {
     }
 
 
-    if (input_val && input_val < 50000) {
+    if (activeCircle == 'sliderCard__circle--2') {
       const leftSection = document.getElementById(
-        "sliderCard--card6_left-section"
+        "sliderCard--card6__1"
       );
 
       if (!leftSection) {
@@ -657,42 +642,18 @@ if (calculated_Amount_details) {
     } else {
 
 
-      const leftSection = document.getElementById(
-        "sliderCard--card6__1_left-section"
-      );
-      document.getElementById("selectedprocuctAmount2").innerText =
-      input_val + " €";
-      if (!leftSection) {
-        console.error("leftSection not found");
-        return;
-      }
-
-      // Iterate over product array and create <p> elements
-      product.forEach((item) => {
-        const pElement = document.createElement("p");
-        pElement.className = "sub_heading"; // Add a class for styling if needed
-        pElement.textContent = item; // Set the text to the product item
-        leftSection.appendChild(pElement); // Append the <p> element to left-section
-      });
-
-      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
-      const cal_amount = document.getElementById('calculated_Amount').innerText;
-      document.getElementById('calculated_Amount_4_1').innerText = cal_amount;
-      document.getElementById('calculated_Amount').innerText = 5000;
-      // Call the function to show the next card
-      // showNextCard("sliderCard--card4", "sliderCard--card6__1");
-      showNextCard("sliderCard--card4", "sliderCard--card4_1");
+    
       
     }
 
-    document.getElementById('calculated_Amount').innerText = 5000;
+    // 
 
 
 
 
 
 
-    showNextCard("sliderCard--card4", "sliderCard--card4_1");
+    // showNextCard("sliderCard--card4", "sliderCard--card4_1");
   })
 }
 
