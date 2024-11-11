@@ -29,71 +29,44 @@
     width: 50%;
   }
 }
+
 /* custom class */
 .sliderCard {
   background-color: #f3f5fa;
-  padding: 50px;
+  padding: 30px;
   border-radius: 12px;
   margin: 0 auto;
-  width: 615px;
-  height: 609px;
-  font-family: Poppins, sans-serif;
+  width: 500px;
+  height: 500px;
+  font-family: "Inter", sans-serif;
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .sliderCard .sliderCard__heading {
-  color: #2F4EBA;
-  font-size: 27px;
-  margin-bottom: 20px;
-  font-weight: bold;
+  color: #12255e;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .sliderCard .sliderCard__subheading {
-  color: #78788C;
-  font-size: 18px;
+  color: #9e9aaa;
+  font-size: 17px;
   margin-bottom: 30px;
-  font-weight: normal;
-}
-.rangeSliderHeding{
-	text-align: center;
-    font-weight: 600;
-    color: #12245A;
-    font-size: 18px;
-    line-height: 36px;
-    padding-bottom: 5px;
-}
-#sliderCard--card2---heading .sliderCard__subheading,
-#sliderCard--card2-1---heading .sliderCard__subheading {
-	margin-bottom:0;
+  font-weight: 500;
 }
 
 .sliderCard .sliderCard__description {
-  color: #2F4EBA;
-  font-size: 18px;
-  font-weight: 600;
-  padding-bottom:20px;
-}
-#sliderCard--card2 .sliderCard__leftPanel .sliderCard__description,
-#sliderCard--card2 .sliderCard__rightPanel .sliderCard__description,
-#sliderCard--card3 .sliderCard__leftPanel .sliderCard__description,
-#sliderCard--card3 .sliderCard__rightPanel .sliderCard__description{
-	font-weight:600;
-	font-size:15px;
-	padding-bottom:0;
-	margin-top:12px;
-	text-align:center;
+  color: #304eba;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .sliderCard__toogle {
   display: flex;
   align-items: center;
-}
-.sliderCard__toogle span {
-  color:#A0AEC8;
-  font-weight:600;
-  font-size:15px;
 }
 
 .sliderCard__circle {
@@ -158,11 +131,11 @@
 
 #sliderCard--card2 {
   background-color: #f3f5fa;
-  padding: 50px;
+  padding: 30px;
   border-radius: 12px;
   margin: 0 auto;
-  width: 615px;
-  height: 609px;
+  width: 500px;
+  height: 700px;
 }
 
 /* #sliderCard--card2_1 {
@@ -178,9 +151,6 @@
   justify-content: center;
   align-items: flex-start;
   margin: 25px 10px;
-}
-#sliderCard--card2 .sliderCard__container {
-	margin:0;
 }
 .sliderCard__container2 {
   display: flex;
@@ -199,17 +169,7 @@
   background-color: #f4f6f9;
   position: relative;
 }
-#sliderCard--card2 .sliderCard__leftPanel {
-	min-width:225px;
-}
-#sliderCard--card2 .sliderCard__btnContainer button, 
-#sliderCard--card2 .sliderCard__rightPanel button{
-	margin:0 0 8px 0;
-}
-#sliderCard--card2 .sliderCard__btnContainer{
-	margin-top:5px;
-	margin-bottom:5px;
-}
+
 .sliderCard__btnContainer {
   display: flex;
   flex-direction: column;
@@ -233,9 +193,7 @@
   border-radius: 5px;
   color: white;
   text-align: center;
-  padding:5px 10px;
-  min-height:34px;
-  font-weight:600;
+  padding: 12px;
 }
 
 .sliderCard__btn:hover {
@@ -260,21 +218,19 @@
 }
 
 #sliderCard__selectedList li, #sliderCard__selectedList2 li {
-  background-color: #2F4EBA;
+  background-color: #3b73cc;
   border: none;
   padding: 10px;
-  margin: 0 0 8px 0;
+  margin: 5px 0;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
   color: white;
   text-align: center;
-  padding: 5px 10px;
-  min-height:34px;
-  font-weight:600;
+  padding: 12px;
 }
 
 /* .sliderCard__scrollBtn:hover {
@@ -384,58 +340,34 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 /* scrolling css */
 /* Custom scrollbar design for WebKit browsers (Chrome, Safari) */
-.sliderCard__btnContainer::-webkit-scrollbar,
-#sliderCard__selectedList::-webkit-scrollbar,
-.sliderCard--card6_1_left-section::-webkit-scrollbar,
-#sliderCard--card6_left-section::-webkit-scrollbar,
-.sliderCard__rightPanel--button::-webkit-scrollbar {
+.sliderCard__btnContainer::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */
 }
 
-.sliderCard__btnContainer::-webkit-scrollbar-track,
-#sliderCard__selectedList::-webkit-scrollbar-track,
-.sliderCard--card6_1_left-section::-webkit-scrollbar-track,
-#sliderCard--card6_left-section::-webkit-scrollbar-track,
-.sliderCard__rightPanel--button::-webkit-scrollbar-track {
+.sliderCard__btnContainer::-webkit-scrollbar-track {
   background: #f1f1f1; /* Scrollbar track (background) */
   border-radius: 10px;
 }
 
-.sliderCard__btnContainer::-webkit-scrollbar-thumb,
-#sliderCard__selectedList::-webkit-scrollbar-thumb,
-.sliderCard--card6_1_left-section::-webkit-scrollbar-thumb,
-#sliderCard--card6_left-section::-webkit-scrollbar-thumb,
-.sliderCard__rightPanel--button::-webkit-scrollbar-thumb {
+.sliderCard__btnContainer::-webkit-scrollbar-thumb {
   background-color: #007bff; /* Scrollbar handle */
   border-radius: 10px;
   border: 2px solid #f1f1f1; /* Gives padding between handle and track */
 }
 
 /* Hover effect on scrollbar */
-.sliderCard__btnContainer::-webkit-scrollbar-thumb:hover,
-#sliderCard__selectedList::-webkit-scrollbar-thumb:hover,
-.sliderCard--card6_1_left-section::-webkit-scrollbar-thumb:hover,
-#sliderCard--card6_left-section::-webkit-scrollbar-thumb:hover,
-.sliderCard__rightPanel--button::-webkit-scrollbar-thumb:hover {
+.sliderCard__btnContainer::-webkit-scrollbar-thumb:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* For Firefox */
-.sliderCard__btnContainer,
-#sliderCard__selectedList,
-.sliderCard--card6_1_left-section,
-#sliderCard--card6_left-section,
-.sliderCard__rightPanel--button {
+.sliderCard__btnContainer {
   scrollbar-width: thin;
   scrollbar-color: #aac0d8 #f1f1f1; /* Handle color and track color */
 }
 
 /* Optional styling for smooth scrolling */
-.sliderCard__btnContainer,
-#sliderCard__selectedList,
-.sliderCard--card6_1_left-section,
-#sliderCard--card6_left-section,
-.sliderCard__rightPanel--button {
+.sliderCard__btnContainer {
   scroll-behavior: smooth; /* Enables smooth scrolling for browsers that support it */
 }
 
@@ -489,7 +421,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 .sliderCard .left-section p,
 .right-section p {
-  margin:0;
+  margin: 5px 0;
 }
 
 .sliderCard .amount {
@@ -506,43 +438,35 @@ input[type="range"]::-webkit-slider-runnable-track {
 .calculate-btn {
   margin-top: 40px;
   height: 100px;
-  padding: 0px 20px;
+  padding: 0px 50px;
   background-color: #99a7c5;
   color: white;
   border: none;
   border-radius: 10px;
 
-  font-size: 28px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
-  font-weight:600;
-  min-width:248px;
-  min-height:158px;
-  line-height:38px;
 }
 
-.calculate-btn:hover,
-.calculate-btn:focus {
+.calculate-btn:hover {
   background-color: #8895b3;
-  color:#fff;
 }
 
-.calculate-btn .arrow i {
-  min-width: 40px;
-    min-height: 40px;
-    background-color: #ff6b47;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.calculate-btn .arrow i img{
-    position: relative;
-    right: -5px;
+.calculate-btn .arrow {
+  background-color: #ff6b47;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info-box .heading {
@@ -553,10 +477,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .info-box .sub_heading {
-  color: #FF7048;
-  font-size: 18px;
+  color: #fc8463;
+  font-size: 17px;
   margin-bottom: 30px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .sliderCard__rightPanel button {
@@ -571,28 +495,23 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 
-/*.sliderCard__leftPanel,
+.sliderCard__leftPanel,
 .sliderCard__rightPanel {
-  margin: 8px;
-}*/
+  margin: 10px;
+}
 
 
 
 .sliderCard__btnContainer button,
 .sliderCard__rightPanel button {
   display: block;
-  margin: 12px 0;
+  margin: 5px 0;
+
   cursor: pointer;
-}
-#sliderCard--card3 .sliderCard__btnContainer button{
-	width: 165px;
-    margin: 8px auto;
-	font-size:15px;
-	font-weight:600;
 }
 
 .sliderCard__rightPanel .sliderCard__rightPanel--button {
-  max-height: 260px;
+  max-height: 215px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -616,22 +535,16 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .sliderCard__left-button.active {
-  background-color: #2F4EBA;
+  background-color: #304eba;
   color: white;
 }
 
 .sliderCard__right-button {
-  background-color: #2F4EBA;
-  border: 1px solid #2F4EBA;
+  background-color: #304eba;
+  border: 1px solid #304eba;
   padding: 10px 10px;
   margin: 5px;
   color: white;
-}
-#sliderCard--card3 .sliderCard__right-button {
-	padding:4px 10px;
-	min-height:34px;
-	font-size:14px;
-	font-weight:600;
 }
 
 #sliderCard--card2-1---heading {
@@ -669,9 +582,8 @@ input[type="range"]::-webkit-slider-runnable-track {
   position: relative;
   display: table;
   border-collapse: separate;
-  width: 186px !important;
+  width: 200px !important;
   margin: 0 auto !important;
-  height:60px;
 }
 
 .ui-widget-content {
@@ -688,41 +600,4 @@ div#sliderCard--card6_left-section {
 .sliderCard--card6_1_left-section{
   height: 77px;
   overflow-y: scroll;
-}
-.sliderCard .fa-arrow-right:before {
-    content: " ";
-}
-.sliderCard .input-group{margin-bottom:30px !important;}
-.sliderCard .input-group .form-control{text-align:right;}
-.sliderCard .input-group-addon{width:60px;}
-.sliderCard .input-group .form-control,
-.sliderCard .input-group-addon{font-size:18px;font-weight:700;color:#12245A;}
-.sliderCard .input-group-addon{border-left:none;background-color: #fff;height:60px;padding-top:0;padding-bottom:0;}
-.sliderCard .input-group .form-control{border-right:none;height:60px;padding-top:0;padding-bottom:0;}
-.sliderCard .input-group .form-control:focus{box-shadow:none;}
-.sliderCard .input-group .form-control:focus + .input-group-addon{border-color:#66afe9}
-#link_calculation h4,
-#link_calculation h6{font-size:15px;color:#12245A;font-weight:600;}
-#calculated_Amount_details{
-	color:#A0AEC8;
-	font-size:15px;
-	font-weight:600;
-	border:none;
-	background-color:transparent;
-}
-.info-box .left-section{
-	min-width:220px;
-}
-.heading,
-.info-box .heading{
-	color:#2F4EBA;	
-}
-.info-box .right-section .heading{
-	font-weight:400;
-	font-size:18px;
-}
-.left-section .heading,
-.left-section .sub_heading{
-	font-weight:600;
-	font-size:18px;
 }
