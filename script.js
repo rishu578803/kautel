@@ -343,10 +343,10 @@ if (nextBtn4) {
         "sliderCard--card6_left-section"
       );
 
-      if (!leftSection) {
-        console.error("leftSection not found");
-        return;
-      }
+      // if (!leftSection) {
+      //   console.error("leftSection not found");
+      //   return;
+      // }
 
       // Iterate over product array and create <p> elements
       product.forEach((item) => {
@@ -359,11 +359,11 @@ if (nextBtn4) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
-      document.getElementById('calculated_Amount').innerText = 5000;
 
-      // if (activeCircle == 'sliderCard__circle--1') {
-      //   showNextCard("sliderCard--card4", "sliderCard--card6");
-      // }
+
+      if (activeCircle == 'sliderCard__circle--2') {
+        showNextCard("sliderCard--card4", "sliderCard--card6.1");
+      }
     
     } else {
 
@@ -373,10 +373,10 @@ if (nextBtn4) {
       );
       document.getElementById("selectedprocuctAmount2").innerText =
       input_val + " €";
-      if (!leftSection) {
-        console.error("leftSection not found");
-        return;
-      }
+      // if (!leftSection) {
+      //   console.error("leftSection not found");
+      //   return;
+      // }
 
       // Iterate over product array and create <p> elements
       product.forEach((item) => {
