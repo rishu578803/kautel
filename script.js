@@ -104,8 +104,8 @@ if(circle){
     otherCircle.style.backgroundColor = "#A1B1CE";
     otherLabel.style.color = "#A1B1CE";
 
-    circle.style.backgroundColor = "blue";
-    label.style.color = "blue";
+    circle.style.backgroundColor = "#2F4EBA";
+    label.style.color = "#2F4EBA";
 
     renderButtons();
 
@@ -138,7 +138,7 @@ function getActiveCircle() {
 // Default to Einzelbürgschaft (first circle)
 const sliderCard__circle1 = document.getElementById("sliderCard__circle--1");
 if(sliderCard__circle1)
-document.getElementById("sliderCard__circle--1").style.backgroundColor = "blue";
+document.getElementById("sliderCard__circle--1").style.backgroundColor = "#2F4EBA";
 const toggleLabel1 = document.getElementById("toggleLabel1");
 if(toggleLabel1)
 document.getElementById("toggleLabel1").style.color = "#2F4EBA";
@@ -184,8 +184,8 @@ function showPreviousCard(currentCardId, previousCardId) {
   otherCircle.style.backgroundColor = "#A1B1CE";
   otherLabel.style.color = "#A1B1CE";
 
-  circle.style.backgroundColor = "blue";
-  label.style.color = "blue";
+  circle.style.backgroundColor = "#2F4EBA";
+  label.style.color = "#2F4EBA";
 
   renderButtons();
 
