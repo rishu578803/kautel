@@ -279,7 +279,7 @@ if (nextBtn4) {
 
     const productDetails = [
       { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "??" },
+      { productName: "Mitarbeiterguthaben", prodId: "K060" },
       { productName: "Arbeitnehmerentsendung", prodId: "K002" },
       { productName: "An- und Vorauszahlungen", prodId: "K003" },
       { productName: "Architektenleistungen", prodId: "K004" },
@@ -455,7 +455,7 @@ if (nextBtn4_1) {
 
     const productDetails = [
       { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "??" },
+      { productName: "Mitarbeiterguthaben", prodId: "K060" },
       { productName: "Arbeitnehmerentsendung", prodId: "K002" },
       { productName: "An- und Vorauszahlungen", prodId: "K003" },
       { productName: "Architektenleistungen", prodId: "K004" },
@@ -560,7 +560,7 @@ if (calculated_Amount_details) {
 
     const productDetails = [
       { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "??" },
+      { productName: "Mitarbeiterguthaben", prodId: "K060" },
       { productName: "Arbeitnehmerentsendung", prodId: "K002" },
       { productName: "An- und Vorauszahlungen", prodId: "K003" },
       { productName: "Architektenleistungen", prodId: "K004" },
