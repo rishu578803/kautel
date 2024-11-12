@@ -393,6 +393,11 @@ if (nextBtn4) {
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
+
+      const cal_amount = document.getElementById("calculated_Amount").innerText;
+      document.getElementById("calculated_Amount_4_1").innerText = 5000;
+
+      
       // Call the function to show the next card
       if (input_val && input_val < 5000000) {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
@@ -424,10 +429,12 @@ if (nextBtn4) {
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
       const cal_amount = document.getElementById("calculated_Amount").innerText;
+
+      console.log("Calculated Amount in 2nd card",cal_amount)
       document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6__1");
-      document.getElementById("calculated_Amount").innerText = 5000;
+      // document.getElementById("calculated_Amount").innerText = 5000;
       showNextCard("sliderCard--card4", "sliderCard--card6");
     }
   });
@@ -635,7 +642,8 @@ if (calculated_Amount_details) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       // Call the function to show the next card
-      document.getElementById("calculated_Amount").innerText = 5000;
+      const cal_amount = document.getElementById("calculated_Amount").innerText;
+      document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
 
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
