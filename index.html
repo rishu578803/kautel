@@ -431,6 +431,70 @@
     <script src="script.js"></script>
     <script>
       jQuery(function () {
+        const initialValue = 5000;
+        const calculated_Amount = document.getElementById("calculated_Amount");
+        if(calculated_Amount)
+        calculated_Amount.innerText = `${initialValue} €`;
+    
+        jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+        jQuery("#selectedAmount").text(initialValue);
+    
+        jQuery("#KautelRangeslider").slider({
+          value: initialValue,
+          min: 5000,
+          step: 10,
+          max: 200000,
+          range: "min",
+          slide: function (event, ui) {
+            let calculatedValue;
+    
+            if (ui.value >= 5000 && ui.value <= 24999) {
+              calculatedValue = ui.value;
+            } else if (ui.value >= 25000 && ui.value <= 149999) {
+              calculatedValue = ui.value * 0.3;
+            } else if (ui.value >= 150000 && ui.value <= 499999) {
+              calculatedValue = ui.value * 0.25;
+            } else if (ui.value >= 500000 && ui.value < 750000) {
+              calculatedValue = ui.value * 0.2;
+            } else if (ui.value >= 750000 && ui.value < 2000000) {
+              calculatedValue = ui.value * 0.15;
+            } else if (ui.value >= 2000000 && ui.value < 2500000) {
+              calculatedValue = ui.value * 0.12;
+            } else if (ui.value >= 2500000 && ui.value < 5000000) {
+              calculatedValue = ui.value * 0.1;
+            }
+            if(calculated_Amount)
+            calculated_Amount.innerText = `${calculatedValue.toFixed(2)} €`;
+            jQuery(".sliderCard .kautelpercentClass").val(ui.value);
+            jQuery("#selectedAmount").text(ui.value);
+          },
+        });
+    
+        const resetSlider = () => {
+          jQuery("#KautelRangeslider").slider("value", initialValue);
+          jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+          jQuery("#selectedAmount").text(initialValue);
+          if(calculated_Amount)
+          calculated_Amount.innerText = `${initialValue} €`;
+        };
+    
+        ["sliderCard__gobackBtn--4", "sliderCard--card6__1_back_btn", "sliderCard--card6_back_btn"].forEach(id => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.addEventListener("click", resetSlider);
+          }
+        });
+    
+        jQuery("input.sliderCard .kautelpercentClass").change(function () {
+          const value = parseInt(this.value) || initialValue;
+          jQuery("#KautelRangeslider").slider("value", value);
+          jQuery("#selectedAmount").text(value);
+        });
+      });
+    </script>
+    
+    <!-- <script>
+      jQuery(function () {
         var initialValue = 5000;
         document.getElementById("calculated_Amount").innerText = `5000 €`;
         // Set the initial value in the input and display element
@@ -550,6 +614,6 @@
           jQuery("#selectedAmount").text(value);
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
