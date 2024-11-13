@@ -263,7 +263,7 @@ if (nextBtn1) {
       
       
       leftSection.innerHTML = "";
-      document.getElementById('calculated_Amount').innerText = 5000;
+      document.getElementById('calculated_Amount').innerText = 5000.00 + " €";
       
       renderButtons();
       renderSelectedOptions();
