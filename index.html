@@ -467,6 +467,12 @@
             calculated_Amount.innerText = `${calculatedValue.toFixed(2)} €`;
             jQuery(".sliderCard .kautelpercentClass").val(ui.value);
             jQuery("#selectedAmount").text(ui.value);
+            const calculated_Amount_details = document.getElementById("calculated_Amount_details");
+            if (calculated_Amount_details) {
+              calculated_Amount_details.addEventListener("click", function () {
+                ui.value = initialValue;
+              })
+            }
           },
         });
     
