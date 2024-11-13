@@ -255,7 +255,7 @@ if (nextBtn1) {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
       );
-
+// /////// edit
       leftSection.innerHTML = "";
       document.getElementById('calculated_Amount').innerText = 0;
       
