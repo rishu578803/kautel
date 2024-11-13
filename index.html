@@ -470,14 +470,13 @@
             const calculated_Amount_details = document.getElementById("calculated_Amount_details");
             if (calculated_Amount_details) {
               calculated_Amount_details.addEventListener("click", function () {
-                ui.value = initialValue;
-            
-                // const uiSliderRange = document.querySelector(".ui-slider-range");
-                // if(uiSliderRange)
-                // uiSliderRange.style.width=0;
-                // const uiSliderHandle = document.querySelector(".ui-slider-handle");
-                // if(uiSliderHandle)
-                // uiSliderHandle.style.left=0;
+                ui.value = initialValue;            
+                const uiSliderRange = document.querySelector(".ui-slider-range");
+                if(uiSliderRange)
+                uiSliderRange.style.width=0;
+                const uiSliderHandle = document.querySelector(".ui-slider-handle");
+                if(uiSliderHandle)
+                uiSliderHandle.style.left=0;
               })
             }
           },
