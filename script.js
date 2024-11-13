@@ -257,7 +257,8 @@ if (nextBtn1) {
       );
 
       leftSection.innerHTML = "";
-
+      document.getElementById('calculated_Amount').innerText = 0;
+      
       renderButtons();
       renderSelectedOptions();
 
