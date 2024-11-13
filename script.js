@@ -257,7 +257,7 @@ if (nextBtn1) {
       );
 // /////// edit
       leftSection.innerHTML = "";
-      document.getElementById('calculated_Amount').innerText = 0;
+      document.getElementById('calculated_Amount').innerText = 5000;
       
       renderButtons();
       renderSelectedOptions();
