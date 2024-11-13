@@ -464,7 +464,8 @@
               calculatedValue = ui.value * 0.1;
             }
             if(calculated_Amount)
-            calculated_Amount.innerText = `${calculatedValue.toFixed(2)} €`;
+            calculated_Amount.innerText = `${calculatedValue} €`;
+            // calculated_Amount.innerText = `${calculatedValue.toFixed(2)} €`;
             jQuery(".sliderCard .kautelpercentClass").val(ui.value);
             jQuery("#selectedAmount").text(ui.value);
             const calculated_Amount_details = document.getElementById("calculated_Amount_details");
@@ -479,7 +480,7 @@
                 uiSliderHandle.style.left=0;
                 const calculated_Amount = document.querySelector("#calculated_Amount");
                 if(calculated_Amount)
-                calculated_Amount.innerHTML = '5000.00 €';
+                calculated_Amount.innerHTML = '5000 €';
               })
             }
           },

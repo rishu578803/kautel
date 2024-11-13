@@ -263,10 +263,11 @@ if (nextBtn1) {
       
       
       leftSection.innerHTML = "";
-      document.getElementById('calculated_Amount').innerText = 5000.00 + " €";
+      document.getElementById('calculated_Amount').innerText = 5000 + " €";
       
       renderButtons();
       renderSelectedOptions();
+      
 
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
