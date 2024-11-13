@@ -570,6 +570,8 @@ if (nextBtn4_1) {
 
       if (input_val >= 50000) {
         showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
+      } else {
+        showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
       }
 
     }
@@ -582,7 +584,7 @@ const calculated_Amount_details = document.getElementById(
 
 if (calculated_Amount_details) {
   calculated_Amount_details.addEventListener("click", function () {
-
+    debugger;
 
     const product = selectedButtonTexts;
 
@@ -657,20 +659,20 @@ if (calculated_Amount_details) {
     }
 
     if (activeCircle == "sliderCard__circle--2") {
-      const leftSection = document.getElementById("sliderCard--card6__1");
+      // const leftSection = document.getElementById("sliderCard--card6__1");
 
-      if (!leftSection) {
-        console.error("leftSection not found");
-        return;
-      }
+      // if (!leftSection) {
+      //   console.error("leftSection not found");
+      //   return;
+      // }
 
-      // Iterate over product array and create <p> elements
-      product.forEach((item) => {
-        const pElement = document.createElement("p");
-        pElement.className = "sub_heading"; // Add a class for styling if needed
-        pElement.textContent = item; // Set the text to the product item
-        leftSection.appendChild(pElement); // Append the <p> element to left-section
-      });
+      // // Iterate over product array and create <p> elements
+      // product.forEach((item) => {
+      //   const pElement = document.createElement("p");
+      //   pElement.className = "sub_heading"; // Add a class for styling if needed
+      //   pElement.textContent = item; // Set the text to the product item
+      //   leftSection.appendChild(pElement); // Append the <p> element to left-section
+      // });
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
