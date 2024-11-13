@@ -901,6 +901,9 @@ if (nextBtn2) {
         return false;
       }else if (selectedButtonTexts.length > 1) {
         link_cal.style.display = "block";
+
+
+
       }
       // Increment the click count on each button click
       clickCount++;
@@ -941,6 +944,14 @@ if (nextBtn2) {
             sliderSubHeading.innerText = "Gewählter Betrag";
           }
 
+// ============================== center link clickable edit =============================
+          const sliderCard__nextBtn2 = document.getElementById('sliderCard__nextBtn--2');
+
+
+          sliderCard__nextBtn2.addEventListener(("click", function () {
+  const sliderCard__nextBtn2 = document.getElementById('sliderCard__nextBtn--2');
+}))
+// =================================================================
           renderButtons();
           renderSelectedOptions();
           showNextCard("sliderCard--card2", "sliderCard--card4");
