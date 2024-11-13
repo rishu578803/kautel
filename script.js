@@ -695,10 +695,13 @@ if (calculated_Amount_details) {
       // Call the function to show the next card
       const cal_amount = document.getElementById("calculated_Amount").innerText;
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
-
+     const cal_value =  document.getElementById('calculated_Amount_details').innerText
+      document.getElementById('bruttoeinkommen').value= cal_value
+      
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
-
+      const cal_value =  document.getElementById('calculated_Amount_details').innerText
+      document.getElementById('bruttoeinkommen').value= cal_value
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     }
 
