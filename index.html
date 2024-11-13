@@ -265,7 +265,7 @@
             </div>
             <div style="margin: 50px auto; text-align: center">
               <h4>Gewählter Gesamtbetrag für den Bürgschaftsrahmen</h4>
-              <h6 id="calculated_Amount_4_1"></h6>
+              <h6 id="calculated_Amount_4_1">75.000 €</h6>
 
             
             </div>
@@ -495,7 +495,7 @@
 <script>
   // Get references to the input field and the output span
   const bruttoeinkommenInput = document.getElementById('bruttoeinkommen');
-  const calculatedAmountElement = document.getElementById('calculated_Amount_4_1');
+  // const calculatedAmountElement = document.getElementById('calculated_Amount_4_1');
 
   // Function to handle calculation
   function calculateAmount() {
@@ -520,9 +520,9 @@
     }
 
     // Display the result
-    if (calculatedAmountElement) {
-      calculatedAmountElement.innerText = `${calculatedValue.toFixed(2)} €`;
-    }
+    // if (calculatedAmountElement) {
+    //   calculatedAmountElement.innerText = `${calculatedValue.toFixed(2)} €`;
+    // }
   }
 
   // Add event listener to input to trigger calculation on input change (when the value changes)
