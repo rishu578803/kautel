@@ -402,7 +402,7 @@ if (nextBtn4) {
 
 
       const cal_amount = document.getElementById("calculated_Amount").innerText;
-      document.getElementById("calculated_Amount_4_1").innerText = 5000;
+      // document.getElementById("calculated_Amount_4_1").innerText = 5000;
 
       
       // Call the function to show the next card
@@ -438,7 +438,7 @@ if (nextBtn4) {
       const cal_amount = document.getElementById("calculated_Amount").innerText;
 
       console.log("Calculated Amount in 2nd card",cal_amount)
-      document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
+      // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6__1");
       // document.getElementById("calculated_Amount").innerText = 5000;
@@ -650,7 +650,7 @@ if (calculated_Amount_details) {
 
       // Call the function to show the next card
       const cal_amount = document.getElementById("calculated_Amount").innerText;
-      document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
+      // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
 
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
