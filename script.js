@@ -548,6 +548,30 @@ if (nextBtn4_1) {
       // document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
     } else {
+
+      const leftSection = document.getElementById(
+        "sliderCard--card6__1_left-section"
+      );
+      // sliderCard--card6__1
+      if (!leftSection) {
+        console.error("leftSection not found");
+        return;
+      }
+
+      // Iterate over product array and create <p> elements
+      product.forEach((item) => {
+        const pElement = document.createElement("p");
+        pElement.className = "sub_heading"; // Add a class for styling if needed
+        pElement.textContent = item; // Set the text to the product item
+        leftSection.appendChild(pElement); // Append the <p> element to left-section
+      });
+
+      const input_val = document.getElementById("bruttoeinkommen").value;
+
+      if (input_val >= 50000) {
+        showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
+      }
+
     }
   });
 }
@@ -558,6 +582,8 @@ const calculated_Amount_details = document.getElementById(
 
 if (calculated_Amount_details) {
   calculated_Amount_details.addEventListener("click", function () {
+
+
     const product = selectedButtonTexts;
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -654,6 +680,8 @@ if (calculated_Amount_details) {
 
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
+
+      showNextCard("sliderCard--card4", "sliderCard--card4_1");
     }
 
     //
@@ -934,6 +962,12 @@ if (nextBtn2) {
         // Second click
       } else if (clickCount == 2) {
         // Call showNextCard on the second click
+        const calculated_Amount_details = document.getElementById('calculated_Amount_details');
+
+
+
+
+
         if (selectedButtonTexts.length > 1) {
           // Perform the existing task on the first click
           const sliderHeader = document.getElementById("slider_header");
@@ -945,12 +979,17 @@ if (nextBtn2) {
           }
 
 // ============================== center link clickable edit =============================
-          const sliderCard__nextBtn2 = document.getElementById('sliderCard__nextBtn--2');
+// const calculated_Amount_details = document.getElementById('calculated_Amount_details');
 
+// if(calculated_Amount_details)
+//   calculated_Amount_details.addEventListener("click", function () {
 
-          sliderCard__nextBtn2.addEventListener(("click", function () {
-  const sliderCard__nextBtn2 = document.getElementById('sliderCard__nextBtn--2');
-}))
+//           debugger;
+//     //  document.getElementById('sliderCard--card2').style.display = 'none';
+
+       
+//           showNextCard("sliderCard--card2", "sliderCard--card4");
+// })
 // =================================================================
           renderButtons();
           renderSelectedOptions();
@@ -961,11 +1000,25 @@ if (nextBtn2) {
           clickCount = 0;
         }
       } else if (clickCount >= 3) {
+  
         if (selectedButtonTexts.length > 1) {
           // Perform the existing task on the first click
           renderButtons();
           renderSelectedOptions();
-          showNextCard("sliderCard--card2", "sliderCard--card4");
+
+          // const calculated_Amount_details = document.getElementById('calculated_Amount_details');
+
+          // if(calculated_Amount_details)
+          //   calculated_Amount_details.addEventListener("click", function () {
+          
+          //           debugger;
+          //     //  document.getElementById('sliderCard--card2').style.display = 'none';
+          
+                 
+          //           showNextCard("sliderCard--card2", "sliderCard--card4");
+          // })
+
+          // showNextCard("sliderCard--card2", "sliderCard--card4");
           clickCount = 0;
         } else if (selectedButtonTexts.length === 1) {
           showNextCard("sliderCard--card2", "sliderCard--card4");
