@@ -492,7 +492,42 @@
         });
       });
     </script>
-    
+<script>
+  // Get references to the input field and the output span
+  const bruttoeinkommenInput = document.getElementById('bruttoeinkommen');
+  const calculatedAmountElement = document.getElementById('calculated_Amount_4_1');
+
+  // Function to handle calculation
+  function calculateAmount() {
+    const uiValue = parseFloat(bruttoeinkommenInput.value);
+    let calculatedValue = 0;
+
+    // Apply the calculation based on the value of bruttoeinkommen
+    if (uiValue >= 5000 && uiValue <= 24999) {
+      calculatedValue = uiValue;
+    } else if (uiValue >= 25000 && uiValue <= 149999) {
+      calculatedValue = uiValue * 0.3;
+    } else if (uiValue >= 150000 && uiValue <= 499999) {
+      calculatedValue = uiValue * 0.25;
+    } else if (uiValue >= 500000 && uiValue < 750000) {
+      calculatedValue = uiValue * 0.2;
+    } else if (uiValue >= 750000 && uiValue < 2000000) {
+      calculatedValue = uiValue * 0.15;
+    } else if (uiValue >= 2000000 && uiValue < 2500000) {
+      calculatedValue = uiValue * 0.12;
+    } else if (uiValue >= 2500000 && uiValue < 5000000) {
+      calculatedValue = uiValue * 0.1;
+    }
+
+    // Display the result
+    if (calculatedAmountElement) {
+      calculatedAmountElement.innerText = `${calculatedValue.toFixed(2)} €`;
+    }
+  }
+
+  // Add event listener to input to trigger calculation on input change (when the value changes)
+  bruttoeinkommenInput.addEventListener('input', calculateAmount);
+</script>
     <!-- <script>
       jQuery(function () {
         var initialValue = 5000;

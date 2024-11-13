@@ -222,6 +222,10 @@ if (nextBtn1) {
 
       console.log("left section in first section", leftSection);
 
+
+      // const cal_tax = document.getElementById('link_calculation');
+
+      // cal_tax.style.display = "none";
       renderButtons();
       renderSelectedOptions();
       showNextCard("sliderCard--card1", "sliderCard--card2");
@@ -255,7 +259,9 @@ if (nextBtn1) {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
       );
-// /////// edit
+      // /////// edit
+      
+      
       leftSection.innerHTML = "";
       document.getElementById('calculated_Amount').innerText = 5000;
       
