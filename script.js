@@ -337,7 +337,7 @@ if (nextBtn4) {
 
     const baseUrl = "https://dev.kautel.de/kautionLead--kk";
     
-    const baseUrl = "https://dev.kautel.de/kautionLead";
+    // const baseUrl = "https://dev.kautel.de/kautionLead";
 
     if (selectedButtonTexts.length === 1) {
       
@@ -555,7 +555,7 @@ if (nextBtn4_1) {
     }
   });
 }
-
+// edit
 const calculated_Amount_details = document.getElementById(
   "calculated_Amount_details"
 );
