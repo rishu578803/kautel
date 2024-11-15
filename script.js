@@ -350,6 +350,7 @@ if (nextBtn4) {
       const calculated = parseInt(calculated_Amount.innerText);
 
       // Define the base URL based on the condition
+      input_val = '75.00';
       const productUrl =
         activeCircle === "sliderCard__circle--2"
           ? `${baseUrl}?productId=k021`
@@ -494,6 +495,7 @@ if (nextBtn4_1) {
 
     
     // const calculated_Amount_4_1 = document.getElementById('calculated_Amount_4_1').innerText;
+    input_val = '75.00';
       const productUrl = activeCircle === "sliderCard__circle--2"
         ? `${baseUrl}?productId=k021`
         : `${baseUrl}?productId=k021`;
