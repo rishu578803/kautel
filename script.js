@@ -336,8 +336,6 @@ if (nextBtn4) {
     // kaushal codes start
 
     const baseUrl = "https://dev.kautel.de/kautionLead--kk";
-    
-    const baseUrl = "https://dev.kautel.de/kautionLead";
 
     if (selectedButtonTexts.length === 1) {
       
