@@ -94,6 +94,45 @@ var availableOptions2 = [
   "Warenlieferungsbürgschaft",
 ];
 
+const productDetails = [
+      { productName: "Arbeitszeitkonten", prodId: "K001" },
+      { productName: "Mitarbeiterguthaben", prodId: "K060" },
+      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
+      { productName: "An- und Vorauszahlungen", prodId: "K003" },
+      { productName: "Architektenleistungen", prodId: "K004" },
+      { productName: "Ausfallbürgschaft", prodId: "K005" },
+      { productName: "Ausführungsbürgschaft", prodId: "K006" },
+      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
+      { productName: "Bauhandwerkersicherung", prodId: "K008" },
+      { productName: "Bietungsbürgschaft", prodId: "K009" },
+      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
+      { productName: "Immissionsbürgschaft", prodId: "K011" },
+      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
+      { productName: "Erschließungsbürgschaft", prodId: "K014" },
+      { productName: "Energielieferung", prodId: "K015" },
+      { productName: "Franchise", prodId: "K018" },
+      { productName: "Gewährleistung", prodId: "K019" },
+      { productName: "IATA-Bürgschaft", prodId: "K020" },
+      { productName: "Individualbürgschaft", prodId: "K021" },
+      { productName: "Lieferantenbürgschaft", prodId: "K022" },
+      { productName: "Leasingbürgschaft", prodId: "K023" },
+      { productName: "Lottobürgschaft", prodId: "K024" },
+      { productName: "Mängelansprüche", prodId: "K025" },
+      { productName: "Mietkaution gew.", prodId: "K026" },
+      { productName: "Mineralölbürgschaft", prodId: "K028" },
+      { productName: "Postagentur", prodId: "K029" },
+      { productName: "Prozessbürgschaft", prodId: "K030" },
+      { productName: "Recyclingbürgschaft", prodId: "K031" },
+      { productName: "Rekultivierung", prodId: "K032" },
+      { productName: "Rückbaubürgschaft", prodId: "K033" },
+      { productName: "Sonderbürgschaft", prodId: "K034" },
+      { productName: "Tankkartenforderung", prodId: "K035" },
+      { productName: "Verbraucherbürgschaft", prodId: "K036" },
+      { productName: "Vertragserfüllung", prodId: "K037" },
+      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
+      { productName: "Warenlieferungsbürgschaft", prodId: "K039" },
+    ];
+
 function toggleCircleAndLabel(circleId, labelId, otherCircleId, otherLabelId) {
   const circle = document.getElementById(circleId);
   const label = document.getElementById(labelId);
@@ -278,6 +317,7 @@ const nextBtn4 = document.getElementById("sliderCard__nextBtn--4");
 if (nextBtn4) {
   console.log("sliderCard  circle", activeCircle);
   nextBtn4.addEventListener("click", function () {
+    alert('sliderCard__nextBtn--4')
     const product = selectedButtonTexts;
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -287,44 +327,7 @@ if (nextBtn4) {
     
     const p_element = document.getElementById("selectedprocuctAmount");
 
-    const productDetails = [
-      { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "K060" },
-      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
-      { productName: "An- und Vorauszahlungen", prodId: "K003" },
-      { productName: "Architektenleistungen", prodId: "K004" },
-      { productName: "Ausfallbürgschaft", prodId: "K005" },
-      { productName: "Ausführungsbürgschaft", prodId: "K006" },
-      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
-      { productName: "Bauhandwerkersicherung", prodId: "K008" },
-      { productName: "Bietungsbürgschaft", prodId: "K009" },
-      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
-      { productName: "Immissionsbürgschaft", prodId: "K011" },
-      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
-      { productName: "Erschließungsbürgschaft", prodId: "K014" },
-      { productName: "Energielieferung", prodId: "K015" },
-      { productName: "Franchise", prodId: "K018" },
-      { productName: "Gewährleistung", prodId: "K019" },
-      { productName: "IATA-Bürgschaft", prodId: "K020" },
-      { productName: "Individualbürgschaft", prodId: "K021" },
-      { productName: "Lieferantenbürgschaft", prodId: "K022" },
-      { productName: "Leasingbürgschaft", prodId: "K023" },
-      { productName: "Lottobürgschaft", prodId: "K024" },
-      { productName: "Mängelansprüche", prodId: "K025" },
-      { productName: "Mietkaution gew.", prodId: "K026" },
-      { productName: "Mineralölbürgschaft", prodId: "K028" },
-      { productName: "Postagentur", prodId: "K029" },
-      { productName: "Prozessbürgschaft", prodId: "K030" },
-      { productName: "Recyclingbürgschaft", prodId: "K031" },
-      { productName: "Rekultivierung", prodId: "K032" },
-      { productName: "Rückbaubürgschaft", prodId: "K033" },
-      { productName: "Sonderbürgschaft", prodId: "K034" },
-      { productName: "Tankkartenforderung", prodId: "K035" },
-      { productName: "Verbraucherbürgschaft", prodId: "K036" },
-      { productName: "Vertragserfüllung", prodId: "K037" },
-      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
-      { productName: "Warenlieferungsbürgschaft", prodId: "K039" },
-    ];
+   
 
     // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array
     const filteredProdIds = productDetails
@@ -336,7 +339,7 @@ if (nextBtn4) {
     console.log("selectedButtonTexts", selectedButtonTexts);
     // kaushal codes start
 
-    const baseUrl = "https://dev.kautel.de/kautionLead";
+    const baseUrl = "https://dev.kautel.de/kautionLead--kk";
     
     if (selectedButtonTexts.length === 1) {
       
@@ -345,7 +348,6 @@ if (nextBtn4) {
         .join(",");
       fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
     } else {
-      
       const calculated_Amount = document.getElementById("calculated_Amount");
       const calculated = parseInt(calculated_Amount.innerText);
     
@@ -466,6 +468,7 @@ const nextBtn4_1 = document.getElementById("sliderCard__nextBtn--4_1");
 
 if (nextBtn4_1) {
   nextBtn4_1.addEventListener("click", function () {
+    alert('sliderCard__nextBtn--4_1')
     const product = selectedButtonTexts;
 
     console.log("products selected", product);
@@ -475,44 +478,7 @@ if (nextBtn4_1) {
       input_val + " €";
     const p_element = document.getElementById("selectedprocuctAmount");
 
-    const productDetails = [
-      { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "K060" },
-      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
-      { productName: "An- und Vorauszahlungen", prodId: "K003" },
-      { productName: "Architektenleistungen", prodId: "K004" },
-      { productName: "Ausfallbürgschaft", prodId: "K005" },
-      { productName: "Ausführungsbürgschaft", prodId: "K006" },
-      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
-      { productName: "Bauhandwerkersicherung", prodId: "K008" },
-      { productName: "Bietungsbürgschaft", prodId: "K009" },
-      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
-      { productName: "Immissionsbürgschaft", prodId: "K011" },
-      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
-      { productName: "Erschließungsbürgschaft", prodId: "K014" },
-      { productName: "Energielieferung", prodId: "K015" },
-      { productName: "Franchise", prodId: "K018" },
-      { productName: "Gewährleistung", prodId: "K019" },
-      { productName: "IATA-Bürgschaft", prodId: "K020" },
-      { productName: "Individualbürgschaft", prodId: "K021" },
-      { productName: "Lieferantenbürgschaft", prodId: "K022" },
-      { productName: "Leasingbürgschaft", prodId: "K023" },
-      { productName: "Lottobürgschaft", prodId: "K024" },
-      { productName: "Mängelansprüche", prodId: "K025" },
-      { productName: "Mietkaution gew.", prodId: "K026" },
-      { productName: "Mineralölbürgschaft", prodId: "K028" },
-      { productName: "Postagentur", prodId: "K029" },
-      { productName: "Prozessbürgschaft", prodId: "K030" },
-      { productName: "Recyclingbürgschaft", prodId: "K031" },
-      { productName: "Rekultivierung", prodId: "K032" },
-      { productName: "Rückbaubürgschaft", prodId: "K033" },
-      { productName: "Sonderbürgschaft", prodId: "K034" },
-      { productName: "Tankkartenforderung", prodId: "K035" },
-      { productName: "Verbraucherbürgschaft", prodId: "K036" },
-      { productName: "Vertragserfüllung", prodId: "K037" },
-      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
-      { productName: "Warenlieferungsbürgschaft", prodId: "K039" },
-    ];
+    
 
     // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array
     const filteredProdIds = productDetails
@@ -523,21 +489,36 @@ if (nextBtn4_1) {
 
     console.log("selectedButtonTexts", selectedButtonTexts);
 
-    if (selectedButtonTexts.length == 1) {
+    // if (selectedButtonTexts.length == 1) {
       
-      const baseUrl = "https://dev.kautel.de/kautionLead";
-      const params = filteredProdIds
-        .map((prodId) => `productId=${prodId}`)
-        .join(",");
-      fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
-    } else {
+    //   const baseUrl = "https://dev.kautel.de/kautionLead";
+    //   const params = filteredProdIds
+    //     .map((prodId) => `productId=${prodId}`)
+    //     .join(",");
+    //   fullUrl = `${baseUrl}?${params}&beitrag=${input_val}`;
+    // } else {
       
-      const baseUrl = "https://dev.kautel.de/kautionLead?productId=k021&apIds";
-      const params = filteredProdIds.map((prodId) => `${prodId}`).join(",");
+    //   const baseUrl = "https://dev.kautel.de/kautionLead?productId=k021&apIds";
+    //   const params = filteredProdIds.map((prodId) => `${prodId}`).join(",");
 
-      fullUrl = `${baseUrl}=${params}&beitrag=${input_val}`;
-      console.log("full", fullUrl);
-    }
+    //   fullUrl = `${baseUrl}=${params}&beitrag=${input_val}`;
+    //   console.log("full", fullUrl);
+    // }
+    // kaushal codes start
+      const baseUrl = "https://dev.kautel.de/kautionLead--kk";
+      const calculated_Amount = document.getElementById("calculated_Amount");
+      const calculated = parseInt(calculated_Amount.innerText);
+    
+      // Define the base URL based on the condition
+      const productUrl = activeCircle === "sliderCard__circle--2"
+        ? `${baseUrl}?productId=k021`
+        : `${baseUrl}?productId=k007`;
+    
+      const params = filteredProdIds
+        .map((prodId) => `${prodId}`)
+        .join(",");
+      fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
+    // kaushal codes end
 
     if (activeCircle == "sliderCard__circle--2") {
       const leftSection = document.getElementById(
@@ -608,45 +589,6 @@ if (calculated_Amount_details) {
     document.getElementById("selectedprocuctAmount").innerText =
       input_val + " €";
     const p_element = document.getElementById("selectedprocuctAmount");
-
-    const productDetails = [
-      { productName: "Arbeitszeitkonten", prodId: "K001" },
-      { productName: "Mitarbeiterguthaben", prodId: "K060" },
-      { productName: "Arbeitnehmerentsendung", prodId: "K002" },
-      { productName: "An- und Vorauszahlungen", prodId: "K003" },
-      { productName: "Architektenleistungen", prodId: "K004" },
-      { productName: "Ausfallbürgschaft", prodId: "K005" },
-      { productName: "Ausführungsbürgschaft", prodId: "K006" },
-      { productName: "Bauhandwerker-Rahmenvertrag", prodId: "K007" },
-      { productName: "Bauhandwerkersicherung", prodId: "K008" },
-      { productName: "Bietungsbürgschaft", prodId: "K009" },
-      { productName: "Fremdsprachenbürgschaft", prodId: "K010" },
-      { productName: "Immissionsbürgschaft", prodId: "K011" },
-      { productName: "Dienstleistungsbürgschaft", prodId: "K012" },
-      { productName: "Erschließungsbürgschaft", prodId: "K014" },
-      { productName: "Energielieferung", prodId: "K015" },
-      { productName: "Franchise", prodId: "K018" },
-      { productName: "Gewährleistung", prodId: "K019" },
-      { productName: "IATA-Bürgschaft", prodId: "K020" },
-      { productName: "Individualbürgschaft", prodId: "K021" },
-      { productName: "Lieferantenbürgschaft", prodId: "K022" },
-      { productName: "Leasingbürgschaft", prodId: "K023" },
-      { productName: "Lottobürgschaft", prodId: "K024" },
-      { productName: "Mängelansprüche", prodId: "K025" },
-      { productName: "Mietkaution gew.", prodId: "K026" },
-      { productName: "Mineralölbürgschaft", prodId: "K028" },
-      { productName: "Postagentur", prodId: "K029" },
-      { productName: "Prozessbürgschaft", prodId: "K030" },
-      { productName: "Recyclingbürgschaft", prodId: "K031" },
-      { productName: "Rekultivierung", prodId: "K032" },
-      { productName: "Rückbaubürgschaft", prodId: "K033" },
-      { productName: "Sonderbürgschaft", prodId: "K034" },
-      { productName: "Tankkartenforderung", prodId: "K035" },
-      { productName: "Verbraucherbürgschaft", prodId: "K036" },
-      { productName: "Vertragserfüllung", prodId: "K037" },
-      { productName: "Vorauszahlungsbürgschaft", prodId: "K038" },
-      { productName: "Warenlieferungsbürgschaft", prodId: "K039" },
-    ];
 
     // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array selectedprocuctAmount2
     const filteredProdIds = productDetails
@@ -1272,15 +1214,15 @@ if(_backBtn){
     calculated_Amount.innerHTML = '5000 €';
   }) 
 }
-const _calculated_Amount = document.querySelector("#calculated_Amount");  
-if(_calculated_Amount){
-  if(calculated_Amount_details){
-    calculated_Amount_details.addEventListener("click", function () {
-      debugger;
-      // jQuery(".sliderCard .kautelpercentClass").val(ui.value);
-      const sliderInputVal = document.querySelector(".sliderCard .kautelpercentClass"); 
-      if(sliderInputVal)
-        sliderInputVal.value=1100; 
-    });
-  }
-}
+// const _calculated_Amount = document.querySelector("#calculated_Amount");  
+// if(_calculated_Amount){
+//   if(calculated_Amount_details){
+//     calculated_Amount_details.addEventListener("click", function () {
+//       debugger;
+//       // jQuery(".sliderCard .kautelpercentClass").val(ui.value);
+//       const sliderInputVal = document.querySelector(".sliderCard .kautelpercentClass"); 
+//       if(sliderInputVal)
+//         sliderInputVal.value=1100; 
+//     });
+//   }
+// }
