@@ -283,6 +283,8 @@ if (nextBtn4) {
     const input_val = document.getElementById("bruttoeinkommen").value;
     document.getElementById("selectedprocuctAmount").innerText =
       input_val + " €";
+    
+    
     const p_element = document.getElementById("selectedprocuctAmount");
 
     const productDetails = [
@@ -410,16 +412,28 @@ if (nextBtn4) {
       if (input_val && input_val < 5000000) {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Angebot anfordern";
+        
+        const input_val = document.getElementById("bruttoeinkommen").value;
+        
+          document.getElementById("selectedprocuctAmount2").innerText =
+          input_val + " €";
+        
         showNextCard("sliderCard--card4", "sliderCard--card6");
       } else {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Beitrag berechnen";
+          const input_val = document.getElementById("bruttoeinkommen").value;
+        
+          document.getElementById("selectedprocuctAmount2").innerText =
+          input_val + " €";
         showNextCard("sliderCard--card4", "sliderCard--card6");
       }
     } else {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
       );
+      const input_val = document.getElementById("bruttoeinkommen").value;
+
       document.getElementById("selectedprocuctAmount2").innerText =
         input_val + " €";
       // if (!leftSection) {
@@ -568,7 +582,8 @@ if (nextBtn4_1) {
       });
 
       const input_val = document.getElementById("bruttoeinkommen").value;
-
+      document.getElementById('selectedprocuctAmount2').innerText = input_val;
+      // sliderCard__nextBtn--4_1
       if (input_val >= 50000) {
         showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
       } else {
@@ -633,7 +648,7 @@ if (calculated_Amount_details) {
       { productName: "Warenlieferungsbürgschaft", prodId: "K039" },
     ];
 
-    // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array
+    // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array selectedprocuctAmount2
     const filteredProdIds = productDetails
       .filter((product) => selectedButtonTexts.includes(product.productName))
       .map((product) => product.prodId);
@@ -680,10 +695,13 @@ if (calculated_Amount_details) {
       // Call the function to show the next card
       const cal_amount = document.getElementById("calculated_Amount").innerText;
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
-
+     const cal_value =  document.getElementById('calculated_Amount_details').innerText
+      document.getElementById('bruttoeinkommen').value= cal_value
+      
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
-
+      const cal_value =  document.getElementById('calculated_Amount_details').innerText
+      document.getElementById('bruttoeinkommen').value= cal_value
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     }
 
