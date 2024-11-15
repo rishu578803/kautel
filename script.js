@@ -492,6 +492,8 @@ if (nextBtn4_1) {
       //   ? `${baseUrl}?productId=k021`
       //   : `${baseUrl}?productId=k007`;
 
+    
+    // const calculated_Amount_4_1 = document.getElementById('calculated_Amount_4_1').innerText;
       const productUrl = activeCircle === "sliderCard__circle--2"
         ? `${baseUrl}?productId=k021`
         : `${baseUrl}?productId=k021`;
@@ -521,7 +523,8 @@ if (nextBtn4_1) {
       });
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
-
+      const input_val = document.getElementById("bruttoeinkommen2").value;
+      document.getElementById("selectedprocuctAmount2").innerText = input_val;
       // Call the function to show the next card
       // document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
@@ -603,24 +606,49 @@ if (calculated_Amount_details) {
 
     if (activeCircle == "sliderCard__circle--2") {
       // const leftSection = document.getElementById("sliderCard--card6__1");
+      const prev_input_group = document.getElementById('prev_input_group');
+const next_input_group = document.getElementById('next_input_group');
 
-      // if (!leftSection) {
-      //   console.error("leftSection not found");
-      //   return;
-      // }
+// Check if the previous input group exists
+if (prev_input_group) {
+    // Hide the previous input group
+    prev_input_group.style.display = 'none';
 
-      // // Iterate over product array and create <p> elements
-      // product.forEach((item) => {
-      //   const pElement = document.createElement("p");
-      //   pElement.className = "sub_heading"; // Add a class for styling if needed
-      //   pElement.textContent = item; // Set the text to the product item
-      //   leftSection.appendChild(pElement); // Append the <p> element to left-section
-      // });
+    // Show the next input group
+    if (next_input_group) {
+        next_input_group.style.display = 'block';
 
-      // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
+        // Fetch elements for the next input and calculated amount
+        const next_input = document.getElementById('bruttoeinkommen2');
+        const calculated_Amount = document.getElementById('calculated_Amount').innerText;
 
-      // Call the function to show the next card
-      const cal_amount = document.getElementById("calculated_Amount").innerText;
+        // Check if the required elements exist
+        if (next_input && calculated_Amount) {
+            console.log(
+                "Before setting:",
+                "Next Input Value:",
+                next_input.value,
+                "Calculated Amount Text:",
+                calculated_Amount
+            );
+
+            // Set the value of the next input field
+            next_input.value = calculated_Amount;
+
+            console.log(
+                "After setting:",
+                "Next Input Value:",
+                next_input.value
+            );
+        } else {
+            console.error("Missing element: 'bruttoeinkommen2' or calculated_Amount");
+        }
+    } else {
+        console.error("Element with ID 'next_input_group' not found.");
+    }
+} else {
+    alert("Element 'prev_input_group' not found.");
+}
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       const cal_value = document.getElementById(
         "calculated_Amount_details"
