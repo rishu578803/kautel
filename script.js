@@ -222,7 +222,6 @@ if (nextBtn1) {
 
       console.log("left section in first section", leftSection);
 
-
       // const cal_tax = document.getElementById('link_calculation');
 
       // cal_tax.style.display = "none";
@@ -260,14 +259,12 @@ if (nextBtn1) {
         "sliderCard--card6_left-section"
       );
       // /////// edit
-      
-      
+
       leftSection.innerHTML = "";
-      document.getElementById('calculated_Amount').innerText = 5000 + " €";
-      
+      document.getElementById("calculated_Amount").innerText = 5000 + " €";
+
       renderButtons();
       renderSelectedOptions();
-      
 
       showNextCard("sliderCard--card1", "sliderCard--card3");
     }
@@ -283,8 +280,7 @@ if (nextBtn4) {
     const input_val = document.getElementById("bruttoeinkommen").value;
     document.getElementById("selectedprocuctAmount").innerText =
       input_val + " €";
-    
-    
+
     const p_element = document.getElementById("selectedprocuctAmount");
 
     const productDetails = [
@@ -337,7 +333,7 @@ if (nextBtn4) {
     // kaushal codes start
 
     const baseUrl = "https://dev.kautel.de/kautionLead";
-    
+
     if (selectedButtonTexts.length === 1) {
       debugger;
       const params = filteredProdIds
@@ -348,40 +344,18 @@ if (nextBtn4) {
       debugger;
       const calculated_Amount = document.getElementById("calculated_Amount");
       const calculated = parseInt(calculated_Amount.innerText);
-    
+
       // Define the base URL based on the condition
-      const productUrl = activeCircle === "sliderCard__circle--2"
-        ? `${baseUrl}?productId=k021`
-        : `${baseUrl}?productId=k007`;
-    
-      const params = filteredProdIds
-        .map((prodId) => `${prodId}`)
-        .join(",");
+      const productUrl =
+        activeCircle === "sliderCard__circle--2"
+          ? `${baseUrl}?productId=k021`
+          : `${baseUrl}?productId=k007`;
+
+      const params = filteredProdIds.map((prodId) => `${prodId}`).join(",");
       fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
     }
-    
 
-    // if (selectedButtonTexts.length == 1) {
-    //   debugger;
-    //    const baseUrl = "https://dev.kautel.de/kautionLead";
-    //    const params = filteredProdIds
-    //      .map((prodId) => `productId=${prodId}`)
-    //      .join(",");
-    //    fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
-    //  } else {
-    //   debugger;
-    //     const calculated_Amount = document.getElementById("calculated_Amount");
-    //     const calculated = parseInt(calculated_Amount.innerText);
-    //       if (activeCircle == "sliderCard__circle--2"){
-    //         const baseUrl = "https://dev.kautel.de/kautionLead?productId=k021";
-    //       }else{
-    //         const baseUrl = "https://dev.kautel.de/kautionLead?productId=k007";
-    //       }
-    //    const params = filteredProdIds
-    //      .map((prodId) => `${prodId}`)
-    //      .join(",");
-    //    fullUrl = `${baseUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
-    //  }
+    
     // kaushal codes end
     if (activeCircle == "sliderCard__circle--1") {
       const leftSection = document.getElementById(
@@ -403,28 +377,30 @@ if (nextBtn4) {
 
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
-
       const cal_amount = document.getElementById("calculated_Amount").innerText;
+
+      console.log("new calculated amount", cal_amount);
+
+      debugger;
       // document.getElementById("calculated_Amount_4_1").innerText = 5000;
 
-      
       // Call the function to show the next card
       if (input_val && input_val < 5000000) {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Angebot anfordern";
-        
+
         const input_val = document.getElementById("bruttoeinkommen").value;
-        
-          document.getElementById("selectedprocuctAmount2").innerText =
+
+        document.getElementById("selectedprocuctAmount2").innerText =
           input_val + " €";
-        
+
         showNextCard("sliderCard--card4", "sliderCard--card6");
       } else {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Beitrag berechnen";
-          const input_val = document.getElementById("bruttoeinkommen").value;
-        
-          document.getElementById("selectedprocuctAmount2").innerText =
+        const input_val = document.getElementById("bruttoeinkommen").value;
+
+        document.getElementById("selectedprocuctAmount2").innerText =
           input_val + " €";
         showNextCard("sliderCard--card4", "sliderCard--card6");
       }
@@ -452,7 +428,7 @@ if (nextBtn4) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
       const cal_amount = document.getElementById("calculated_Amount").innerText;
 
-      console.log("Calculated Amount in 2nd card",cal_amount)
+      console.log("Calculated Amount in 2nd card", cal_amount);
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6__1");
@@ -563,7 +539,6 @@ if (nextBtn4_1) {
       // document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
     } else {
-
       const leftSection = document.getElementById(
         "sliderCard--card6__1_left-section"
       );
@@ -581,15 +556,19 @@ if (nextBtn4_1) {
         leftSection.appendChild(pElement); // Append the <p> element to left-section
       });
 
-      const input_val = document.getElementById("bruttoeinkommen").value;
-      document.getElementById('selectedprocuctAmount2').innerText = input_val;
+      const input_val = document.getElementById("bruttoeinkommen2").value;
+      document.getElementById("selectedprocuctAmount2").innerText = input_val;
+
+      
+
+
+
       // sliderCard__nextBtn--4_1
       if (input_val >= 50000) {
         showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
       } else {
         showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
       }
-
     }
   });
 }
@@ -695,13 +674,86 @@ if (calculated_Amount_details) {
       // Call the function to show the next card
       const cal_amount = document.getElementById("calculated_Amount").innerText;
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
-     const cal_value =  document.getElementById('calculated_Amount_details').innerText
-      document.getElementById('bruttoeinkommen').value= cal_value
-      
+      const cal_value = document.getElementById(
+        "calculated_Amount_details"
+      ).innerText;
+      document.getElementById("bruttoeinkommen").value = cal_value;
+
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     } else {
-      const cal_value =  document.getElementById('calculated_Amount_details').innerText
-      document.getElementById('bruttoeinkommen').value= cal_value
+
+
+      // ================= new one ================= calculated_Amount
+      // const prev_input_group = document.getElementById('prev_input_group');
+      // const next_input_group = document.getElementById('next_input_group');
+
+      // if (prev_input_group) {
+      //   prev_input_group.style.display = 'none'
+      //   next_input_group.style.display = 'block';
+
+      //   const next_input = document.getElementById('bruttoeinkommen2');
+      //   const calculated_Amount = document.getElementById('calculated_Amount');
+
+      //   console.log("set this value", next_input.value,calculated_Amount.innerText,next_input)
+      //   next_input.value = calculated_Amount.innerText;
+
+      // } else {
+      //   alert("prev_input_group not selected")
+      // }
+
+
+
+      const prev_input_group = document.getElementById('prev_input_group');
+const next_input_group = document.getElementById('next_input_group');
+
+// Check if the previous input group exists
+if (prev_input_group) {
+    // Hide the previous input group
+    prev_input_group.style.display = 'none';
+
+    // Show the next input group
+    if (next_input_group) {
+        next_input_group.style.display = 'block';
+
+        // Fetch elements for the next input and calculated amount
+        const next_input = document.getElementById('bruttoeinkommen2');
+        const calculated_Amount = document.getElementById('calculated_Amount').innerText;
+
+        // Check if the required elements exist
+        if (next_input && calculated_Amount) {
+            console.log(
+                "Before setting:",
+                "Next Input Value:",
+                next_input.value,
+                "Calculated Amount Text:",
+                calculated_Amount
+            );
+
+            // Set the value of the next input field
+            next_input.value = calculated_Amount;
+
+            console.log(
+                "After setting:",
+                "Next Input Value:",
+                next_input.value
+            );
+        } else {
+            console.error("Missing element: 'bruttoeinkommen2' or calculated_Amount");
+        }
+    } else {
+        console.error("Element with ID 'next_input_group' not found.");
+    }
+} else {
+    alert("Element 'prev_input_group' not found.");
+}
+      // =========================================================
+
+
+
+
+      // alert("Calculated Amount");
+      debugger;
+
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     }
 
@@ -948,11 +1000,8 @@ if (nextBtn2) {
         console.log("Please select at least one options.");
         alert("Please select at least one options");
         return false;
-      }else if (selectedButtonTexts.length > 1) {
+      } else if (selectedButtonTexts.length > 1) {
         link_cal.style.display = "block";
-
-
-
       }
       // Increment the click count on each button click
       clickCount++;
@@ -983,11 +1032,9 @@ if (nextBtn2) {
         // Second click
       } else if (clickCount == 2) {
         // Call showNextCard on the second click
-        const calculated_Amount_details = document.getElementById('calculated_Amount_details');
-
-
-
-
+        const calculated_Amount_details = document.getElementById(
+          "calculated_Amount_details"
+        );
 
         if (selectedButtonTexts.length > 1) {
           // Perform the existing task on the first click
@@ -999,19 +1046,18 @@ if (nextBtn2) {
             sliderSubHeading.innerText = "Gewählter Betrag";
           }
 
-// ============================== center link clickable edit =============================
-// const calculated_Amount_details = document.getElementById('calculated_Amount_details');
+          // ============================== center link clickable edit =============================
+          // const calculated_Amount_details = document.getElementById('calculated_Amount_details');
 
-// if(calculated_Amount_details)
-//   calculated_Amount_details.addEventListener("click", function () {
+          // if(calculated_Amount_details)
+          //   calculated_Amount_details.addEventListener("click", function () {
 
-//           debugger;
-//     //  document.getElementById('sliderCard--card2').style.display = 'none';
+          //           debugger;
+          //     //  document.getElementById('sliderCard--card2').style.display = 'none';
 
-       
-//           showNextCard("sliderCard--card2", "sliderCard--card4");
-// })
-// =================================================================
+          //           showNextCard("sliderCard--card2", "sliderCard--card4");
+          // })
+          // =================================================================
           renderButtons();
           renderSelectedOptions();
           showNextCard("sliderCard--card2", "sliderCard--card4");
@@ -1021,7 +1067,6 @@ if (nextBtn2) {
           clickCount = 0;
         }
       } else if (clickCount >= 3) {
-  
         if (selectedButtonTexts.length > 1) {
           // Perform the existing task on the first click
           renderButtons();
@@ -1031,11 +1076,10 @@ if (nextBtn2) {
 
           // if(calculated_Amount_details)
           //   calculated_Amount_details.addEventListener("click", function () {
-          
+
           //           debugger;
           //     //  document.getElementById('sliderCard--card2').style.display = 'none';
-          
-                 
+
           //           showNextCard("sliderCard--card2", "sliderCard--card4");
           // })
 
