@@ -548,10 +548,11 @@ if (nextBtn4_1) {
         leftSection.appendChild(pElement); // Append the <p> element to left-section
       });
 
-      const input_val = document.getElementById("bruttoeinkommen2").value;
-      document.getElementById("selectedprocuctAmount2").innerText = input_val;
+      const input_val = document.getElementById('bruttoeinkommen').value;
+      const input_val2 = document.getElementById("bruttoeinkommen2").value;
+      document.getElementById("selectedprocuctAmount2").innerText = input_val2;
 
-      
+      // edit 
 
 
 
