@@ -486,9 +486,13 @@ if (nextBtn4_1) {
       const calculated = parseInt(calculated_Amount.innerText);
     
       // Define the base URL based on the condition
+      // const productUrl = activeCircle === "sliderCard__circle--2"
+      //   ? `${baseUrl}?productId=k021`
+      //   : `${baseUrl}?productId=k007`;
+
       const productUrl = activeCircle === "sliderCard__circle--2"
         ? `${baseUrl}?productId=k021`
-        : `${baseUrl}?productId=k007`;
+        : `${baseUrl}?productId=k021`;
     
       const params = filteredProdIds
         .map((prodId) => `${prodId}`)
