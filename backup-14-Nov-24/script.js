@@ -1247,22 +1247,3 @@ if (nextBtn3) {
     }
   });
 }
-// kaushal codes start 14-Nov-24
-const _backBtn = document.querySelector(".sliderCard__gobackbtn");
-if(_backBtn){
-  _backBtn.addEventListener("click", function () {
-    calculated_Amount.innerHTML = '5000 €';
-  }) 
-}
-const _calculated_Amount = document.querySelector("#calculated_Amount");  
-if(_calculated_Amount){
-  if(calculated_Amount_details){
-    calculated_Amount_details.addEventListener("click", function () {
-      debugger;
-      // jQuery(".sliderCard .kautelpercentClass").val(ui.value);
-      const sliderInputVal = document.querySelector(".sliderCard .kautelpercentClass"); 
-      if(sliderInputVal)
-        sliderInputVal.value=1100; 
-    });
-  }
-}

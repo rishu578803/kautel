@@ -429,7 +429,6 @@
       </div>
     </div>
     <script src="script.js"></script>
-    <!-- kaushal codes start -->
     <script>
       jQuery(function () {
         const initialValue = 5000;
@@ -472,6 +471,7 @@
             const calculated_Amount_details = document.getElementById("calculated_Amount_details");
             if (calculated_Amount_details) {
               calculated_Amount_details.addEventListener("click", function () {
+                debugger;
                 ui.value = initialValue;            
                 const uiSliderRange = document.querySelector(".ui-slider-range");
                 if(uiSliderRange)
@@ -479,14 +479,16 @@
                 const uiSliderHandle = document.querySelector(".ui-slider-handle");
                 if(uiSliderHandle)
                 uiSliderHandle.style.left=0;
-                // const sliderInputValue = document.querySelector(".sliderCard .kautelpercentClass");
-                // const calculated_Amount = document.querySelector("#calculated_Amount");
-                // if(calculated_Amount)
-                // jQuery("#bruttoeinkommen").val(alculated_Amount.innerHTML);
+                const sliderInputValue = document.querySelector(".sliderCard .kautelpercentClass");
+                const calculated_Amount = document.querySelector("#calculated_Amount");
+                if(calculated_Amount && sliderInputValue)
+                // sliderInputValue.value=parseInt(calculated_Amount.innerHTML);
+                sliderInputValue.val(parseInt(calculated_Amount.innerHTML));
                 // calculated_Amount.innerHTML = '5000 €';
-                // sliderInputValue.val(parseInt(calculated_Amount.innerHTML));
               })
             }
+
+            
           },
         });
     
@@ -509,10 +511,15 @@
           const value = parseInt(this.value) || initialValue;
           jQuery("#KautelRangeslider").slider("value", value);
           jQuery("#selectedAmount").text(value);
+
+
+          // const sliderInputValue = document.querySelector(".sliderCard .kautelpercentClass");
+          // const calculated_Amount = document.querySelector("#calculated_Amount");
+          // if(calculated_Amount && sliderInputValue)
+          // sliderInputValue.innerHTML=calculated_Amount;
         });
       });
     </script>
-
 <script>
   // Get references to the input field and the output span
   const bruttoeinkommenInput = document.getElementById('bruttoeinkommen');
