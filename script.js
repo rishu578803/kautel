@@ -314,7 +314,7 @@ const nextBtn4 = document.getElementById("sliderCard__nextBtn--4");
 if (nextBtn4) {
   console.log("sliderCard  circle", activeCircle);
   nextBtn4.addEventListener("click", function () {
-    alert('sliderCard__nextBtn--4')
+    // alert('sliderCard__nextBtn--4')
     const product = selectedButtonTexts;
 
     const input_val = document.getElementById("bruttoeinkommen").value;
@@ -357,8 +357,7 @@ if (nextBtn4) {
           : `${baseUrl}?productId=k007`;
 
       const params = filteredProdIds.map((prodId) => `${prodId}`).join(",");
-      // fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
-      fullUrl = `${productUrl}&apIds=${params}&geBetrag=75.00&hoBetrag=${calculated}`;
+      fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
     }
 
     
@@ -396,7 +395,7 @@ if (nextBtn4) {
           "Angebot anfordern";
 
         const input_val = document.getElementById("bruttoeinkommen").value;
-
+        
         document.getElementById("selectedprocuctAmount2").innerText =
           input_val + " €";
 
@@ -435,6 +434,14 @@ if (nextBtn4) {
       const cal_amount = document.getElementById("calculated_Amount").innerText;
 
       console.log("Calculated Amount in 2nd card", cal_amount);
+
+
+
+
+        
+      document.getElementById("selectedprocuctAmount").innerText =
+      cal_amount + " €";
+
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       // Call the function to show the next card
       // showNextCard("sliderCard--card4", "sliderCard--card6__1");
@@ -448,7 +455,7 @@ const nextBtn4_1 = document.getElementById("sliderCard__nextBtn--4_1");
 
 if (nextBtn4_1) {
   nextBtn4_1.addEventListener("click", function () {
-    alert('sliderCard__nextBtn--4_1')
+    // alert('sliderCard__nextBtn--4_1')
     const product = selectedButtonTexts;
 
     console.log("products selected", product);
@@ -496,7 +503,7 @@ if (nextBtn4_1) {
 
     
     // const calculated_Amount_4_1 = document.getElementById('calculated_Amount_4_1').innerText;
-     
+    // input_val = '75.00';
       const productUrl = activeCircle === "sliderCard__circle--2"
         ? `${baseUrl}?productId=k021`
         : `${baseUrl}?productId=k021`;
@@ -504,8 +511,7 @@ if (nextBtn4_1) {
       const params = filteredProdIds
         .map((prodId) => `${prodId}`)
         .join(",");
-      // fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
-      fullUrl = `${productUrl}&apIds=${params}&geBetrag=75.00&hoBetrag=${calculated}`;
+      fullUrl = `${productUrl}&apIds=${params}&geBetrag=${input_val}&hoBetrag=${calculated}`;
     // kaushal codes end
 
     if (activeCircle == "sliderCard__circle--2") {
@@ -529,6 +535,7 @@ if (nextBtn4_1) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
       const input_val = document.getElementById("bruttoeinkommen2").value;
       document.getElementById("selectedprocuctAmount2").innerText = input_val;
+      document.getElementById("selectedprocuctAmount").innerText = input_val;
       // Call the function to show the next card
       // document.getElementById('calculated_Amount').innerText = 5000;
       showNextCard("sliderCard--card4_1", "sliderCard--card6__1");
