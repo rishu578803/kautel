@@ -701,7 +701,7 @@ if (prev_input_group) {
 
     // Show the next input group
     if (next_input_group) {
-        next_input_group.style.display = 'block';
+        next_input_group.style.display = 'table';
 
         // Fetch elements for the next input and calculated amount
         const next_input = document.getElementById('bruttoeinkommen2');
