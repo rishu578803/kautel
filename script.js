@@ -341,10 +341,17 @@ if (nextBtn4) {
 
     if (selectedButtonTexts.length === 1) {
       
+      let firstInputValue = document.getElementById('bruttoeinkommen').value;
+      // firstInputValue
+      document.getElementById('selectedprocuctAmount').innerText = firstInputValue
+      
+
       const params = filteredProdIds
         .map((prodId) => `productId=${prodId}`)
         .join(",");
       fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
+
+
     } else {
       const calculated_Amount = document.getElementById("calculated_Amount");
       const calculated = parseInt(calculated_Amount.innerText);
@@ -383,10 +390,10 @@ if (nextBtn4) {
       // Make sure selectedPrice_1 contains the desired value, e.g., "30.000 €"
 
       const cal_amount = document.getElementById("calculated_Amount").innerText;
-
+document.getElementById("selectedprocuctAmount").innerText = cal_amount
       console.log("new calculated amount", cal_amount);
 
-      debugger;
+      // debugger;
       // document.getElementById("calculated_Amount_4_1").innerText = 5000;
 
       // Call the function to show the next card
@@ -737,10 +744,11 @@ if (prev_input_group) {
       // =========================================================
 
 
-
+      const cal_value = document.getElementById('calculated_Amount').innerText;
+  document.getElementById('selectedprocuctAmount').innerText = cal_value;
 
       // alert("Calculated Amount");
-      debugger;
+   
 
       showNextCard("sliderCard--card4", "sliderCard--card4_1");
     }
