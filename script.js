@@ -341,16 +341,23 @@ if (nextBtn4) {
 
     if (selectedButtonTexts.length === 1) {
       
-      let firstInputValue = document.getElementById('bruttoeinkommen').value;
-      // firstInputValue
-      document.getElementById('selectedprocuctAmount').innerText = firstInputValue
+      let firstInputValue = document.getElementById('bruttoeinkommen').value.trim(); // Trimmed for safety
+      let lastValue = document.getElementById('selectedprocuctAmount');
+
+      if (lastValue) {
+        lastValue.innerText = firstInputValue;
+      }
+     
       
 
       const params = filteredProdIds
         .map((prodId) => `productId=${prodId}`)
         .join(",");
       fullUrl = `${baseUrl}?${params}&geBetrag=${input_val}`;
-
+      // ======================================================================================================
+      
+alert("hi",firstInputValue)
+// ===========================================================================================================
 
     } else {
       const calculated_Amount = document.getElementById("calculated_Amount");
@@ -403,7 +410,7 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
 
         const input_val = document.getElementById("bruttoeinkommen").value;
         
-        document.getElementById("selectedprocuctAmount2").innerText =
+        document.getElementById("selectedprocuctAmount").innerText =
           input_val + " €";
 
         showNextCard("sliderCard--card4", "sliderCard--card6");
