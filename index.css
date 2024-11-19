@@ -617,19 +617,19 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 /* range slider */
-.valueC.two {
+.sliderCard .valueC.two {
   left: 9%;
 }
-.valueC.three {
+.sliderCard .valueC.three {
   left: 14%;
 }
-.valueC.four {
+.sliderCard .valueC.four {
   left: 22%;
 }
-.valueC.five {
+.sliderCard .valueC.five {
   left: -65px;
 }
-.valueC.six {
+.sliderCard .valueC.six {
   left: auto;
   right:-65px;
 }
