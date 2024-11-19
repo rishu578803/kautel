@@ -650,13 +650,14 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin-bottom: 20px;
 }
 
-div#sliderCard--card6_left-section {
+/*div#sliderCard--card6_left-section {
   height: 77px;
   overflow-y: scroll;
-}
-.sliderCard--card6_1_left-section{
-  height: 77px;
-  overflow-y: scroll;
+}*/
+.sliderCard--card6_1_left-section,
+div#sliderCard--card6_left-section{
+  min-height: 190px;
+  overflow: auto;
 }
 .sliderCard .fa-arrow-right:before {
     content: " ";
