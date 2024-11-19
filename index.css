@@ -700,3 +700,16 @@ div#sliderCard--card6_left-section {
   position:absolute;
   bottom:36px;
 }
+.inputBelowTxt,
+.aboveInputHeading{
+  color: #12245A;
+  font-weight: 600;
+}
+.aboveInputHeading{
+  font-size: 18px;
+  line-height: 36px;
+}
+.inputBelowTxt{
+    font-size: 15px;
+    line-height: 31px;
+}
