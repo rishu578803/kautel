@@ -408,7 +408,7 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Angebot anfordern";
 
-        const input_val = document.getElementById("bruttoeinkommen").value;
+        const input_val = document.getElementById("calculated_Amount").innerText;
         
         document.getElementById("selectedprocuctAmount").innerText =
           input_val + " €";
@@ -417,12 +417,26 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
       } else {
         document.getElementById("sliderCard--card6_calculate-btn").innerText =
           "Beitrag berechnen";
-        const input_val = document.getElementById("bruttoeinkommen").value;
+        const input_val = document.getElementById("calculated_Amount").value;
 
-        document.getElementById("selectedprocuctAmount2").innerText =
+        document.getElementById("selectedprocuctAmount").innerText =
           input_val + " €";
         showNextCard("sliderCard--card4", "sliderCard--card6");
       }
+
+      // ==============================================
+      if (selectedButtonTexts.length === 1) {
+      
+        let firstInputValue = document.getElementById('bruttoeinkommen').value.trim(); // Trimmed for safety
+        let lastValue = document.getElementById('selectedprocuctAmount');
+  
+        if (lastValue) {
+          lastValue.innerText = firstInputValue;
+        }
+      }
+      // ==========================================================
+
+      
     } else {
       const leftSection = document.getElementById(
         "sliderCard--card6_left-section"
