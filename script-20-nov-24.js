@@ -319,7 +319,7 @@ if (nextBtn4) {
 
     const input_val = document.getElementById("bruttoeinkommen").value;
     document.getElementById("selectedprocuctAmount").innerText =
-      input_val;
+      input_val + " €";
 
     const p_element = document.getElementById("selectedprocuctAmount");
 
@@ -411,7 +411,7 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
         const input_val = document.getElementById("calculated_Amount").innerText;
         
         document.getElementById("selectedprocuctAmount").innerText =
-          input_val;
+          input_val + " €";
 
         showNextCard("sliderCard--card4", "sliderCard--card6");
       } else {
@@ -420,11 +420,9 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
         const input_val = document.getElementById("calculated_Amount").value;
 
         document.getElementById("selectedprocuctAmount").innerText =
-          input_val;
+          input_val + " €";
         showNextCard("sliderCard--card4", "sliderCard--card6");
       }
-
-
 
       // ==============================================
       if (selectedButtonTexts.length === 1) {
@@ -446,7 +444,7 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
       const input_val = document.getElementById("bruttoeinkommen").value;
 
       document.getElementById("selectedprocuctAmount2").innerText =
-        input_val;
+        input_val + " €";
       // if (!leftSection) {
       //   console.error("leftSection not found");
       //   return;
@@ -470,7 +468,7 @@ document.getElementById("selectedprocuctAmount").innerText = cal_amount
 
         
       document.getElementById("selectedprocuctAmount").innerText =
-      cal_amount;
+      cal_amount + " €";
 
       // document.getElementById("calculated_Amount_4_1").innerText = cal_amount;
       // Call the function to show the next card
@@ -490,11 +488,9 @@ if (nextBtn4_1) {
 
     console.log("products selected", product);
 
-    const input_val
-    
-      = document.getElementById("bruttoeinkommen").value;
+    const input_val = document.getElementById("bruttoeinkommen").value;
     document.getElementById("selectedprocuctAmount").innerText =
-      input_val;
+      input_val + " €";
     const p_element = document.getElementById("selectedprocuctAmount");
 
     
@@ -593,9 +589,8 @@ if (nextBtn4_1) {
       const input_val2 = document.getElementById("bruttoeinkommen2").value;
       document.getElementById("selectedprocuctAmount2").innerText = input_val2;
 
-      // edit
+      // edit 
 
-      
 
 
       // sliderCard__nextBtn--4_1
@@ -620,7 +615,7 @@ if (calculated_Amount_details) {
 
     const input_val = document.getElementById("bruttoeinkommen").value;
     document.getElementById("selectedprocuctAmount").innerText =
-      input_val;
+      input_val + " €";
     const p_element = document.getElementById("selectedprocuctAmount");
 
     // Filter productDetails based on selectedButtonTexts and store the prodIds in a new array selectedprocuctAmount2
@@ -666,9 +661,7 @@ if (prev_input_group) {
         // Fetch elements for the next input and calculated amount
         const next_input = document.getElementById('bruttoeinkommen2');
         const calculated_Amount = document.getElementById('calculated_Amount').innerText;
-        let first_input_val = document.getElementById('bruttoeinkommen').value;
-        let calculated_Amount_4_1 = document.getElementById('calculated_Amount_4_1');
- 
+
         // Check if the required elements exist
         if (next_input && calculated_Amount) {
             console.log(
@@ -679,21 +672,12 @@ if (prev_input_group) {
                 calculated_Amount
             );
 
-          // Set the value of the next input field
-          const cal_value =calculated_Amount;
-const numericValue = cal_value.replace('€', '').trim();
-            next_input.value = numericValue;
+            // Set the value of the next input field
+            next_input.value = calculated_Amount;
 
-
-          console.log("first_input_val",first_input_val)
-          calculated_Amount_4_1.innerText = first_input_val + ' €';
-          
-          
-          
             console.log(
                 "After setting:",
-              "Next Input Value:",
-              numericValue,
+                "Next Input Value:",
                 next_input.value
             );
         } else {
@@ -750,10 +734,7 @@ if (prev_input_group) {
         // Fetch elements for the next input and calculated amount
         const next_input = document.getElementById('bruttoeinkommen2');
         const calculated_Amount = document.getElementById('calculated_Amount').innerText;
-        let first_input_val = document.getElementById('bruttoeinkommen').value;
-        let calculated_Amount_4_1 = document.getElementById('calculated_Amount_4_1');
-      
-      const value = '24627 €';
+
         // Check if the required elements exist
         if (next_input && calculated_Amount) {
             console.log(
@@ -766,8 +747,7 @@ if (prev_input_group) {
 
             // Set the value of the next input field
             next_input.value = calculated_Amount;
-            console.log("first_input_val",first_input_val)
-            calculated_Amount_4_1.innerText = first_input_val + ' €';
+
             console.log(
                 "After setting:",
                 "Next Input Value:",

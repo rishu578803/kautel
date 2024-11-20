@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kautel</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="./css/jquery-ui.css"
+      type="text/css"
+      media="screen" />
+    <link
+      rel="stylesheet"
+      href="./css/custom.css"
+      type="text/css"
+      media="screen" />
+    <link rel="stylesheet" href="./index.css" />
+
+    <script src="./js/jquery.min.js" type="text/javascript"></script>
+    <script src="./js/jquery-ui.js" type="text/javascript"></script>
+    <script src="./js/jquery.ui.touch-punch.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+          <div class="sliderCard" id="sliderCard--card1">
+            <h4 class="sliderCard__heading">Bürgschaftsmodell ermitteln</h4>
+            <p class="sliderCard__subheading">
+              Ermitteln Sie jetzt die optimale Bürgschaftslösung für Ihr
+              Unternehmen.
+            </p>
+            <p class="sliderCard__description">
+              Benötigen Sie einmalig eine einzelne Bürgschaft oder wünschen Sie
+              eine Bürgschaftslinie zur freien Verwendung mit verschiedene
+              Bürgschaftsarten?
+            </p>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="sliderCard__toogle">
+                  <div
+                    class="sliderCard__circle"
+                    id="sliderCard__circle--1"></div>
+                  <span id="toggleLabel1">Einzelbürgschaft</span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="sliderCard__toogle">
+                  <div
+                    class="sliderCard__circle"
+                    id="sliderCard__circle--2"></div>
+                  <span id="toggleLabel2">Bürgschaftslinie</span>
+                </div>
+              </div>
+            </div>
+            <div class="sliderKautelLogo">
+              <a href="/index.php"><img src="images/kautel_logo.png" loading="lazy" width="200" height="44" data-path="local-images:/kautel_logo.png"/></a>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--1">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+
+          <div class="sliderCard" id="sliderCard--card2" style="display: none">
+            <div id="sliderCard--card2---heading">
+              <h4 class="sliderCard__heading">Bürgschaftsart auswählen</h4>
+              <p class="sliderCard__subheading">
+                Wählen Sie nun die benötigte Bürgschaftsart aus
+              </p>
+            </div>
+            <div id="sliderCard--card2-1---heading">
+              <h4 class="sliderCard__heading">Bürgschaftsmodell ergänzen</h4>
+              <p class="sliderCard__subheading">
+                Wählen Sie nun die weiteren Bürgschaftsarten aus
+              </p>
+            </div>
+
+            <div class="sliderCard__container">
+              <div class="sliderCard__leftPanel">
+                <p class="sliderCard__description">Bürgschaftsarten</p>
+                <div
+                  class="sliderCard__scrollBtn sliderCard__scrollBtn--up"
+                  onclick="scrollUp()"></div>
+                <div class="sliderCard__btnContainer"></div>
+                <!-- Dynamically filled buttons -->
+
+                <div
+                  class="sliderCard__scrollBtn sliderCard__scrollBtn--down"
+                  onclick="scrollDown()"></div>
+              </div>
+              <div class="sliderCard__rightPanel">
+                <p class="sliderCard__description">Ausgewählte Bürgschaft</p>
+                <ul id="sliderCard__selectedList"></ul>
+              </div>
+            </div>
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--2">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--2">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+
+          <div class="sliderCard" id="sliderCard--card3" style="display: none">
+            <h4 class="sliderCard__heading">Bürgschaftsart auswählen</h4>
+            <p class="sliderCard__subheading">
+              Wählen Sie nun die weiteren Bürgschaftsarten aus
+            </p>
+
+            <!-- ============================================== new button  ================================================-->
+            <div class="sliderCard__container">
+              <!-- Left Panel with Buttons -->
+              <div class="sliderCard__leftPanel">
+                <p class="sliderCard__description">Bürgschaftsarten</p>
+                <div class="sliderCard__btnContainer">
+                  <button id="btn1" class="sliderCard__left-button">
+                    Bau + Technik Basic
+                  </button>
+                  <button id="btn2" class="sliderCard__left-button">
+                    Bau + Technik Pro
+                  </button>
+                  <button id="btn3" class="sliderCard__left-button">
+                    + Zusätzliche Bürgschaft
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Panel with Dynamic Buttons -->
+              <div class="sliderCard__rightPanel">
+                <p class="sliderCard__description mb-4">
+                  Ausgewählte Bürgschaft
+                </p>
+                <div class="sliderCard__rightPanel--button">
+                  <button class="sliderCard__right-button" id="right-button-1">
+                    Button 1
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-2">
+                    Button 2
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-3">
+                    Button 3
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-4">
+                    Button 4
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-5">
+                    Button 5
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-6">
+                    Button 6
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-7">
+                    Button 7
+                  </button>
+                  <button class="sliderCard__right-button" id="right-button-8">
+                    Button 8
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- ============================== new button end ============================================= -->
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--3">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--3">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+
+          <!-- =============== -->
+          <div class="sliderCard" id="sliderCard--card4" style="display: none">
+            <!-- kaushal start -->
+            <div class="row">
+              <div class="col-sm-12 mb-4">
+                <h4 class="sliderCard__heading" id="slider_header">
+                  "Höhe der Bürgschaftslinie
+                </h4>
+                <p class="sliderCard__subheading">
+                  Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                  aus (max. 8 Mio €)"**
+                </p>
+                <div class="rangeSliderHeding">Höhe der Bürgschaft</div>
+                <div class="input-group">
+                  <input
+                    id="bruttoeinkommen"
+                    class="form-control kautelpercentClass"
+                    type="number"
+                    class="slider myRange" />
+                  <span class="input-group-addon">€</span>
+                </div>
+                <div id="validationText" class="col-xs-12"></div>
+              </div>
+
+              <div class="col-sm-12">
+                <div id="KautelRangeslider"></div>
+                <div class="pull-left valueC">5.000</div>
+                <div class="pull-left valueC two">50.000</div>
+                <div class="pull-left valueC three">80.000</div>
+                <div class="pull-left valueC four">120.000</div>
+                <div class="pull-right valueC five">160000</div>
+                <div class="pull-right valueC six">200000</div>
+                <div class="clearfix"> </div>
+              </div>
+            </div>
+            <div  id="link_calculation"   style="margin: 50px auto; text-align: center">
+              <h4>Höchstbetrag je Bürgschaft</h4>
+              <h6 id="calculated_Amount"></h6>
+
+              <div><button id="calculated_Amount_details">Betrag je Einzelbürgschaft erhöhen</button></div>
+            </div>
+
+            <!-- kaushal end -->
+
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+          <div class="sliderCard" id="sliderCard--card4_1" style="display: none">
+            <!-- kaushal start -->
+            <div class="row">
+              <div class="col-sm-12 mb-4">
+                <h4 class="sliderCard__heading" id="slider_header">
+                  "Höhe der Bürgschaftslinie
+                </h4>
+                <p class="sliderCard__subheading">
+                  Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                  aus (max. 8 Mio €)"**
+                </p>
+
+
+                <h5 class="text-center aboveInputHeading">Höchstbetrag je Einzelbürgschaft</h5>
+                <div class="input-group" id="prev_input_group">
+                  <input
+                    id="bruttoeinkommen"
+                    class="form-control kautelpercentClass "
+                    type="number"
+                    class="slider myRange" />
+                  <span class="input-group-addon">€</span>
+                </div>
+                <div class="input-group" id="next_input_group">
+                  <input
+                    id="bruttoeinkommen2"
+                    class="form-control"
+                    type="text"
+                  />
+                  <span class="input-group-addon">€</span>
+                </div>
+              </div>
+
+        
+            </div>
+            <div style="margin: 50px auto; text-align: center">
+              <h4 class="inputBelowTxt">Gewählter Gesamtbetrag für den Bürgschaftsrahmen</h4>
+              <h6 class="inputBelowTxt" style="margin-top: 0;" id="calculated_Amount_4_1">75.000 €</h6>
+
+            
+            </div>
+
+            <!-- kaushal end -->
+
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--4_1">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--4_1">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+          <div class="sliderCard" id="sliderCard--card5" style="display: none">
+            <!-- kaushal start -->
+            <div class="row">
+              <div class="col-sm-12 mb-4">
+                <h4 class="sliderCard__heading">"Höhe der Bürgschaftslinie</h4>
+                <p class="sliderCard__subheading">
+                  Wählen Sie nun die benötigte Summe für Ihre Bürgschaftslinie
+                  aus (max. 8 Mio €)"**
+                </p>
+
+                <div class="input-group">
+                  <input
+                    id="bruttoeinkommen"
+                    class="form-control kautelpercentClass"
+                    type="number"
+                    class="slider myRange" />
+                  <span class="input-group-addon">€</span>
+                </div>
+                <div id="validationText" class="col-xs-12"></div>
+              </div>
+
+              <div class="col-sm-12">
+                <div id="KautelRangeslider"></div>
+                <div class="pull-left valueC">5.000</div>
+                <div class="pull-left valueC two">50.000</div>
+                <div class="pull-left valueC three">80.000</div>
+                <div class="pull-left valueC four">120.000</div>
+                <div class="pull-right valueC five">160000</div>
+                <div class="pull-right valueC six">200000</div>
+                <div class="clearfix"> </div>
+              </div>
+            </div>
+            <!-- kaushal end -->
+            <div class="sliderCard__gobackbtn" id="sliderCard__gobackBtn--5">
+              <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+            <div class="sliderCard__nextbtn" id="sliderCard__nextBtn--5">
+              <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                <img width="37" height="31" src="/images/icons/arrow.svg" />
+              </i>
+            </div>
+          </div>
+
+          <div
+            class="sliderCard"
+            id="sliderCard--card6"
+            style="display: none;">
+            <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
+            <p class="sliderCard__subheading">
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
+            </p>
+            <div class="info-box">
+              <div class="left-section">
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <div id="sliderCard--card6_left-section">
+                  <!-- <p class="sub_heading">An-/Vorauszahlung</p> -->
+                </div>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading" id="selectedprocuctAmount"></p>
+              </div>
+
+              <div class="right-section">
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <div
+                  class="sliderCard__gobackbtn"
+                  id="sliderCard--card6_back_btn">
+                  <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                    <img width="37" height="31" src="/images/icons/arrow.svg" />
+                  </i>
+                </div>
+
+                <a class="calculate-btn" id="sliderCard--card6_calculate-btn">
+                  Beitrag berechnen
+                  <span class="arrow" id="sliderCard__calculate-btn--2">
+                    <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                      <img
+                        width="37"
+                        height="31"
+                        src="/images/icons/arrow.svg" />
+                    </i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="sliderCard"
+            id="sliderCard--card6__1"
+            style="display: none;">
+            <h4 class="sliderCard__heading">"Empfehlung für Ihren Bedarf</h4>
+            <p class="sliderCard__subheading">
+              Auf Grundlage Ihrer Angaben haben wir folgendes Vertragsmodell
+              ermittelt
+            </p>
+            <div class="info-box">
+              <div class="left-section">
+                <p class="heading"><strong>Ausgewählte Bürgschaft</strong></p>
+                <div
+                  id="sliderCard--card6__1_left-section"
+                  class="sliderCard--card6_1_left-section">
+                  <!-- <p class="sub_heading">An-/Vorauszahlung DSFDSGFDHDGHDGJ</p> -->
+                </div>
+                <br />
+                <p class="heading">Höhe der Bürgschaft</p>
+                <p class="sub_heading" id="selectedprocuctAmount2"></p>
+              </div>
+
+              <div class="right-section">
+                <p class="heading">
+                  Das von Ihnen benötigte Bürgschaftsmodell kann direkt
+                  berechnet und beantragt werden.
+                </p>
+                <div
+                  class="sliderCard__gobackbtn"
+                  id="sliderCard--card6__1_back_btn">
+                  <i class="fa-solid fa-arrow-left-long sliderCard__arrow">
+                    <img width="37" height="31" src="/images/icons/arrow.svg" />
+                  </i>
+                </div>
+
+                <a class="calculate-btn" id="sliderCard--card6__1_calculate-btn">
+                  Angebot anfordern
+                  <span class="arrow" id="sliderCard__calculate-btn--2">
+                    <i class="fa-solid fa-arrow-right sliderCard__arrow">
+                      <img
+                        width="37"
+                        height="31"
+                        src="/images/icons/arrow.svg" />
+                    </i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- kaushal codes start -->
+    <script>
+      jQuery(function () {
+        const initialValue = 5000;
+        const calculated_Amount = document.getElementById("calculated_Amount");
+        if(calculated_Amount)
+        calculated_Amount.innerText = `${initialValue} €`;
+    
+        jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+        jQuery("#selectedAmount").text(initialValue);
+    
+        jQuery("#KautelRangeslider").slider({
+          value: initialValue,
+          min: 5000,
+          step: 10,
+          max: 200000,
+          range: "min",
+          slide: function (event, ui) {
+            let calculatedValue;
+    
+            if (ui.value >= 5000 && ui.value <= 24999) {
+              calculatedValue = ui.value;
+            } else if (ui.value >= 25000 && ui.value <= 149999) {
+              calculatedValue = ui.value * 0.3;
+            } else if (ui.value >= 150000 && ui.value <= 499999) {
+              calculatedValue = ui.value * 0.25;
+            } else if (ui.value >= 500000 && ui.value < 750000) {
+              calculatedValue = ui.value * 0.2;
+            } else if (ui.value >= 750000 && ui.value < 2000000) {
+              calculatedValue = ui.value * 0.15;
+            } else if (ui.value >= 2000000 && ui.value < 2500000) {
+              calculatedValue = ui.value * 0.12;
+            } else if (ui.value >= 2500000 && ui.value < 5000000) {
+              calculatedValue = ui.value * 0.1;
+            }
+            if(calculated_Amount)
+            calculated_Amount.innerText = `${calculatedValue} €`;
+            // calculated_Amount.innerText = `${calculatedValue.toFixed(2)} €`;
+            jQuery(".sliderCard .kautelpercentClass").val(ui.value);
+            jQuery("#selectedAmount").text(ui.value);
+            const calculated_Amount_details = document.getElementById("calculated_Amount_details");
+            if (calculated_Amount_details) {
+              calculated_Amount_details.addEventListener("click", function () {
+                ui.value = initialValue;            
+                const uiSliderRange = document.querySelector(".ui-slider-range");
+                if(uiSliderRange)
+                uiSliderRange.style.width=0;
+                const uiSliderHandle = document.querySelector(".ui-slider-handle");
+                if(uiSliderHandle)
+                uiSliderHandle.style.left=0;
+                // const sliderInputValue = document.querySelector(".sliderCard .kautelpercentClass");
+                // const calculated_Amount = document.querySelector("#calculated_Amount");
+                // if(calculated_Amount)
+                // jQuery("#bruttoeinkommen").val(alculated_Amount.innerHTML);
+                // calculated_Amount.innerHTML = '5000 €';
+                // sliderInputValue.val(parseInt(calculated_Amount.innerHTML));
+              })
+            }
+          },
+        });
+    
+        const resetSlider = () => {
+          jQuery("#KautelRangeslider").slider("value", initialValue);
+          jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+          jQuery("#selectedAmount").text(initialValue);
+          if(calculated_Amount)
+          calculated_Amount.innerText = `${initialValue} €`;
+        };
+    
+        ["sliderCard__gobackBtn--4", "sliderCard--card6__1_back_btn", "sliderCard--card6_back_btn"].forEach(id => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.addEventListener("click", resetSlider);
+          }
+        });
+    
+        jQuery("input.sliderCard .kautelpercentClass").change(function () {
+          const value = parseInt(this.value) || initialValue;
+          jQuery("#KautelRangeslider").slider("value", value);
+          jQuery("#selectedAmount").text(value);
+        });
+      });
+    </script>
+
+<script>
+  // Get references to the input field and the output span
+  const bruttoeinkommenInput = document.getElementById('bruttoeinkommen');
+  // const calculatedAmountElement = document.getElementById('calculated_Amount_4_1');
+
+  // Function to handle calculation
+  function calculateAmount() {
+    const uiValue = parseFloat(bruttoeinkommenInput.value);
+    let calculatedValue = 0;
+
+    // Apply the calculation based on the value of bruttoeinkommen
+    if (uiValue >= 5000 && uiValue <= 24999) {
+      calculatedValue = uiValue;
+    } else if (uiValue >= 25000 && uiValue <= 149999) {
+      calculatedValue = uiValue * 0.3;
+    } else if (uiValue >= 150000 && uiValue <= 499999) {
+      calculatedValue = uiValue * 0.25;
+    } else if (uiValue >= 500000 && uiValue < 750000) {
+      calculatedValue = uiValue * 0.2;
+    } else if (uiValue >= 750000 && uiValue < 2000000) {
+      calculatedValue = uiValue * 0.15;
+    } else if (uiValue >= 2000000 && uiValue < 2500000) {
+      calculatedValue = uiValue * 0.12;
+    } else if (uiValue >= 2500000 && uiValue < 5000000) {
+      calculatedValue = uiValue * 0.1;
+    }
+
+    // Display the result
+    // if (calculatedAmountElement) {
+    //   calculatedAmountElement.innerText = `${calculatedValue.toFixed(2)} €`;
+    // }
+  }
+
+  // Add event listener to input to trigger calculation on input change (when the value changes)
+  bruttoeinkommenInput.addEventListener('input', calculateAmount);
+</script>
+    <!-- <script>
+      jQuery(function () {
+        var initialValue = 5000;
+        document.getElementById("calculated_Amount").innerText = `5000 €`;
+        // Set the initial value in the input and display element
+        jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+        jQuery("#selectedAmount").text(initialValue);
+
+        // Initialize the slider
+        jQuery("#KautelRangeslider").slider({
+          value: initialValue,
+          min: 5000,
+          step: 10,
+          max: 200000,
+          range: "min",
+          slide: function (event, ui) {
+            console.log("input value", ui.value);
+
+            // Update the value in the input and display element
+
+            if (ui.value >= 5000 && ui.value <= 24999) {
+              // Use 100% of ui.value
+              const calculatedValue = ui.value;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue} €`;
+              console.log("Calculated", `€${calculatedValue}`);
+            } else if (ui.value >= 25000 && ui.value <= 149999) {
+              // Calculate 30% of ui.value
+              const calculatedValue = ui.value * 0.3;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            } else if (ui.value >= 150000 && ui.value <= 499999) {
+              // Calculate 25% of ui.value
+              const calculatedValue = ui.value * 0.25;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            } else if (ui.value >= 500000 && ui.value < 750000) {
+              // Calculate 20% of ui.value
+              const calculatedValue = ui.value * 0.2;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            } else if (ui.value >= 750000 && ui.value < 2000000) {
+              // Calculate 15% of ui.value
+              const calculatedValue = ui.value * 0.15;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            } else if (ui.value >= 2000000 && ui.value < 2500000) {
+              const calculatedValue = ui.value * 0.12;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            } else if (ui.value >= 2500000 && ui.value < 5000000) {
+              // Calculate 10% of ui.value
+              const calculatedValue = ui.value * 0.1;
+
+              document.getElementById(
+                "calculated_Amount"
+              ).innerText = `${calculatedValue.toFixed(2)} €`;
+              console.log("Calculated", `€${calculatedValue.toFixed(2)}`);
+            }
+
+            jQuery(".sliderCard .kautelpercentClass").val(ui.value);
+            jQuery("#selectedAmount").text(ui.value);
+          },
+        });
+
+        // Event listener to reset value when 'Go Back' button is clicked
+        const previous = document.getElementById("sliderCard__gobackBtn--4");
+        const previous1 = document.getElementById(
+          "sliderCard--card6__1_back_btn"
+        );
+        const previous2 = document.getElementById("sliderCard--card6_back_btn");
+        if (previous) {
+          previous.addEventListener("click", function () {
+            jQuery("#KautelRangeslider").slider("value", initialValue);
+            jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+            jQuery("#selectedAmount").text(initialValue);
+          });
+        }
+
+        if (previous1) {
+          previous1.addEventListener("click", function () {
+            jQuery("#KautelRangeslider").slider("value", initialValue);
+            jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+            jQuery("#selectedAmount").text(initialValue);
+          });
+        }
+
+        if (previous2) {
+          previous2.addEventListener("click", function () {
+            jQuery("#KautelRangeslider").slider("value", initialValue);
+            jQuery(".sliderCard .kautelpercentClass").val(initialValue);
+            jQuery("#selectedAmount").text(initialValue);
+          });
+        }
+
+        // Handle changes in the input field and update the slider
+        jQuery("input.sliderCard .kautelpercentClass").change(function () {
+          var value = parseInt(this.value) || initialValue; // Default to initial value if input is invalid
+
+          console.log("Value of range:", value);
+          jQuery("#KautelRangeslider").slider("value", value);
+          jQuery("#selectedAmount").text(value);
+        });
+      });
+    </script> -->
+  </body>
+</html>
